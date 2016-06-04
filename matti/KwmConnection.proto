@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message KwmConnection {
+	uint32 cpu = 1;
+	uint32 con = 2;
+}

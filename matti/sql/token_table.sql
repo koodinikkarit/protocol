@@ -1,0 +1,5 @@
+CREATE TABLE token (
+	id INT NOT NULL AUTO_INCREMENT,
+	token_str VARCHAR(50) NOT NULL,
+	PRIMARY KEY(id)
+);

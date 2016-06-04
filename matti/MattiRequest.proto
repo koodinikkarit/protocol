@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "VideoConnection.proto";
+import "KwmConnection.proto";
+import "RequestValue.proto";
+
+message MattiRequest {
+	uint32 ticket = 1;
+	oneof requestMessage {
+		VideoConnection videoConnection = 2;
+		KwmConnection kwmConnection = 3;
+		RequestValue requestValue = 4;
+	}
+}

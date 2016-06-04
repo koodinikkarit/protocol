@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message RequestValue {
+	uint32 values = 1;
+}

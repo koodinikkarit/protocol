@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "KwmConnection.proto";
+
+message KwmConnections {
+    repeated KwmConnection kwmConnection = 1;
+}

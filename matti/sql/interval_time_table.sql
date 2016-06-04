@@ -1,0 +1,7 @@
+CREATE TABLE interval_time (
+	id INT NOT NULL AUTO_INCREMENT,
+	setdate TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+	lastdate TIMESTAMP,
+	interval_sec INT,
+	PRIMARY KEY(id)	
+);
