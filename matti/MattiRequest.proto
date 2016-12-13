@@ -5,6 +5,7 @@ import "KwmConnection.proto";
 import "MatrixProto.proto";
 import "TimerProto.proto";
 import "ProgramProto.proto";
+import "LockProto.proto";
 
 message MattiRequest {
 	uint32 ticket = 1;
@@ -16,10 +17,12 @@ message MattiRequest {
 		MatrixProto insertMatrix = 6;
 		TimerProto insertTimer = 7;
 		ProgramProto insertProgram = 8;
-		uint32 removeVideoConnection = 9;
-		uint32 removeKwmConnection = 10;
-		uint32 removeMatrix = 11;
-		uint32 removeTimer = 12;
-		uint32 removeProgram = 13;
+		LockProto insertLock = 9;
+		uint32 removeVideoConnection = 10;
+		uint32 removeKwmConnection = 11;
+		uint32 removeMatrix = 12;
+		uint32 removeTimer = 13;
+		uint32 removeProgram = 14;
+		uint32 removeLock = 15;
 	}
 }

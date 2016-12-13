@@ -9,6 +9,8 @@ import "TimerProtos.proto";
 import "ProgramProto.proto";
 import "ProgramProtos.proto";
 import "AllConnections.proto";
+import "LockProto.proto";
+import "LockProtos.proto";
 
 message MattiResponse {
 	uint32 ticket = 1;
@@ -22,5 +24,7 @@ message MattiResponse {
 		MatrixProtos matrixs = 8;
 		TimerProtos timers = 9;
 		ProgramProtos programs = 10;
+		LockProto lockProto = 11;
+		LockProtos lockProtos = 12;
 	}
 }

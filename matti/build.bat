@@ -1,6 +1,8 @@
 protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python AllConnections.proto
 protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python KwmConnection.proto
 protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python KwmConnections.proto
+protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python LockProto.proto
+protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python LockProtos.proto
 protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python MatrixProto.proto
 protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python MatrixProtos.proto
 protoc --csharp_out=csharp --cpp_out=cpp --objc_out=objc --java_out=java --python_out=python MattiRequest.proto
