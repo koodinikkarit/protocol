@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "VideoConnection.proto";
+import "KwmConnection.proto";
+
+message ProgramProto {
+    uint32 id = 1;
+    repeated VideoConnection videoConnections = 2;
+    repeated KwmConnection kwmConnections = 3;
+
+}

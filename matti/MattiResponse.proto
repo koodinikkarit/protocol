@@ -2,16 +2,25 @@ syntax = "proto3";
 
 import "VideoConnection.proto";
 import "KwmConnection.proto";
-import "VideoConnections.proto";
-import "KwmConnections.proto";
+import "MatrixProto.proto";
+import "MatrixProtos.proto";
+import "TimerProto.proto";
+import "TimerProtos.proto";
+import "ProgramProto.proto";
+import "ProgramProtos.proto";
+import "AllConnections.proto";
 
 message MattiResponse {
 	uint32 ticket = 1;
 	oneof requestMessage {
 		VideoConnection videoConnection = 2;
 		KwmConnection kwmConnection = 3;
-		VideoConnections videoConnections = 4;
-		KwmConnections kwmConnections = 5;
-			
+		MatrixProto matrix = 4;
+		TimerProto timer = 5;
+		ProgramProto program = 6;
+		AllConnections allConnections = 7;
+		MatrixProtos matrixs = 8;
+		TimerProtos timers = 9;
+		ProgramProtos programs = 10;
 	}
 }

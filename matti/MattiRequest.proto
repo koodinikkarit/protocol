@@ -2,13 +2,24 @@ syntax = "proto3";
 
 import "VideoConnection.proto";
 import "KwmConnection.proto";
-import "RequestValue.proto";
+import "MatrixProto.proto";
+import "TimerProto.proto";
+import "ProgramProto.proto";
 
 message MattiRequest {
 	uint32 ticket = 1;
 	oneof requestMessage {
-		VideoConnection videoConnection = 2;
-		KwmConnection kwmConnection = 3;
-		RequestValue requestValue = 4;
+		uint32 requestValues = 2;
+		uint32 requestMatrixStates = 3;
+		VideoConnection insertVideoConnection = 4;
+		KwmConnection insertKwmConnection = 5;
+		MatrixProto insertMatrix = 6;
+		TimerProto insertTimer = 7;
+		ProgramProto insertProgram = 8;
+		uint32 removeVideoConnection = 9;
+		uint32 removeKwmConnection = 10;
+		uint32 removeMatrix = 11;
+		uint32 removeTimer = 12;
+		uint32 removeProgram = 13;
 	}
 }

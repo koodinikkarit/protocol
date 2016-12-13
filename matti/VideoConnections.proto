@@ -3,5 +3,5 @@ syntax = "proto3";
 import "VideoConnection.proto";
 
 message VideoConnections {
-    repeated VideoConnection videoConnection = 1;
+    repeated VideoConnection videoConnections = 1;
 }

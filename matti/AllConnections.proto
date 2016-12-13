@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "VideoConnections.proto";
+import "KwmConnections.proto";
+
+message AllConnections {
+    VideoConnections videoConnections = 1;
+    KwmConnections kwmConnections = 2;
+    uint32 matrixId = 3;
+}

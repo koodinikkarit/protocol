@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "ProgramProto.proto";
+
+message ProgramProtos{
+    repeated ProgramProto programs = 1;
+}
