@@ -1,0 +1,23 @@
+import os, sys
+
+# Open a file
+basePath = "./"
+
+
+for fileName in os.listdir(basePath):
+	path = os.path.join(basePath, fileName)
+	if os.path.isdir(path) and not fileName.startswith("."):
+		f = open(path + "/.protolangs")
+		for line in f.readlines():
+			if line == "node":
+				print "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:" + fileName + " --grpc_out=" + fileName + " --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` " + fileName + "/*.proto"
+				os.system("grpc_tools_node_protoc --js_out=import_style=commonjs,binary:" + fileName + " --grpc_out=" + fileName + " --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` " + fileName + "/computer.proto")
+		print "protoc --proto_path=" + fileName + " --proto_path=" + fileName + " --go_out=plugins=grpc:" + fileName + " " + fileName + "/*.proto"
+#		os.system("protoc --proto_path=" + fileName + " --proto_path=" + fileName + " --go_out=plugins=grpc:" + fileName + " " + fileName + "/*.proto");
+
+
+
+# cd ../../protos
+# npm install -g grpc-tools
+# grpc_tools_node_protoc --js_out=import_style=commonjs,binary:../node/static_codegen/ --grpc_out=../node/static_codegen --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` helloworld.proto
+# grpc_tools_node_protoc --js_out=import_style=commonjs,binary:../node/static_codegen/route_guide/ --grpc_out=../node/static_codegen/route_guide/ --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` route_guide.proto

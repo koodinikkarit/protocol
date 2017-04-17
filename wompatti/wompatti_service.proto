@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package WompattiService;
+
+import "add_computer_request.proto";
+import "add_computer_response.proto";
+import "fetch_computers_request.proto";
+import "fetch_computer_by_id_request.proto";
+import "fetch_computer_by_id_response.proto";
+import "wakeup_request.proto";
+import "wakeup_response.proto";
+
+import "computer.proto";
+
+service Wompatti {
+	rpc addComputer(AddComputerRequest) returns (AddComputerResponse) {}
+	rpc fetchComputers(FetchComputersRequest) returns (stream Computer) {}
+	rpc fetchComputerById(FetchComputerByIdRequest) returns (FetchComputerByIdResponse) {}
+	rpc wakeup(WakeupRequest) returns (WakeupResponse) {}
+}

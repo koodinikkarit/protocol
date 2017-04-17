@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message Computer {
+	uint32 id = 1;
+	string name = 2;
+	string mac = 3;
+}
