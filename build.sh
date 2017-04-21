@@ -69,7 +69,8 @@ function buildAll {
   echo "Buidling service's protocol buffers"
   mkdir -p $REPOPATH
   for d in */; do
-    buildDir $d
+    echo $d
+   # buildDir $d
   done
 }
 

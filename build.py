@@ -1,20 +1,33 @@
-import os, sys
+import os, sys, json, shutil
 
 # Open a file
 basePath = "./"
 
 
-for fileName in os.listdir(basePath):
-	path = os.path.join(basePath, fileName)
-	if os.path.isdir(path) and not fileName.startswith("."):
-		f = open(path + "/.protolangs")
-		for line in f.readlines():
-			if line == "node":
-				print "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:" + fileName + " --grpc_out=" + fileName + " --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` " + fileName + "/*.proto"
-				os.system("grpc_tools_node_protoc --js_out=import_style=commonjs,binary:" + fileName + " --grpc_out=" + fileName + " --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` " + fileName + "/computer.proto")
-		print "protoc --proto_path=" + fileName + " --proto_path=" + fileName + " --go_out=plugins=grpc:" + fileName + " " + fileName + "/*.proto"
-#		os.system("protoc --proto_path=" + fileName + " --proto_path=" + fileName + " --go_out=plugins=grpc:" + fileName + " " + fileName + "/*.proto");
+# for fileName in os.listdir(basePath):
+# 	path = os.path.join(basePath, fileName)
+# 	if os.path.isdir(path) and not fileName.startswith("."):
+# 		f = open(path + "/.protolangs")
+# 		for line in f.readlines():
+# 			if line == "node":
+# 				print "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:" + fileName + " --grpc_out=" + fileName + " --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` " + fileName + "/*.proto"
+# 				os.system("grpc_tools_node_protoc --js_out=import_style=commonjs,binary:" + fileName + " --grpc_out=" + fileName + " --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` " + fileName + "/computer.proto")
+# 		print "protoc --proto_path=" + fileName + " --proto_path=" + fileName + " --go_out=plugins=grpc:" + fileName + " " + fileName + "/*.proto"
+# #		os.system("protoc --proto_path=" + fileName + " --proto_path=" + fileName + " --go_out=plugins=grpc:" + fileName + " " + fileName + "/*.proto");
 
+
+
+with open("config.json") as json_file:
+    config = json.load(json_file)
+    for project in config["projects"]:
+		for output in project["outputs"]:
+			if output["lang"] == "go":
+				os.system("protoc --proto_path=" + project["service"] + " --go_out=plugins=grpc:" + output["path"] + " " + project["service"] + "/*.proto");
+			elif output["lang"] == "node":
+				files = os.listdir(project["service"])
+				for file in files:
+					if file.endswith(".proto"):
+						shutil.copy(project["service"] + "/" + file, output["path"] + "/" + file)
 
 
 # cd ../../protos
