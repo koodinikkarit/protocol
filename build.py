@@ -21,6 +21,8 @@ with open("config.json") as json_file:
     config = json.load(json_file)
     for project in config["projects"]:
 		for output in project["outputs"]:
+			if not os.path.exists(output["path"]):
+				os.makedirs(output["path"])
 			if output["lang"] == "go":
 				os.system("protoc --proto_path=" + project["service"] + " --go_out=plugins=grpc:" + output["path"] + " " + project["service"] + "/*.proto");
 			elif output["lang"] == "node":
@@ -28,6 +30,7 @@ with open("config.json") as json_file:
 				for file in files:
 					if file.endswith(".proto"):
 						shutil.copy(project["service"] + "/" + file, output["path"] + "/" + file)
+						os.system("grpc_tools_node_protoc --proto_path=" + project["service"] + " --js_out=import_style=commonjs,binary:" + output["path"] + " --grpc_out=wompatti_build --plugin=grpc_tools_node_protoc_plugin " + project["service"] + "/" + file)
 
 
 # cd ../../protos
