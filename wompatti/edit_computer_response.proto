@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package WompattiService;
+
+import "computer.proto";
+
+message EditComputerResponse {
+	Computer computer = 1;
+}
