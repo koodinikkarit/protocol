@@ -9,6 +9,8 @@ import "fetch_computer_by_id_request.proto";
 import "fetch_computer_by_id_response.proto";
 import "wakeup_request.proto";
 import "wakeup_response.proto";
+import "edit_computer_request.proto";
+import "edit_computer_response.proto";
 
 import "computer.proto";
 
@@ -17,4 +19,5 @@ service Wompatti {
 	rpc fetchComputers(FetchComputersRequest) returns (stream Computer) {}
 	rpc fetchComputerById(FetchComputerByIdRequest) returns (FetchComputerByIdResponse) {}
 	rpc wakeup(WakeupRequest) returns (WakeupResponse) {}
+	rpc editComputer(EditComputerRequest) returns (EditComputerResponse) {}
 }
