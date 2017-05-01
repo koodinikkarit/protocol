@@ -30,7 +30,7 @@ with open("config.json") as json_file:
 				for file in files:
 					if file.endswith(".proto"):
 						shutil.copy(project["service"] + "/" + file, output["path"] + "/" + file)
-						os.system("grpc_tools_node_protoc --proto_path=" + project["service"] + " --js_out=import_style=commonjs,binary:" + output["path"] + " --grpc_out=wompatti_build --plugin=grpc_tools_node_protoc_plugin " + project["service"] + "/" + file)
+						os.system("grpc_tools_node_protoc --proto_path=" + project["service"] + " --js_out=import_style=commonjs,binary:" + output["path"] + " --grpc_out=" + output["path"] + " --plugin=grpc_tools_node_protoc_plugin " + project["service"] + "/" + file)
 
 
 # cd ../../protos
