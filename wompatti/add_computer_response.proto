@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package WompattiService;
 
-message AddComputerResponse {
+import "computer.proto";
 
+message AddComputerResponse {
+	Computer computer = 1;
 }
