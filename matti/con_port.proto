@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message ConPort {
+	uint32 id = 1;
+	string slug = 2;
+	uint32 matrixId = 3;
+	uint32 portNum = 4;
+}

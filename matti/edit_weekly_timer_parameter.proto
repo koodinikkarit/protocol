@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message EditWeeklyTimerParameter {
+	uint32 id = 1;
+	string slug = 2;
+	uint32 minutes = 3;
+	uint32 hours = 4;
+	bool active = 5;
+	bool monday = 6;
+	bool tuesday = 7;
+	bool wednesday = 8;
+	bool thursday = 9;
+	bool friday = 10;
+	bool saturday = 11;
+	bool sunday = 12;
+}

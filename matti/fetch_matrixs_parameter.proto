@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message FetchMatrixsParameter {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}

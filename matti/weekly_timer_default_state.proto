@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message WeeklyTimerDefaultState {
+	uint32 id = 1;
+	uint32 weeklyTimerId = 2;
+	uint32 defaultStateId = 3;
+}

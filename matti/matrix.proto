@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+
+
+message Matrix {
+	uint32 id = 1;
+	string ip = 2;
+	uint32 port = 3;
+	string slug = 4;
+	uint32 numberOfConPorts = 5;
+	uint32 numberOfCpuPorts = 6;
+}

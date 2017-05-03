@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Diagram {
+	uint32 id = 1;
+	string slug = 2;
+}

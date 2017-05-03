@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "matrix.proto";
+
+message MatrixConnected {
+	Matrix matrix = 1;
+	bool success = 2;
+	enum State {
+		CREATED = 0;
+		SLUG_ALLREDY_FOUND = 1;
+	}
+	State state = 3;
+}

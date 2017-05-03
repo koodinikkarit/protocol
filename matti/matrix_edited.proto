@@ -1,0 +1,13 @@
+syntax="proto3";
+
+import "Matrix.proto";
+
+message MatrixEdited {
+	Matrix matrix = 1;
+	bool success = 2;
+	enum State {
+		MATRIX_EDITED = 0,
+		MATRIX_NOT_FOUND = 1
+	}
+	State state = 3;
+}

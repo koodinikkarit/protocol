@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message FetchMatrixBySlug {
+	string slug = 1;
+}

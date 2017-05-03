@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "con_port.proto";
+
+message CpuPortEdited {
+	ConPort conPort = 1;
+	bool success = 2;
+	enum State {
+		CPU_PORT_EDITED = 0;
+		CPU_PORT_NOT_FOUND = 1;
+	}
+	State state = 3;
+}

@@ -1,0 +1,147 @@
+syntax = "proto3";
+
+package MattiService;
+
+import "matrix.proto";
+import "con_port.proto";
+import "cpu_port.proto";
+import "default_state.proto";
+import "default_state_video_connection.proto";
+import "default_state_kwm_connection.proto";
+import "weekly_timer.proto";
+import "weekly_timer_video_connection.proto";
+import "weekly_timer_kwm_connection.proto";
+import "weekly_timer_default_state.proto";
+import "diagram.proto";
+import "diagram_screen.proto";
+import "diagram_screen_cpu_port.proto";
+
+import "fetch_matrixs_parameter.proto";
+import "fetch_matrix_by_id.proto";
+import "fetch_matrix_by_slug.proto";
+import "fetch_con_ports_by_matrix_id.proto";
+import "fetch_cpu_ports_by_matrix_id.proto";
+import "fetch_default_states.proto";
+import "connect_matrix.proto";
+import "matrix_connected.proto";
+import "edit_matrix_parameter.proto";
+import "matrix_removed.proto";
+import "remove_matrix.proto";
+import "edit_con_port_parameter.proto";
+import "con_port_edited.proto";
+import "edit_cpu_port_parameter.proto";
+import "cpu_port_edited.proto";
+import "fetch_default_state_by_id.proto";
+import "fetch_default_state_by_slug.proto";
+import "create_default_state.proto";
+import "default_state_removed.proto";
+import "remove_default_state.proto";
+import "insert_video_connection_to_default_state.proto";
+import "insert_kwm_connection_to_default_state.proto";
+import "remove_video_connection_from_default_state.proto";
+import "video_connection_from_default_state_removed.proto";
+import "remove_kwm_connection_from_default_state.proto";
+import "kwm_connection_from_default_state_removed.proto";
+import "execute_default_state.proto";
+import "default_state_executed.proto";
+import "fetch_weekly_timers_parameter.proto";
+import "fetch_weekly_timer_by_id.proto";
+import "fetch_weekly_timer_by_slug.proto";
+import "create_weekly_timer_parameter.proto";
+import "remove_weekly_timer.proto";
+import "weekly_timer_removed.proto";
+import "edit_weekly_timer_parameter.proto";
+import "add_video_connection_to_weekly_timer.proto";
+import "add_kwm_connection_to_weekly_timer.proto";
+import "add_default_state_to_weekly_timer.proto";
+import "remove_video_connection_from_weekly_timer.proto";
+import "video_connection_from_weekly_timer_removed.proto";
+import "remove_kwm_connection_from_weekly_timer.proto";
+import "kwm_connection_from_weekly_timer_removed.proto";
+import "remove_default_state_from_weekly_timer.proto";
+import "default_state_from_weekly_timer_removed.proto";
+import "fetch_diagrams.proto";
+import "fetch_diagram_by_id.proto";
+import "fetch_diagram_by_slug.proto";
+import "create_diagram.proto";
+import "edit_diagram.proto";
+import "remove_diagram.proto";
+import "diagram_removed.proto";
+import "fetch_diagram_screens.proto";
+import "fetch_diagram_screen_by_id.proto";
+import "fetch_diagram_screen_by_slug.proto";
+import "create_diagram_screen.proto";
+import "edit_diagram_screen.proto";
+import "add_cpu_to_diagram_screen.proto";
+import "remove_cpu_from_diagram_screen.proto";
+import "cpu_from_diagram_screen_removed.proto";
+import "remove_diagram_Screen.proto";
+import "diagram_screen_removed.proto";
+
+service Matti {
+	// Matrixs queries
+	rpc fetchMatrixs(FetchMatrixsParameter) returns (stream Matrix) {}
+	rpc fetchMatrixById(FetchMatrixById) returns (Matrix) {}
+	rpc fetchMatrixBySlug(FetchMatrixBySlug) returns (Matrix) {}
+	rpc fetchConPortsByMatrixId(FetchConPortsByMatrixId) returns (stream ConPort) {}
+	rpc fetchCpuPortsByMatrixId(FetchCpuPortsByMatrixId) returns (stream CpuPort) {}
+
+	// Matrix mutations
+	rpc connectMatrix(ConnectMatrix) returns(MatrixConnected) {}
+	rpc editMatrix(EditMatrixParameter) returns(Matrix) {}
+	rpc removeMatrix(RemoveMatrix) returns(MatrixRemoved) {}
+	rpc editConPort(EditConPortParameter) returns(ConPortEdited) {}
+	rpc editCpuPort(EditCpuPortParameter) returns(CpuPortEdited) {}
+	
+	// Defaulstate queries
+	rpc fetchDefaultStates(FetchDefaultStates) returns (stream DefaultState) {}
+	rpc fetchDefaultStateById(FetchDefaultStateById) returns (DefaultState) {}
+	rpc fetchDefaultStateBySlug(FetchDefaultStateBySlug) returns (DefaultState) {}
+
+	// Defaultstate mutations
+	rpc createDefaultState(CreateDefaultState) returns(DefaultState) {}
+	rpc removeDefaultState(RemoveDefaultState) returns(DefaultStateRemoved) {}
+	rpc insertVideoConnectionToDefaultState(InsertVideoConnectionToDefaultState) returns(DefaultStateVideoConnection) {}
+	rpc insertKwmConnectionToDefaultState(InsertKwmConnectionToDefaultState) returns(DefaultStateKwmConnection) {}
+	rpc removeVideoConnectionFromDefaultState(RemoveVideoConnectionFromDefaultState) returns(VideoConnectionFromDefaultStateRemoved) {}
+	rpc removeKwmConnectionFromDefaultState(RemoveKwmConnectionFromDefaultState) returns(KwmConnectionFromDefaultStateRemoved) {}
+	rpc executeDefaultState(ExecuteDefaultState) returns(DefaultStateExecuted) {}
+	
+	// Weeklytimer queries
+	rpc fetchWeeklyTimers(FetchWeeklyTimersParameter) returns (stream WeeklyTimer) {}
+	rpc fetchWeeklyTimerById(FetchWeeklyTimerById) returns(WeeklyTimer) {}
+	rpc fetchWeeklyTimerBySlug(FetchWeeklyTimerBySlug) returns(WeeklyTimer) {}
+
+	// Weeklytimer mutations
+	rpc createWeeklyTimer(CreateWeeklyTimerParameter) returns(WeeklyTimer) {}
+	rpc removeWeeklyTimer(RemoveWeeklyTimer) returns(WeeklyTimerRemoved) {}
+	rpc editWeeklyTimer(EditWeeklyTimerParameter) returns(WeeklyTimer) {}
+	rpc addVideoConnectionToWeeklyTimer(AddVideoConnectionToWeeklyTimer) returns(WeeklyTimerVideoConnection) {}
+	rpc removeVideoConnectionFromWeeklyTimer(RemoveVideoConnectionFromWeeklyTimer) returns(VideoConnectionFromWeeklyTimerRemoved) {}
+	rpc addKwmConnectionToWeeklyTimer(AddKwmConnectionToWeeklyTimer) returns(WeeklyTimerKwmConnection) {}
+	rpc removeKwmConnectionToWeeklyTimer(RemoveKwmConnectionFromWeeklyTimer) returns(KwmConnectionFromWeeklyTimerRemoved) {}
+	rpc addDefaultStateToWeeklyTimer(AddDefaultStateToWeeklyTimer) returns(WeeklyTimerDefaultState) {}
+	rpc removeDefaultStateFromWeeklyTimer(RemoveDefaultStateFromWeeklyTimer) returns(DefaultStateFromWeeklyTimerRemoved) {}
+	
+	// Diagram queries
+	rpc fetchDiagrams(FetchDiagrams) returns(stream Diagram) {}
+	rpc fetchDiagramById(FetchDiagramById) returns(Diagram) {}
+	rpc fetchDiagramBySlug(FetchDiagramBySlug) returns(Diagram) {}
+
+	// Diagram mutations
+	rpc createDiagram(CreateDiagram) returns(Diagram) {}
+	rpc editDiagram(EditDiagram) returns(Diagram) {}
+	rpc removeDiagram(RemoveDiagram) returns(DiagramRemoved) {}
+
+	// DiagramScreen queries
+	rpc fetchDiagramScreens(FetchDiagramScreens) returns(stream DiagramScreen) {}
+	rpc fetchDiagramScreenById(FetchDiagramScreenById) returns(DiagramScreen) {}
+	rpc fetchDiagramScreenBySlug(FetchDiagramScreenBySlug) returns(DiagramScreen) {}
+
+	// DiagramScreen mutations
+	rpc createDiagramScreen(CreateDiagramScreen) returns(DiagramScreen) {}
+	rpc removeDiagramScreen(RemoveDiagramScreen) returns(DiagramScreenRemoved) {}
+	rpc editDiagramScreen(EditDiagramScreen) returns(DiagramScreen) {}
+	rpc addCpuToDiagramScreen(AddCpuToDiagramScreen) returns(DiagramScreenCpuPort) {}
+	rpc removeCpuFromDiagramScreen(RemoveCpuFromDiagramScreen) returns(CpuFromDiagramScreenRemoved) {}
+}
