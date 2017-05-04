@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-
-
 message Matrix {
 	uint32 id = 1;
 	string ip = 2;
@@ -9,4 +7,81 @@ message Matrix {
 	string slug = 4;
 	uint32 numberOfConPorts = 5;
 	uint32 numberOfCpuPorts = 6;
+}
+
+// Requests
+
+message FetchMatrixsRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchMatrixByIdRequest {
+	uint32 matrixId = 1;
+}
+
+message FetchMatrixByIdResponse {
+	Matrix matrix = 1;
+}
+
+message FetchMatrixBySlugRequest {
+	string slug = 1;
+}
+
+message FetchMatrixBySlugResponse {
+	Matrix matrix = 1;
+}
+
+message FetchConPortsByMatrixIdRequest {
+	uint32 matrixId = 1;
+}
+
+message FetchCpuPortsByMatrixIdRequest {
+	uint32 matrixId = 1;
+}
+
+
+// Mutations
+
+message ConnectMatrixRequest {
+	string slug = 1;
+	string ip = 2;
+	uint32 port = 3;
+	uint32 numberOfConPorts = 4;
+	uint32 numberOfCpuPorts = 5;
+}
+
+message ConnectMatrixResponse {
+	Matrix matrix = 1;
+	bool success = 2;
+	enum State {
+		CREATED = 0;
+		SLUG_ALLREDY_FOUND = 1;
+	}
+	State state = 3;
+}
+
+
+message EditMatrixRequest {
+	uint32 id = 1;
+	string slug = 2;
+	string ip = 3;
+	uint32 port = 4;
+}
+
+message EditMatrixResponse {
+	Matrix matrix = 1;
+}
+
+message RemoveMatrixRequest {
+	uint32 matrixId = 1;
+}
+
+message RemoveMatrixResponse {
+	bool success = 1;
+	enum State {
+		MATRIX_NOT_FOUND = 0;
+		MATRIX_REMOVED = 1;
+	}
+	State state = 2;
 }

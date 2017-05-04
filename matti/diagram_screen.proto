@@ -7,3 +7,72 @@ message DiagramScreen {
 	uint32 matrixId = 4;
 	uint32 conPortId = 5;
 }
+
+message FetchDiagramScreensRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchDiagramScreenByIdRequest {
+	uint32 diagramScreenId = 1;
+}
+
+message FetchDiagramScreenByIdResponse {
+	DiagramScreen diagramScreen = 1;
+}
+
+message FetchDiagramScreenBySlugRequest {
+	string slug = 1;
+}
+
+message FetchDiagramScreenBySlugResponse {
+	DiagramScreen diagramScreen = 1;
+}
+
+message CreateDiagramScreenRequest {
+	uint32 diagramId = 1;
+	string slug = 2;
+	uint32 conPortId = 3;
+	uint32 matrixId = 4;
+}
+
+message CreateDiagramScreenResponse {
+	DiagramScreen diagramScreen = 1;
+}
+
+message RemoveDiagramScreenRequest {
+	uint32 diagramScreenId = 1;
+}
+
+message RemoveDiagramScreenResonse {
+
+}
+
+message EditDiagramScreenRequest {
+	uint32 id = 1;
+	string slug = 2;
+	uint32 conPortId = 3;
+	uint32 matrixId = 4;
+}
+
+message EditDiagramScreenResponse {
+	DiagramScreen diagramScreen = 1;
+}
+
+message AddCpuToDiagramScreenRequest {
+	uint32 diagramScreenId = 1;
+	uint32 cpuPortId = 2;
+}
+
+message AddCpuToDiagramScreenResponse {
+
+}
+
+message RemoveCpuFromDiagramScreenRequest {
+	uint32 diagramScreenId = 1;
+	uint32 cpuPortId = 2;
+}
+
+message RemoveCpuFromDiagramScreenResponse {
+
+}

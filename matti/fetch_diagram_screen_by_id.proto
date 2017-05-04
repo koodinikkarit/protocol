@@ -1,5 +1,0 @@
-syntax = "proto3";
-
-message FetchDiagramScreenById{
-	uint32 id = 1;
-}

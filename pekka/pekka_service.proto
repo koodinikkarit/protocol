@@ -1,0 +1,19 @@
+
+
+service Pekka {
+	// Weeklytimer queries
+	rpc fetchWeeklyTimers(FetchWeeklyTimersParameter) returns (stream WeeklyTimer) {}
+	rpc fetchWeeklyTimerById(FetchWeeklyTimerById) returns(WeeklyTimer) {}
+	rpc fetchWeeklyTimerBySlug(FetchWeeklyTimerBySlug) returns(WeeklyTimer) {}
+
+	// Weeklytimer mutations
+	rpc createWeeklyTimer(CreateWeeklyTimerParameter) returns(WeeklyTimer) {}
+	rpc removeWeeklyTimer(RemoveWeeklyTimer) returns(WeeklyTimerRemoved) {}
+	rpc editWeeklyTimer(EditWeeklyTimerParameter) returns(WeeklyTimer) {}
+	rpc addVideoConnectionToWeeklyTimer(AddVideoConnectionToWeeklyTimer) returns(WeeklyTimerVideoConnection) {}
+	rpc removeVideoConnectionFromWeeklyTimer(RemoveVideoConnectionFromWeeklyTimer) returns(VideoConnectionFromWeeklyTimerRemoved) {}
+	rpc addKwmConnectionToWeeklyTimer(AddKwmConnectionToWeeklyTimer) returns(WeeklyTimerKwmConnection) {}
+	rpc removeKwmConnectionToWeeklyTimer(RemoveKwmConnectionFromWeeklyTimer) returns(KwmConnectionFromWeeklyTimerRemoved) {}
+	rpc addDefaultStateToWeeklyTimer(AddDefaultStateToWeeklyTimer) returns(WeeklyTimerDefaultState) {}
+	rpc removeDefaultStateFromWeeklyTimer(RemoveDefaultStateFromWeeklyTimer) returns(DefaultStateFromWeeklyTimerRemoved) {}
+}

@@ -1,5 +1,0 @@
-syntax = "proto3";
-
-message CreateDiagram {
-	string slug = 1;
-}

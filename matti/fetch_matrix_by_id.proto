@@ -1,5 +1,0 @@
-syntax = "proto3";
-
-message FetchMatrixById {
-	uint32 id = 1;
-}

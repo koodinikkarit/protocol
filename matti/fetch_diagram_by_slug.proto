@@ -1,5 +1,0 @@
-syntax = "proto3";
-
-message FetchDiagramBySlug {
-	string slug = 1;
-}

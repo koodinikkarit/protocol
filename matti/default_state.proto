@@ -5,3 +5,91 @@ message DefaultState {
 	string slug = 2;
 	uint32 matrixId = 3;
 }
+
+// Queries
+
+message FetchDefaultStatesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchDefaultStateByIdRequest {
+	uint32 defaultStateId = 1;
+}
+
+message FetchDefaultStateByIdResponse {
+	DefaultState defaultState = 1;
+}
+
+message FetchDefaultStateBySlugRequest {
+	string slug = 1;
+}
+
+message FetchDefaultStateBySlugResponse {
+	DefaultState defaultState =1;
+}
+
+
+// Mutations
+
+message CreateDefaultStateRequest {
+	string slug = 1;
+	uint32 matrixId = 2;
+}
+
+message CreateDefaultStateResponse {
+	DefaultState defaultState = 1;
+}
+
+message RemoveDefaultStateRequest {
+	uint32 defaultStateId = 1;
+}
+
+message RemoveDefaultStateResponse {
+	
+}
+
+message InsertVideoConnectionToDefaultStateRequest {
+	uint32 defaultStateId = 1;
+	uint32 conPortId = 2;
+	uint32 cpuPortId = 3;
+}
+
+message InsertVideoConnectionToDefaultStateResponse {
+
+}
+
+message InsertKvmConnectionToDefaultStateRequest {
+	uint32 defaultStateId = 1;
+	uint32 conPortId = 2;
+	uint32 cpuPortId = 3;
+}
+
+message InsertKvmConnectionToDefaultStateResponse {
+
+}
+
+message RemoveVideoConnectionFromDefaultStateRequest {
+	uint32 id = 1;
+}
+
+message RemoveVideoConnectionFromDefaultStateResponse {
+
+}
+
+message RemoveKvmConnectionFromDefaultStateRequest {
+	uint32 id = 1;
+}
+
+message RemoveKvmConnectionFromDefaultStateResponse {
+
+}
+
+message ExecuteDefaultStateRequest {
+	uint32 id = 1;
+}
+
+message ExecuteDefaultStateResponse {
+
+}
+

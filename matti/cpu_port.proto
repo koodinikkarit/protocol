@@ -6,3 +6,18 @@ message CpuPort {
 	uint32 matrixId = 3;
 	uint32 portNum = 4;
 }
+
+message EditCpuPortRequest {
+	uint32 id = 1;
+	string slug = 2;
+}
+
+message EditCpuPortResponse {
+	CpuPort cpuPort = 1;
+	bool success = 2;
+	enum State {
+		CPU_PORT_EDITED = 0;
+		CPU_PORT_NOT_FOUND = 1;
+	}
+	State state = 3;	
+}

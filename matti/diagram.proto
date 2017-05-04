@@ -4,3 +4,52 @@ message Diagram {
 	uint32 id = 1;
 	string slug = 2;
 }
+
+// Queries
+
+message FetchDiagramsRequest {
+
+}
+
+message FetchDiagramByIdRequest {
+
+}
+
+message FetchDiagramByIdResponse {
+	
+}
+
+message FetchDiagramBySlugRequest {
+
+}
+
+message FetchDiagramBySlugResponse {
+
+} 
+
+// Mutations
+
+message CreateDiagramRequest {
+
+}
+
+message CreateDiagramResponse {
+
+}
+
+message EditDiagramRequest {
+	uint32 diagramId = 1;
+	string slug = 2;
+}
+
+message EditDiagramResponse {
+
+}
+
+message RemoveDiagramRequest {
+	uint32 diagramId = 1;
+}
+
+message RemoveDiagramResponse {
+	
+}

@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-message CreateDefaultState {
-	string slug = 1;
-	uint32 matrixId = 2;
-}

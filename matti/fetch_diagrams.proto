@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-message FetchDiagrams {
-	uint32 offset = 1;
-	uint32 limit = 2;
-}

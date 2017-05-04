@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-message EditCpuPortParameter {
-	uint32 id = 1;
-	string slug = 2;
-}
