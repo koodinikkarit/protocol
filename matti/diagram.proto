@@ -8,33 +8,34 @@ message Diagram {
 // Queries
 
 message FetchDiagramsRequest {
-
+	uint32 offset = 1;
+	uint32 limit = 2;
 }
 
 message FetchDiagramByIdRequest {
-
+	uint32 diagramId;
 }
 
 message FetchDiagramByIdResponse {
-	
+	Diagram diagram = 1;
 }
 
 message FetchDiagramBySlugRequest {
-
+	string slug = 1;
 }
 
 message FetchDiagramBySlugResponse {
-
+	Diagram diagram = 1;
 } 
 
 // Mutations
 
 message CreateDiagramRequest {
-
+	slug = 1;
 }
 
 message CreateDiagramResponse {
-
+	Diagram diagram = 1;	
 }
 
 message EditDiagramRequest {
@@ -43,7 +44,7 @@ message EditDiagramRequest {
 }
 
 message EditDiagramResponse {
-
+	Diagram diagram = 1;
 }
 
 message RemoveDiagramRequest {
