@@ -27,7 +27,18 @@ service Matti {
 	rpc removeMatrix(RemoveMatrixRequest) returns(RemoveMatrixResponse) {}
 	rpc editConPort(EditConPortRequest) returns(EditConPortResponse) {}
 	rpc editCpuPort(EditCpuPortRequest) returns(EditCpuPortResponse) {}
-	
+
+	// ConPort queries
+	rpc fetchConPortById(FetchConPortByIdRequest) returns(FetchConPortByIdResponse) {}
+
+	// ConPort mutation
+	rpc editConPort(EditConPortRequest) returns(EditConPortResponse) {}
+	// CpuPort queries
+	rpc fetchCpuPortById(FetchCpuPortsByMatrixIdRequest) returns(FetchConPortByIdResponse) {}
+
+	// CpuPort mutations
+	rpc editCpuPort(EditCpuPortRequest) returns(EditConPortResponse) {}
+
 	// Defaulstate queries
 	rpc fetchDefaultStates(FetchDefaultStatesRequest) returns (stream DefaultState) {}
 	rpc fetchDefaultStateById(FetchDefaultStateByIdRequest) returns (FetchDefaultStateByIdResponse) {}

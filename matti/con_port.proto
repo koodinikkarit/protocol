@@ -21,3 +21,11 @@ message EditConPortResponse {
 	}
 	State state = 3;	
 }
+
+message FetchConPortByIdRequest {
+	uint32 conPortId = 1;
+}
+
+message FetchConPortByIdResponse {
+	ConPort conPort = 1;
+}

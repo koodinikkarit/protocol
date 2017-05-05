@@ -21,3 +21,11 @@ message EditCpuPortResponse {
 	}
 	State state = 3;	
 }
+
+message FetchCpuPortByIdRequest {
+	uint32 conPortId = 1;
+}
+
+message FetchCpuPortByIdResponse {
+	CpuPort cpuPort = 1;
+}
