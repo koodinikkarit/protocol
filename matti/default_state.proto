@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+import "default_state_video_connection.proto";
+import "default_state_kvm_connection.proto";
+
 message DefaultState {
 	uint32 id = 1;
 	string slug = 2;
@@ -56,7 +59,7 @@ message InsertVideoConnectionToDefaultStateRequest {
 }
 
 message InsertVideoConnectionToDefaultStateResponse {
-
+	DefaultStateVideoConnection defaultStateVideoConnection = 1;
 }
 
 message InsertKvmConnectionToDefaultStateRequest {
@@ -66,7 +69,7 @@ message InsertKvmConnectionToDefaultStateRequest {
 }
 
 message InsertKvmConnectionToDefaultStateResponse {
-
+	DefaultStateKvmConnection defaultStateKwmConnection = 1;
 }
 
 message RemoveVideoConnectionFromDefaultStateRequest {
