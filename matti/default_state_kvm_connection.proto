@@ -6,3 +6,16 @@ message DefaultStateKvmConnection {
 	uint32 cpuPortId = 3;
 	uint32 defaultStateId = 4;
 }
+
+message RemoveKvmConnectionFromDefaultStateRequest {
+	uint32 defaultStateKvmConnection = 1;
+}
+
+message RemoveKvmConnectionFromDefaultStateResponse {
+	bool success = 1;
+	enum State {
+		DEFAULT_STATE_KVM_CONNECTION_REMOVED = 0;
+		DEFAULT_STATE_KVM_CONNECTION_NOT_FOUND = 1;
+	}
+	State state = 2;
+}

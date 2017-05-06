@@ -5,3 +5,18 @@ message DiagramScreenCpuPort {
 	uint32 diagramScreenId = 2;
 	uint32 cpuPortId = 3;
 }
+
+
+message RemoveCpuFromDiagramScreenRequest {
+	uint32 diagramScreenId = 1;
+	uint32 cpuPortId = 2;
+}
+
+message RemoveCpuFromDiagramScreenResponse {
+	bool success = 1;
+	enum State {
+		DIAGRAM_SCREEN_CPU_PORT_REMOVED = 0;
+		DIAGRAM_SCREEN_CPU_PORT_NOT_FOUND = 1;
+	};
+	State state = 2;
+}

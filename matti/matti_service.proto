@@ -7,7 +7,7 @@ import "con_port.proto";
 import "cpu_port.proto";
 import "default_state.proto";
 import "default_state_video_connection.proto";
-import "default_state_kwm_connection.proto";
+import "default_state_kvm_connection.proto";
 import "diagram.proto";
 import "diagram_screen.proto";
 import "diagram_screen_cpu_port.proto";
@@ -20,6 +20,8 @@ service Matti {
 	rpc fetchMatrixBySlug(FetchMatrixBySlugRequest) returns (FetchMatrixBySlugResponse) {}
 	rpc fetchConPortsByMatrixId(FetchConPortsByMatrixIdRequest) returns (stream ConPort) {}
 	rpc fetchCpuPortsByMatrixId(FetchCpuPortsByMatrixIdRequest) returns (stream CpuPort) {}
+	rpc fetchConPortById(FetchConPortByIdRequest) returns(FetchConPortByIdResponse) {}
+	rpc fetchCpuPortById(FetchCpuPortsByMatrixIdRequest) returns(FetchConPortByIdResponse) {}
 
 	// Matrix mutations
 	rpc connectMatrix(ConnectMatrixRequest) returns(ConnectMatrixResponse) {}
@@ -27,17 +29,6 @@ service Matti {
 	rpc removeMatrix(RemoveMatrixRequest) returns(RemoveMatrixResponse) {}
 	rpc editConPort(EditConPortRequest) returns(EditConPortResponse) {}
 	rpc editCpuPort(EditCpuPortRequest) returns(EditCpuPortResponse) {}
-
-	// ConPort queries
-	rpc fetchConPortById(FetchConPortByIdRequest) returns(FetchConPortByIdResponse) {}
-
-	// ConPort mutation
-	rpc editConPort(EditConPortRequest) returns(EditConPortResponse) {}
-	// CpuPort queries
-	rpc fetchCpuPortById(FetchCpuPortsByMatrixIdRequest) returns(FetchConPortByIdResponse) {}
-
-	// CpuPort mutations
-	rpc editCpuPort(EditCpuPortRequest) returns(EditConPortResponse) {}
 
 	// Defaulstate queries
 	rpc fetchDefaultStates(FetchDefaultStatesRequest) returns (stream DefaultState) {}

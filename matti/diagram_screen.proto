@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "diagram_screen_cpu_port.proto";
+
 message DiagramScreen {
 	uint32 id = 1;
 	string slug = 2;
@@ -45,7 +47,12 @@ message RemoveDiagramScreenRequest {
 }
 
 message RemoveDiagramScreenResonse {
-
+	bool success = 1;
+	enum State {
+		DIAGRAM_SCREEN_REMOVED = 0;
+		DIAGRAM_SCREEN_NOT_FOUND = 1;
+	}
+	State state = 2;
 }
 
 message EditDiagramScreenRequest {
@@ -65,14 +72,6 @@ message AddCpuToDiagramScreenRequest {
 }
 
 message AddCpuToDiagramScreenResponse {
-
+	DiagramScreenCpuPort diagramScreenCpuPort = 1;
 }
 
-message RemoveCpuFromDiagramScreenRequest {
-	uint32 diagramScreenId = 1;
-	uint32 cpuPortId = 2;
-}
-
-message RemoveCpuFromDiagramScreenResponse {
-
-}

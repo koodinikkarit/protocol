@@ -49,7 +49,12 @@ message RemoveDefaultStateRequest {
 }
 
 message RemoveDefaultStateResponse {
-	
+	bool success = 1;
+	enum State {
+		DEFAULT_STATE_REMOVED = 0;
+		DEFAULT_STATE_NOT_FOUND = 1;
+	}
+	State state = 2;
 }
 
 message InsertVideoConnectionToDefaultStateRequest {
@@ -72,27 +77,16 @@ message InsertKvmConnectionToDefaultStateResponse {
 	DefaultStateKvmConnection defaultStateKwmConnection = 1;
 }
 
-message RemoveVideoConnectionFromDefaultStateRequest {
-	uint32 id = 1;
-}
-
-message RemoveVideoConnectionFromDefaultStateResponse {
-
-}
-
-message RemoveKvmConnectionFromDefaultStateRequest {
-	uint32 id = 1;
-}
-
-message RemoveKvmConnectionFromDefaultStateResponse {
-
-}
-
 message ExecuteDefaultStateRequest {
-	uint32 id = 1;
+	uint32 defaultStateId = 1;
 }
 
 message ExecuteDefaultStateResponse {
-
+	bool success = 1;
+	enum State {
+		DEFAULT_STATE_EXECUTED = 0;
+		DEFAULT_STATE_NOT_FOUND = 1;
+	}
+	State state = 2;
 }
 

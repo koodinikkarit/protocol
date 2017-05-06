@@ -6,3 +6,16 @@ message DefaultStateVideoConnection {
 	uint32 cpuPortId = 3;
 	uint32 defaultStateId = 4;
 }
+
+message RemoveVideoConnectionFromDefaultStateRequest {
+	uint32 defaultStateVideoConnection = 1;
+}
+
+message RemoveVideoConnectionFromDefaultStateResponse {
+	bool success = 1;	
+	enum State {
+		DEFAULT_STATE_VIDEO_CONNECTION_REMOVED = 0;
+		DEFAULT_STATE_VIDEO_CONNECTION_NOT_FOUND = 1;
+	}
+	State state = 2;
+}

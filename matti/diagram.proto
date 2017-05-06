@@ -13,7 +13,7 @@ message FetchDiagramsRequest {
 }
 
 message FetchDiagramByIdRequest {
-	uint32 diagramId;
+	uint32 diagramId = 1;
 }
 
 message FetchDiagramByIdResponse {
@@ -31,7 +31,7 @@ message FetchDiagramBySlugResponse {
 // Mutations
 
 message CreateDiagramRequest {
-	slug = 1;
+	string slug = 1;
 }
 
 message CreateDiagramResponse {
@@ -52,5 +52,10 @@ message RemoveDiagramRequest {
 }
 
 message RemoveDiagramResponse {
-	
+	bool success = 1;
+	enum State {
+		DIAGRAM_REMOVED = 0;
+		DIAGRAM_NOT_FOUND = 1;
+	}
+	State state = 2;
 }
