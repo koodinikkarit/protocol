@@ -1,0 +1,11 @@
+
+name DiagramScreen
+
+prop slug set editDiagramScreen
+prop diagram get fetchDiagramById
+prop matrix get fetchMatrixById
+prop conPort get fetchConPortById
+
+func addCpuPort addCpuToDiagramScreen
+
+func remove removeDiagramScreen

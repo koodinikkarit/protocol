@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package MattiService;
+
 import "default_state_video_connection.proto";
 import "default_state_kvm_connection.proto";
 
@@ -42,6 +44,15 @@ message CreateDefaultStateRequest {
 
 message CreateDefaultStateResponse {
 	DefaultState defaultState = 1;
+}
+
+message EditDefaultStateRequest {
+	uint32 defaultStateId = 1;
+	string slug = 2;
+}
+
+message EditDefaultStateResponse {
+
 }
 
 message RemoveDefaultStateRequest {

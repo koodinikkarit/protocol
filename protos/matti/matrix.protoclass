@@ -1,0 +1,13 @@
+
+name Matrix
+
+prop ConPorts get fetchConPortsByMatrixId
+prop CpuPorts get fetchCpuPortsByMatrixId
+
+prop ip set editMatrix
+prop port set editMatrix
+prop slug set editMatrix
+prop numberOfConPorts
+prop numberOfCpuPorts
+
+func remove removeMatrix

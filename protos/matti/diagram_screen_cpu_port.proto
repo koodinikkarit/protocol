@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package MattiService;
+
 message DiagramScreenCpuPort {
 	uint32 id = 1;
 	uint32 diagramScreenId = 2;

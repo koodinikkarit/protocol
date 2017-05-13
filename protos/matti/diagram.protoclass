@@ -1,0 +1,7 @@
+
+name Diagram
+
+prop slug set editDiagram
+
+func createDiagramScreen createDiagramScreen
+func remove removeDiagram

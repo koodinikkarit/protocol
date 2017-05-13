@@ -37,6 +37,7 @@ service Matti {
 
 	// Defaultstate mutations
 	rpc createDefaultState(CreateDefaultStateRequest) returns(CreateDefaultStateResponse) {}
+	rpc editDefaultState(EditDefaultStateRequest) returns(EditDefaultStateResponse) {}
 	rpc removeDefaultState(RemoveDefaultStateRequest) returns(RemoveDefaultStateResponse) {}
 	rpc insertVideoConnectionToDefaultState(InsertVideoConnectionToDefaultStateRequest) returns(InsertVideoConnectionToDefaultStateResponse) {}
 	rpc insertKvmConnectionToDefaultState(InsertKvmConnectionToDefaultStateRequest) returns(InsertKvmConnectionToDefaultStateResponse) {}

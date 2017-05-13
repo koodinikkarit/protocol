@@ -1,0 +1,7 @@
+
+name DiagramScreenCpuPort
+
+prop diagramScreen get fetchDiagramScreenById
+prop cpuPort get fetchCpuPortById
+
+func remove removeCpuFromDiagramScreen
