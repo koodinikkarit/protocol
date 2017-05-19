@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package RistoService;
+
+import "create_token.proto";
+import "token_created.proto";
+import "token.proto";
+import "create_user.proto";
+import "user.proto";
+import "get_user.proto";
+
+service Risto {
+	rpc createToken(CreateToken) returns (TokenCreated) {}
+	rpc createUser(CreateUser) returns (User) {}
+	rpc getUserByToken(Token) returns (User) {}
+}

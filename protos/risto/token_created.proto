@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "token.proto";
+
+message TokenCreated {
+	Token token = 1;
+	enum State {
+		TOKEN_CREATED = 0;
+		USER_NOT_FOUND = 1;
+		PASSWORD_WRONG = 2;
+	}
+	State state = 2;
+}
