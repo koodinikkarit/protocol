@@ -1,0 +1,26 @@
+{
+	"projects": [
+		{
+			"service": "wompatti",
+			"outputs": [
+				{
+					"lang": "go",
+					"path": "C:\\Users\\jaska\\go\\src\\github.com\\koodinikkarit\\wompatti\\wompatti_service"
+				},
+				{
+					"lang": "node",
+					"path": "../wompatti-client-js/lib/wompatti"
+				}
+			]
+		},
+		{
+			"service": "matti",
+			"outputs": [
+				{
+					"lang": "node",
+					"path": "../petri/src/context/matti"
+				}
+			]
+		}
+	]
+}

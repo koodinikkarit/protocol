@@ -1,0 +1,12 @@
+{
+	"name": "Lentavayksisarvinen",
+	"version": "0.0.0",
+	"scripts": {
+		"build-protos": "node ./scripts/build-protos",
+		"build-api-layer": "node ./scripts/build-api-layer"
+	},
+	"dependencies": {
+		"protobufjs": "6.7.3"
+	}
+
+}

@@ -49,6 +49,7 @@ service Matti {
 	rpc fetchDiagrams(FetchDiagramsRequest) returns(stream Diagram) {}
 	rpc fetchDiagramById(FetchDiagramByIdRequest) returns(FetchDiagramByIdResponse) {}
 	rpc fetchDiagramBySlug(FetchDiagramBySlugRequest) returns(FetchDiagramBySlugResponse) {}
+	rpc fetchDiagramScreensByDiagramId(FetchDiagramScreenByDiagramIdRequest) returns(FetchDiagramScreenByDiagramIdResponse) {}
 
 	// Diagram mutations
 	rpc createDiagram(CreateDiagramRequest) returns(CreateDiagramResponse) {}

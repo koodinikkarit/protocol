@@ -1,0 +1,374 @@
+{
+	"name": "matti",
+	"classes": {
+		"Matrix": {
+			"depends": [
+				"ConPort",
+				"CpuPort"
+			],
+			"properties": [
+				{
+					"name": "ip",
+					"set": "editMatrix"
+				},
+				{
+					"name": "port",
+					"set": "editMatrix"
+				},
+				{
+					"name": "slug",
+					"set": "editMatrix"
+				},
+				{
+					"name": "numberOfConPorts"
+				},
+				{
+					"name": "numberOfCpuPorts"
+				},
+				{
+					"name": "conPorts",
+					"get": "fetchConPortsByMatrixId",
+					"stream": true,
+					"type": "ConPort"
+				},
+				{
+					"name": "cpuPorts",
+					"get": "fetchCpuPortsByMatrixId",
+					"stream": true,
+					"type": "CpuPort"
+				}
+			]
+		},
+		"ConPort": {
+			"depends": [
+				"Matrix"
+			],
+			"properties": [
+				{
+					"name": "slug",
+					"set": "editConPort"
+				}, 
+				{
+					"name": "matrix",
+					"get": "fetchMatrixById",
+					"type": "Matrix"
+				},
+				{
+					"name": "portNum"
+				}
+			]
+		},
+		"CpuPort": {
+			"depends": [
+				"Matrix"
+			],
+			"properties": [
+				{
+					"name": "slug",
+					"set": "editCpuPort"
+				},
+				{
+					"name": "matrix",
+					"get": "fetchMatrixById",
+					"type": "Matrix"
+				},
+				{
+					"name": "portNum"
+				}
+			]
+		},
+		"DefaultState": {
+			"depends": [
+				"Matrix"
+			],
+			"properties": [
+				{
+					"name": "slug",
+					"set": "editDefaultState"
+				},
+				{
+					"name": "matrix",
+					"get": "fetchMatrixById",
+					"type": "Matrix"
+				}
+			],
+			"functions": [
+				{
+					"name": "insertVideoConnection",
+					"funcName": "insertVideoConnectionToDefaultState",
+					"type": "DefaultStateVideoConnection",
+					"member": true,
+					"args": [
+						"conPortId",
+						"cpuPortId"
+					]
+				},
+				{
+					"name": "insertKvmConnection",
+					"funcName": "insertKvmConnectionToDefaultState",
+					"type": "DefaultStateKvmConnection",
+					"member": true,
+					"args": [
+						"conPortId",
+						"cpuPortId"
+					]
+				},
+				{
+					"name": "execute",
+					"funcName": "executeDefaultState",
+					"member": true
+				}
+			]
+		},
+		"DefaultStateVideoConnection": {
+			"depends": [
+				"ConPort",
+				"CpuPort",
+				"DefaultState"
+			],
+			"properties": [
+				{
+					"name": "conPort",
+					"get": "fetchConPortById",
+					"type": "ConPort"
+				},
+				{
+					"name": "cpuPort",
+					"get": "fetchCpuPortById",
+					"type": "CpuPort"
+				},
+				{
+					"name": "defaultState",
+					"get": "fetchDefaultStateById",
+					"type": "DefaultState"
+				}
+			]
+		},
+		"DefaultStateKvmConnection": {
+			"depends": [
+				"ConPort",
+				"CpuPort",
+				"DefaultState"
+			],
+			"properties": [
+				{
+					"name": "conPort",
+					"get": "fetchConPortById",
+					"type": "ConPort"
+				},
+				{
+					"name": "cpuPort",
+					"get": "fetchCpuPortById",
+					"type": "CpuPort"
+				},
+				{
+					"name": "defaultState",
+					"get": "fetchDefaultStateById",
+					"type": "DefaultState"
+				}
+			]
+		},
+		"Diagram": {
+			"depends": [
+				"DiagramScreen"
+			],
+			"properties": [
+				{
+					"name": "slug",
+					"set": "editDiagram"
+				},
+				{
+					"name": "diagramScreens",
+					"get": "fetchDiagramScreensByDiagramId",
+					"stream": true,
+					"type": "DiagramScreen"
+				}
+			],
+			"functions": [
+				{
+					"name": "createDiagramScreen",
+					"funcName": "createDiagramScreen",
+					"type": "DiagramScreen",
+					"member": true,
+					"args": [
+						"slug",
+						"conPortId",
+						"matrixId"
+					]
+				}
+			]
+		},
+		"DiagramScreen": {
+			"depends": [
+				"Diagram",
+				"Matrix",
+				"ConPort"
+			],
+			"properties": [
+				 {
+					 "name": "slug",
+					 "set": "editDiagramScreen"
+				 },
+				 {
+					 "name": "diagram",
+					 "set": "fetchDiagramById",
+					 "type": "Diagram"
+				 },
+				 {
+					"name": "matrix",
+					"get": "fetchMatrixById",
+					"type": "Matrix"
+				 },
+				 {
+					"name": "conPort",
+					"get": "fetchConPortById",
+					"type": "ConPort"
+				 }
+			],
+			"functions": [
+				{
+					"name": "addCpu",
+					"funcName": "addCpuToDiagramScreen",
+					"type": "DiagramScreenCpuPort",
+					"member": true,
+					"args": [
+						"cpuPortId"
+					]
+				}
+			]
+		},
+		"DiagramScreenCpuPort": {
+			"depends": [
+				"DiagramScreen",
+				"CpuPort"
+			],
+			"properties": [
+				{
+					"name": "diagramScreen",
+					"get": "fetchDiagramScreenById",
+					"type": "DiagramScreen"
+				},
+				{
+					"name": "cpuPort",
+					"get": "fetchCpuPortById",
+					"type": "CpuPort"
+				}
+			]
+		},
+		"Matti": {
+			"depends": [
+				"Matrix",
+				"ConPort",
+				"CpuPort",
+				"DefaultState",
+				"DefaultStateVideoConnection",
+				"DefaultStateKvmConnection",
+				"Diagram",
+				"DiagramScreen",
+				"DiagramScreenCpuPort"
+			],
+			"main": true,
+			"functions": [
+				{
+					"name": "fetchMatrixs",
+					"funcName": "fetchMatrixs",
+					"type": "Matrix",
+					"stream": true,
+					"args": [
+						"offset",
+						"limit"
+					]
+				},
+				{
+					"name": "fetchMatrixById",
+					"funcName": "fetchMatrixById",
+					"type": "Matrix",
+					"args": [
+						"matrixId"
+					]
+				},
+				{
+					"name": "fetchMatrixBySlug",
+					"funcName": "fetchMatrixBySlug",
+					"type": "Matrix",
+					"args": [
+						"matrixSlug"
+					]
+				},
+				{
+					"name": "connectMatrix",
+					"funcName": "connectMatrix",
+					"type": "Matrix",
+					"args": [
+						"slug",
+						"ip",
+						"port",
+						"numberOfConPorts",
+						"numberOfCpuPorts"
+					]
+				},
+				{
+					"name": "fetchDefaultStates",
+					"funcName": "fetchDefaultStates",
+					"type": "DefaultState",
+					"stream": true,
+					"args": [
+						"offset",
+						"limit"
+					]
+				},
+				{
+					"name": "fetchDefaultStateById",
+					"funcName": "fetchDefaultStateById",
+					"type": "DefaultState",
+					"args": [
+						"defaultStateId"
+					]
+				},
+				{
+					"name": "fetchDefaultStateBySlug",
+					"funcName": "fetchDefaultStateBySlug",
+					"type": "DefaultState",
+					"args": [
+						"defaultStateSlug"
+					]
+				},
+				{
+					"name": "createDefaultState",
+					"funcName": "createDefaultState",
+					"type": "DefaultState",
+					"args": [
+						"slug",
+						"matrixId"
+					]
+				},
+				{
+					"name": "fetchDiagrams",
+					"funcName": "fetchDiagrams",
+					"type": "Diagram",
+					"stream": true,
+					"args": [
+						"offset",
+						"limit"
+					]
+				},
+				{
+					"name": "fetchDiagramById",
+					"funcName": "fetchDiagramById",
+					"type": "Diagram",
+					"args": [
+						"diagramId"
+					]
+				},
+				{
+					"name": "fetchDiagramBySlug",
+					"funcName": "fetchDiagramBySlug",
+					"type": "Diagram",
+					"args": [
+						"diagramSlug"
+					]
+				}
+			]
+		}
+	}
+}

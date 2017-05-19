@@ -28,7 +28,15 @@ message FetchDiagramBySlugRequest {
 
 message FetchDiagramBySlugResponse {
 	Diagram diagram = 1;
-} 
+}
+
+message FetchDiagramScreenByDiagramIdRequest {
+
+}
+
+message FetchDiagramScreenByDiagramIdResponse {
+	
+}
 
 // Mutations
 

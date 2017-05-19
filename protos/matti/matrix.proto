@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package MattiService;
 
+import "con_port.proto";
+
 message Matrix {
 	uint32 id = 1;
 	string ip = 2;
