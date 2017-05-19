@@ -1,5 +1,0 @@
-
-name DefaultState
-
-prop slug set editDefaultState
-prop matrix get fetchMatrixById

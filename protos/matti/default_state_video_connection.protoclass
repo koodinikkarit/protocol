@@ -1,8 +1,0 @@
-
-name DefaultStateVideoConnection
-
-prop conPort get fetchConPortById
-prop cpuPort get fetchCpuPortById
-prop defaultState get fetchDefaultStateById
-
-func remove removeVideoConnectionFromDefaultState
