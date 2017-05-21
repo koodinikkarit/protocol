@@ -3,7 +3,8 @@
 	"version": "0.0.0",
 	"scripts": {
 		"build-protos": "node ./scripts/build-protos",
-		"build-api-layer": "node ./scripts/build-api-layer"
+		"build-api-layer": "node ./scripts/build-api-layer",
+		"build-all": "npm run build-protos && npm run build-api-layer"
 	},
 	"dependencies": {
 		"protobufjs": "6.7.3"

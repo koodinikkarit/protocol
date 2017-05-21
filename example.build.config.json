@@ -2,11 +2,17 @@
 	"projects": [
 		{
 			"service": "service_name_in_current_dir",
-			"outputs": [
+			"protoOutputs": [
 				{
 					"lang": "go",
 					"path": "path_to_go_progra"
 				},
+				{
+					"lang": "node",
+					"path": "path_to_node_program"
+				}
+			],
+			"apiOutputs": [
 				{
 					"lang": "node",
 					"path": "path_to_node_program"
