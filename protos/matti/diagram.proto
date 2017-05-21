@@ -30,12 +30,8 @@ message FetchDiagramBySlugResponse {
 	Diagram diagram = 1;
 }
 
-message FetchDiagramScreenByDiagramIdRequest {
-
-}
-
-message FetchDiagramScreenByDiagramIdResponse {
-	
+message FetchDiagramScreensByDiagramIdRequest {
+	uint32 diagramId = 1;
 }
 
 // Mutations

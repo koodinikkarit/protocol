@@ -21,7 +21,7 @@ service Matti {
 	rpc fetchConPortsByMatrixId(FetchConPortsByMatrixIdRequest) returns (stream ConPort) {}
 	rpc fetchCpuPortsByMatrixId(FetchCpuPortsByMatrixIdRequest) returns (stream CpuPort) {}
 	rpc fetchConPortById(FetchConPortByIdRequest) returns(FetchConPortByIdResponse) {}
-	rpc fetchCpuPortById(FetchCpuPortsByMatrixIdRequest) returns(FetchConPortByIdResponse) {}
+	rpc fetchCpuPortById(FetchCpuPortByIdRequest) returns(FetchConPortByIdResponse) {}
 
 	// Matrix mutations
 	rpc connectMatrix(ConnectMatrixRequest) returns(ConnectMatrixResponse) {}
@@ -49,7 +49,7 @@ service Matti {
 	rpc fetchDiagrams(FetchDiagramsRequest) returns(stream Diagram) {}
 	rpc fetchDiagramById(FetchDiagramByIdRequest) returns(FetchDiagramByIdResponse) {}
 	rpc fetchDiagramBySlug(FetchDiagramBySlugRequest) returns(FetchDiagramBySlugResponse) {}
-	rpc fetchDiagramScreensByDiagramId(FetchDiagramScreenByDiagramIdRequest) returns(FetchDiagramScreenByDiagramIdResponse) {}
+	rpc fetchDiagramScreensByDiagramId(FetchDiagramScreensByDiagramIdRequest) returns(stream DiagramScreen) {}
 
 	// Diagram mutations
 	rpc createDiagram(CreateDiagramRequest) returns(CreateDiagramResponse) {}
@@ -63,7 +63,7 @@ service Matti {
 
 	// DiagramScreen mutations
 	rpc createDiagramScreen(CreateDiagramScreenRequest) returns(CreateDiagramScreenResponse) {}
-	rpc removeDiagramScreen(RemoveDiagramScreenRequest) returns(RemoveDiagramScreenResonse) {}
+	rpc removeDiagramScreen(RemoveDiagramScreenRequest) returns(RemoveDiagramScreenResponse) {}
 	rpc editDiagramScreen(EditDiagramScreenRequest) returns(EditDiagramScreenResponse) {}
 	rpc addCpuToDiagramScreen(AddCpuToDiagramScreenRequest) returns(AddCpuToDiagramScreenResponse) {}
 	rpc removeCpuFromDiagramScreen(RemoveCpuFromDiagramScreenRequest) returns(RemoveCpuFromDiagramScreenResponse) {}

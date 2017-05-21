@@ -48,7 +48,7 @@ message RemoveDiagramScreenRequest {
 	uint32 diagramScreenId = 1;
 }
 
-message RemoveDiagramScreenResonse {
+message RemoveDiagramScreenResponse {
 	bool success = 1;
 	enum State {
 		DIAGRAM_SCREEN_REMOVED = 0;
