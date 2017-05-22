@@ -2,6 +2,10 @@ var protobuf = require("protobufjs");
 var fs = require("fs");
 var path = require("path");
 
+const capitalizeFirstLetter = require("./helpers").capitalizeFirstLetter;
+const deCapalizeFirstLetter = require("./helpers").deCapalizeFirstLetter;
+const capitalizeOnlyFirstLetter = require("./helpers").capitalizeOnlyFirstLetter;
+
 const config = require("../build.config.json");
 
 config.projects.forEach(project => {
@@ -268,18 +272,4 @@ function getMethod(method, types) {
 
 function GetServiceImports(service) {
 
-}
-
-
-function capitalizeFirstLetter(s) {
-	return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
-function deCapalizeFirstLetter(s) {
-	return s.charAt(0).toLowerCase() + s.slice(1);
-}
-
-function capitalizeOnlyFirstLetter(s) {
-	var newS = s.toLowerCase();
-	return capitalizeFirstLetter(newS);
 }
