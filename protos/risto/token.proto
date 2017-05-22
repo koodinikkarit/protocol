@@ -1,5 +1,33 @@
 syntax = "proto3";
 
+package RistoService;
+
+import "user.proto";
+
 message Token {
 	string token = 1;
+}
+
+message CreateTokenRequest {
+	string username = 1;
+	string password = 2;
+	uint64 maxAge = 3;
+}
+
+message CreateTokenResponse {
+	Token token = 1;
+	enum State {
+		TOKEN_CREATED = 0;
+		USER_NOT_FOUND = 1;
+		PASSWORD_WRONG = 2;
+	}
+	State state = 2;
+}
+
+message FetchUserByTokenRequest {
+	string token = 1;
+}
+
+message FetchUserByTokenResponse {
+	User user = 1;
 }
