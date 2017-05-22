@@ -4,6 +4,7 @@
 	"scripts": {
 		"build-protos": "node ./scripts/build-protos",
 		"build-api-layer": "node ./scripts/build-api-layer",
+		"build-graphql": "node ./scripts/build-graphql-layer",
 		"build-all": "npm run build-protos && npm run build-api-layer"
 	},
 	"dependencies": {
