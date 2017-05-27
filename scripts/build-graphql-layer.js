@@ -46,12 +46,12 @@ function buildNodeGraphql(service, outputPath) {
 					isService: false
 				};
 			}
-		})
+		}).reverse();
 		fs.writeFileSync(path.join(outputPath, "index.js"), `${importFiles.map(p => {
 			if (p.isService) {
 				return `export {
 	${serviceObject.name}Queries,
-	${serviceObject.name}Mutation
+	${serviceObject.name}Mutations
 } from "./${p.name}";`;
 			} else {
 				return `export { default as ${p.name} } from "./${p.name}";`;
@@ -78,7 +78,8 @@ function buildNodeGraphql(service, outputPath) {
 function WriteService(service, packageName, types, outputPath) {
 	var filenameParts = service.filename.split("/");
 	var serviceFilename = filenameParts[filenameParts.length - 1].replace(".proto", "");
-	var methods = [];
+	var fetchMethods = [];
+	var editMethods = [];
 
 	Object.keys(service.methods).forEach(name => {
 		var method = service.methods[name];
@@ -86,10 +87,15 @@ function WriteService(service, packageName, types, outputPath) {
 		var responseType = types[method.responseType];		
 		var requestParameters = Object.keys(requestType.fields).map(p => requestType.fields[p]);
 
-		methods.push(
+		var methodList;
+
+		if (name.startsWith("fetch")) methodList = fetchMethods;
+		else methodList = editMethods;
+
+		methodList.push(
 `${method.name}: {
 		"name": "${method.name}",
-		"type": ${method.responseStream ? `new GraphQLList(${getMethodType(method, types)})` : getMethodType(method, types) || "GraphQLBoolean"},
+		"type": ${method.responseStream ? `new GraphQLList(classes.${getMethodType(method, types)})` : getMethodType(method, types) ? `classes.${getMethodType(method, types)}` : "GraphQLBoolean"},
 		"args": {
 			${requestParameters.map(p => `${p.name}: {
 				type: ${getGraphqlTypeName(p.type)}
@@ -108,10 +114,22 @@ function WriteService(service, packageName, types, outputPath) {
 
 		fs.writeFileSync(path.join(outputPath, service.name + ".js"), 
 `
+import {
+    GraphQLObjectType,
+    GraphQLString,
+    GraphQLList,
+    GraphQLInt,
+	GraphQLBoolean
+} from "graphql";
+
 import * as classes from "./";
 
-export default {
-	${methods.join(",\n\t")}
+export const ${service.name}ServiceQueries = {
+	${fetchMethods.join(",\n\t")}
+}
+
+export const ${service.name}ServiceMutations = {
+	${editMethods.join(",\n\t")}
 }
 `);
 }

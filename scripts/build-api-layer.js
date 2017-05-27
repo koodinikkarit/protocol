@@ -237,7 +237,7 @@ function getMethod(method, types) {
 			var items = [];
 
 			call.on("data", data => {
-				items.push(new classes.${method.responseType}({
+				items.push(new classes.${method.responseType}(this.client, {
 					${fields.map(p => `${p}: data.get${capitalizeOnlyFirstLetter(p)}()`).join(",\n\t\t\t\t\t")}
 				}));
 			});
@@ -257,13 +257,13 @@ function getMethod(method, types) {
 		if (returnType) {
 			return `
 			this.client.${method.name}(req, (err, res) => {
-				resolve(new classes.${returnType.name}({
-					${fields.map(p => `${p}: res.${returnType.name.toLowerCase()}.get${capitalizeOnlyFirstLetter(p)}`).join(",\n\t\t\t\t\t")}
+				resolve(new classes.${returnType.name}(this.client, {
+					${fields.map(p => `${p}: res.get${returnType.name}().get${capitalizeOnlyFirstLetter(p)}()`).join(",\n\t\t\t\t\t")}
 				}));
 			});`;
 		} else {
 			return `
-			this.${method.name}(req, (err, res) => {
+			this.client.${method.name}(req, (err, res) => {
 				resolve();
 			});`;
 		}
