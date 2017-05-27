@@ -7,3 +7,11 @@ message Computer {
 	string name = 2;
 	string mac = 3;
 }
+
+message RemoveComputerRequest {
+	uint32 computerId = 1;
+}
+
+message RemoveComputerResponse {
+
+}

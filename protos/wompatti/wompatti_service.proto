@@ -13,6 +13,7 @@ import "edit_computer_request.proto";
 import "edit_computer_response.proto";
 
 import "computer.proto";
+import "keijo.proto";
 
 service Wompatti {
 	rpc addComputer(AddComputerRequest) returns (AddComputerResponse) {}
@@ -20,4 +21,15 @@ service Wompatti {
 	rpc fetchComputerById(FetchComputerByIdRequest) returns (FetchComputerByIdResponse) {}
 	rpc wakeup(WakeupRequest) returns (WakeupResponse) {}
 	rpc editComputer(EditComputerRequest) returns (EditComputerResponse) {}
-}
+	rpc removeComputer(RemoveComputerRequest) returns (RemoveComputerResponse) {}
+	rpc addKeijo(AddKeijoRequest) returns (AddKeijoResponse) {}
+	rpc editKeijo(EditKeijoRequest) returns (EditKeijoResponse) {}
+	rpc removeKeijo(RemoveKeijoRequest) returns (RemoveKeijoResponse) {}
+	rpc fetchKeijos(FetchKeijosRequest) returns (stream Keijo) {}
+	rpc fetchKeijoById(FetchKeijoByIdRequest) returns (FetchKeijoByIdResponse) {}
+	rpc turnOnCecDevice(TurnOnCecDeviceRequest) returns (TurnOnCecDeviceResponse) {}
+	rpc changeKeijoSource(ChangeKeijoSourceRequest) returns (ChangeKeijoSourceResponse) {}
+	rpc shutDownCecDevice(ShutDownCecDeviceRequest) returns (ShutDownCecDeviceResponse) {}
+	rpc fetchCecDevicePowerStatusByKeijoId(FetchCecDevicePowerStatusByKeijoIdRequest) returns (FetchCecDevicePowerStatusByKeijoIdResponse) {}
+	rpc fetchCecTvDeviceSourceByKeijoId(FetchCecTvDeviceSourceByKeijoIdRequest) returns (FetchCecTvDeviceSourceByKeijoIdResponse) {}
+} 
