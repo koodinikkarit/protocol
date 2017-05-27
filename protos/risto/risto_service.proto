@@ -8,5 +8,5 @@ import "user.proto";
 service Risto {
 	rpc createToken(CreateTokenRequest) returns (CreateTokenResponse) {}
 	rpc createUser(CreateUserRequest) returns (CreateUserResponse) {}
-	rpc getUserByToken(CreateTokenRequest) returns (CreateTokenResponse) {}
+	rpc fetchUserByToken(CreateTokenRequest) returns (CreateTokenResponse) {}
 }
