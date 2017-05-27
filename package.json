@@ -5,7 +5,7 @@
 		"build-protos": "node ./scripts/build-protos",
 		"build-api-layer": "node ./scripts/build-api-layer",
 		"build-graphql": "node ./scripts/build-graphql-layer",
-		"build-all": "npm run build-protos && npm run build-api-layer"
+		"build-all": "npm run build-protos && npm run build-api-layer && npm run build-graphql"
 	},
 	"dependencies": {
 		"protobufjs": "6.7.3"
