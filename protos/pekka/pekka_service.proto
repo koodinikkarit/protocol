@@ -1,19 +1,23 @@
+syntax = "proto3";
+
+package PekkaService;
+
+import "weekly_timer.proto";
 
 
 service Pekka {
-	// Weeklytimer queries
-	rpc fetchWeeklyTimers(FetchWeeklyTimersParameter) returns (stream WeeklyTimer) {}
-	rpc fetchWeeklyTimerById(FetchWeeklyTimerById) returns(WeeklyTimer) {}
-	rpc fetchWeeklyTimerBySlug(FetchWeeklyTimerBySlug) returns(WeeklyTimer) {}
+	rpc fetchWeeklyTimers(FetchWeeklyTimersRequest) returns (stream WeeklyTimer) {}
+	rpc fetchWeeklyTimerById(FetchWeeklyTimerByIdRequest) returns(FetchWeeklyTimerByIdResponse) {}
+	rpc fetchWeeklyTimerBySlug(FetchWeeklyTimerBySlugRequest) returns(FetchWeeklyTimerBySlugResponse) {}
 
-	// Weeklytimer mutations
-	rpc createWeeklyTimer(CreateWeeklyTimerParameter) returns(WeeklyTimer) {}
-	rpc removeWeeklyTimer(RemoveWeeklyTimer) returns(WeeklyTimerRemoved) {}
-	rpc editWeeklyTimer(EditWeeklyTimerParameter) returns(WeeklyTimer) {}
-	rpc addVideoConnectionToWeeklyTimer(AddVideoConnectionToWeeklyTimer) returns(WeeklyTimerVideoConnection) {}
-	rpc removeVideoConnectionFromWeeklyTimer(RemoveVideoConnectionFromWeeklyTimer) returns(VideoConnectionFromWeeklyTimerRemoved) {}
-	rpc addKwmConnectionToWeeklyTimer(AddKwmConnectionToWeeklyTimer) returns(WeeklyTimerKwmConnection) {}
-	rpc removeKwmConnectionToWeeklyTimer(RemoveKwmConnectionFromWeeklyTimer) returns(KwmConnectionFromWeeklyTimerRemoved) {}
-	rpc addDefaultStateToWeeklyTimer(AddDefaultStateToWeeklyTimer) returns(WeeklyTimerDefaultState) {}
-	rpc removeDefaultStateFromWeeklyTimer(RemoveDefaultStateFromWeeklyTimer) returns(DefaultStateFromWeeklyTimerRemoved) {}
+	// // Weeklytimer mutations
+	// rpc createWeeklyTimer(CreateWeeklyTimerParameter) returns(WeeklyTimer) {}
+	// rpc removeWeeklyTimer(RemoveWeeklyTimer) returns(WeeklyTimerRemoved) {}
+	// rpc editWeeklyTimer(EditWeeklyTimerParameter) returns(WeeklyTimer) {}
+	// rpc addVideoConnectionToWeeklyTimer(AddVideoConnectionToWeeklyTimer) returns(WeeklyTimerVideoConnection) {}
+	// rpc removeVideoConnectionFromWeeklyTimer(RemoveVideoConnectionFromWeeklyTimer) returns(VideoConnectionFromWeeklyTimerRemoved) {}
+	// rpc addKwmConnectionToWeeklyTimer(AddKwmConnectionToWeeklyTimer) returns(WeeklyTimerKwmConnection) {}
+	// rpc removeKwmConnectionToWeeklyTimer(RemoveKwmConnectionFromWeeklyTimer) returns(KwmConnectionFromWeeklyTimerRemoved) {}
+	// rpc addDefaultStateToWeeklyTimer(AddDefaultStateToWeeklyTimer) returns(WeeklyTimerDefaultState) {}
+	// rpc removeDefaultStateFromWeeklyTimer(RemoveDefaultStateFromWeeklyTimer) returns(DefaultStateFromWeeklyTimerRemoved) {}
 }

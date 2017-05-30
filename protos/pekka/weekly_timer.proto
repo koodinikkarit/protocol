@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package PekkaService;
+
 message WeeklyTimer {
 	uint32 id = 1;
 	string slug = 2;
@@ -13,4 +15,25 @@ message WeeklyTimer {
 	bool friday = 10;
 	bool saturday = 11;
 	bool sunday = 12;
+}
+
+message FetchWeeklyTimersRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchWeeklyTimerByIdRequest {
+	uint32 weeklyTimerId = 1;
+}
+
+message FetchWeeklyTimerByIdResponse {
+	WeeklyTimer weeklyTimer = 1;
+}
+
+message FetchWeeklyTimerBySlugRequest {
+	string weeklyTimerSlug = 1;
+}
+
+message FetchWeeklyTimerBySlugResponse {
+	WeeklyTimer weeklyTimer = 1;
 }

@@ -1,5 +1,0 @@
-syntax = "proto3";
-
-message RemoveWeeklyTimer {
-	uint32 id = 1;
-}
