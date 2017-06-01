@@ -3,13 +3,31 @@ syntax = "proto3";
 package PekkaService;
 
 import "weekly_timer.proto";
+import "pentti.proto";
+import "button.proto";
+import "executor.proto";
+import "executor_action.proto";
+import "event_timer.proto";
+
 
 
 service Pekka {
 	rpc fetchWeeklyTimers(FetchWeeklyTimersRequest) returns (stream WeeklyTimer) {}
 	rpc fetchWeeklyTimerById(FetchWeeklyTimerByIdRequest) returns(FetchWeeklyTimerByIdResponse) {}
 	rpc fetchWeeklyTimerBySlug(FetchWeeklyTimerBySlugRequest) returns(FetchWeeklyTimerBySlugResponse) {}
-
+	rpc createWeeklyTimer(CreateWeeklyTimerRequest) returns(CreateWeeklyTimerResponse) {}
+	rpc editWeeklyTimer(EditWeeklyTimerRequest) returns(EditWeeklyTimerResponse) {}
+	rpc fetchExecutors(FetchExecutorsRequest) returns(stream Executor) {}
+	rpc fetchExecutorById(FetchExecutorByIdRequest) returns(FetchExecutorByIdResponse) {}
+	rpc fetchExecutorActionsByExecutorId(FetchExecutorActionsByExecutorIdRequest) returns(stream ExecutorAction) {}
+	rpc createExecutor(CreateExecutorRequest) returns(CreateExecutorResponse) {}
+	rpc addExecutorActionToExecutor(AddExecutorActionToExecutorRequest) returns(AddExecutorActionToExecutorResponse) {}
+	rpc editButton(EditButtonRequest) returns(EditButtonResponse) {}
+	rpc fetchPenttiDevices(FetchPenttiDevicesRequest) returns(stream Pentti) {}
+	rpc fetchPenttiById(FetchPenttiByIdRequest) returns(FetchPenttiByIdResponse) {}
+	rpc fetchButtonsByPenttiId(FetchButtonsByPenttiIdRequest) returns(stream Button) {}
+	
+	
 	// // Weeklytimer mutations
 	// rpc createWeeklyTimer(CreateWeeklyTimerParameter) returns(WeeklyTimer) {}
 	// rpc removeWeeklyTimer(RemoveWeeklyTimer) returns(WeeklyTimerRemoved) {}

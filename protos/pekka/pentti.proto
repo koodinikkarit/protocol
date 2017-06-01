@@ -3,5 +3,23 @@ syntax = "proto3";
 package PekkaService;
 
 message Pentti {
-	
+	uint32 id = 1;
+	string ip = 2;
+}
+
+message FetchPenttiDevicesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchPenttiByIdRequest {
+	uint32 penttiId = 1;
+}
+
+message FetchPenttiByIdResponse {
+	Pentti pentti = 1;
+}
+
+message FetchButtonsByPenttiIdRequest {
+	uint32 penttiId = 1;
 }

@@ -2,7 +2,21 @@ syntax = "proto3";
 
 package PekkaService;
 
+import "action_type.proto";
+
 message ExecutorAction {
 	uint32 id = 1;
+	string name = 2;
+	uint32 executorId = 3;
+	string actionType = 4;
+	map<string, string> parameters = 5;
+}
+
+message AddExecutorActionToExecutorRequest {
+	string name = 1;
 	uint32 executorId = 2;
+}
+
+message AddExecutorActionToExecutorResponse {
+	ExecutorAction executorAction = 1;
 }

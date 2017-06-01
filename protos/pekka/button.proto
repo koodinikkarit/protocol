@@ -3,5 +3,19 @@ syntax = "proto3";
 package PekkaService;
 
 message Button {
-	
+	uint32 id = 1;
+	uint32 number = 2;
+	uint32 penttiId = 3;
+	uint32 onExecutorId = 4;
+	uint32 offExecutorId = 5;
+}
+
+message EditButtonRequest {
+	uint32 buttonId = 1;
+	uint32 onExecutorId = 4;
+	uint32 offExecutorId = 5;	
+}
+
+message EditButtonResponse {
+	Button button = 1;
 }

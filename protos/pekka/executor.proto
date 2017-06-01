@@ -4,5 +4,30 @@ package PekkaService;
 
 message Executor {
 	uint32 id = 1;
+	string name = 2;
+}
 
+message FetchExecutorsRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchExecutorByIdRequest {
+	uint32 executorId = 1;
+}
+
+message FetchExecutorByIdResponse {
+	Executor executor = 1;
+}
+
+message FetchExecutorActionsByExecutorIdRequest {
+	uint32 executorId = 1;
+}
+
+message CreateExecutorRequest {
+	string name = 1;
+}
+
+message CreateExecutorResponse {
+	Executor executor = 1;
 }
