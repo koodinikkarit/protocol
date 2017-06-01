@@ -192,7 +192,8 @@ import {
     GraphQLObjectType,
     GraphQLString,
     GraphQLList,
-    GraphQLInt	
+    GraphQLInt,
+	GraphQLBoolean	
 } from "graphql";
 
 import * as classes from "./";
@@ -200,9 +201,9 @@ import * as classes from "./";
 export default new GraphQLObjectType({
 	name: "${message.name}",
 	fields: () => ({
-		${fields.map(p => `${p.name}: {
+		${fields && fields.length > 0 ? fields.map(p => `${p.name}: {
 			type: ${p.type}
-		}`).join(",\n\t\t")},
+		}`).join(",\n\t\t") + "," : ""}
 		${fetchProperties.map(p => `${p.name}: {
 			type: ${p.type}
 		}`).join(",\n\t\t")}
@@ -232,5 +233,7 @@ function getGraphqlTypeName(protoType) {
 			return "GraphQLString";
 		case "uint64":
 			return "GraphQLInt";
+		case "bool":
+			return "GraphQLBoolean";
 	}	
 }
