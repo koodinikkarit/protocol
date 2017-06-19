@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message EthernetInterface {
+	uint32 id = 1;
+	string name = 2;
+	bytes ip = 3;
+	bytes mac = 4;
+	uint32 index = 5;
+	uint32 mtu = 6;
+	uint32 flags = 7;
+}
+
+message FetchEthernetInterfacesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+
+// message AddEthernetInterfaceRequest {
+// 	uint32 arttuId = 1;
+// 	EthernetInterface ethernetInterface = 2;
+// }
+
+// message AddEthernetInterfaceResponse {
+
+// }
+
+// message FetchArttuEthernetInterfacesRequest {
+// 	uint32 arttuId = 1;
+// }
+
+// message FetchArttuEthernetInterfaceByIdRequest {
+// 	uint32 ethernetInterfaceId = 1;
+// }
+
+// message FetchArttuEthernetInterfaceByIdResponse {
+// 	EthernetInterface ethernetInterface = 1;
+// }

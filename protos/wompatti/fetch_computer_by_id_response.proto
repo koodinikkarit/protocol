@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package WompattiService;
-
-import "computer.proto";
-
-message FetchComputerByIdResponse {
-	Computer computer = 1;
-}

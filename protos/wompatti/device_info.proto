@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message DeviceInfo {
+	uint32 id = 1;
+}
+
+message KeyValue {
+	uint32 id = 1;
+	uint32 deviceInfoId = 2;
+	string key = 3;
+	string value = 4;
+}
+
+message FetchDeviceInfoByIdRequest {
+	repeated uint32 deviceInfoIdt = 1;
+}
+
+message FetchDeviceInfoByIdResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+
+	DeviceInfo deviceInfo = 1;
+	State state = 2;
+	uint32 deviceInfoId = 3;
+}
+
+message FetchKeyValuesByDeviceInfoIdRequest {
+	repeated uint32 deviceInfoIdt = 1;
+}
+
+message FetchKeyValuesByDeviceInfoIdResponse {
+	repeated KeyValue keyValues = 1;
+	uint32 deviceInfoId = 2;
+}
+
+message CreateKeyValueRequest {
+	uint32 deviceInfoId = 1;
+	string key = 2;
+	string value = 3;
+}
+
+message CreateKeyValueResponse {
+	enum State {
+		SUCCESS = 0;
+	}
+	State state = 1;
+	KeyValue keyValue = 2;
+}
+
+message EditKeyValueRequest {
+	uint32 keyValueId = 1;
+	string key = 2;
+	string value = 3;
+}
+
+message EditKeyValueResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+	KeyValue keyValue = 2;	
+}
+
+message RemoveKeyValueRequest {
+	uint32 keyValueId = 1;
+}
+
+message RemoveKeyValueResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;	
+}

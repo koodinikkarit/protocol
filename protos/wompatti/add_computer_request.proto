@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package WompattiService;
-
-message AddComputerRequest {
-	string name = 1;
-	string mac = 2;
-}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message WolDevice {
+	uint32 id = 1;
+	uint32 computerId = 2;
+	uint32 ethernetInterface = 3;
+}
+
+message CreateWolDeviceRequest {
+	uint32 computerId = 2;
+	uint32 ethernetInterface = 3;
+}
+
+message CreateWolDeviceResponse {
+	WolDevice wolDevice = 1;
+}
+
+message FetchComputerWolDeviceRequest {
+	uint32 computerId = 1;
+}
+
+message FetchComputerWolDeviceResponse {
+	WolDevice wolDevice = 1;
+}

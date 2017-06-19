@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package WompattiService;
+
+import "device_info.proto";
+
+message Device {
+	uint32 id = 1;
+	uint32 deviceInfoId = 2;
+}
+
+message CreateDeviceRequest {
+
+}
+
+message CreateDeviceResponse {
+	Device device = 1;
+	DeviceInfo deviceInfo = 2;
+}

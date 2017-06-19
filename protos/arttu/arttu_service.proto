@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package ArttuService;
+
+import "computer.proto";
+import "interface.proto";
+
+service Arttu {
+	rpc insertComputerBasicInformation(InsertComputerBasicInformationRequest) returns(InsertComputerBasicInformationResponse) {}
+	rpc register(RegisterRequest) returns(RegisterResponse) {}
+	rpc addInterface(stream AddInterfaceRequest) returns(AddInterfaceResponse) {}
+	rpc shutdownComputer(ShutdownComputerRequest) returns(ShutdownComputerResponse) {}
+} 
+
+message RegisterRequest {
+
+}
+
+message RegisterResponse {
+	uint32 arttuId = 1;
+}

@@ -2,34 +2,33 @@ syntax = "proto3";
 
 package WompattiService;
 
-import "add_computer_request.proto";
-import "add_computer_response.proto";
-import "fetch_computers_request.proto";
-import "fetch_computer_by_id_request.proto";
-import "fetch_computer_by_id_response.proto";
-import "wakeup_request.proto";
-import "wakeup_response.proto";
-import "edit_computer_request.proto";
-import "edit_computer_response.proto";
-
 import "computer.proto";
-import "keijo.proto";
+import "device_info.proto";
+import "arttu.proto";
+import "device.proto";
+import "ethernet_interface.proto";
+import "wol_interface.proto";
 
 service Wompatti {
-	rpc addComputer(AddComputerRequest) returns (AddComputerResponse) {}
-	rpc fetchComputers(FetchComputersRequest) returns (stream Computer) {}
-	rpc fetchComputerById(FetchComputerByIdRequest) returns (FetchComputerByIdResponse) {}
-	rpc wakeup(WakeupRequest) returns (WakeupResponse) {}
-	rpc editComputer(EditComputerRequest) returns (EditComputerResponse) {}
-	rpc removeComputer(RemoveComputerRequest) returns (RemoveComputerResponse) {}
-	rpc addKeijo(AddKeijoRequest) returns (AddKeijoResponse) {}
-	rpc editKeijo(EditKeijoRequest) returns (EditKeijoResponse) {}
-	rpc removeKeijo(RemoveKeijoRequest) returns (RemoveKeijoResponse) {}
-	rpc fetchKeijos(FetchKeijosRequest) returns (stream Keijo) {}
-	rpc fetchKeijoById(FetchKeijoByIdRequest) returns (FetchKeijoByIdResponse) {}
-	rpc turnOnCecDevice(TurnOnCecDeviceRequest) returns (TurnOnCecDeviceResponse) {}
-	rpc changeKeijoSource(ChangeKeijoSourceRequest) returns (ChangeKeijoSourceResponse) {}
-	rpc shutDownCecDevice(ShutDownCecDeviceRequest) returns (ShutDownCecDeviceResponse) {}
-	rpc fetchCecDevicePowerStatusByKeijoId(FetchCecDevicePowerStatusByKeijoIdRequest) returns (FetchCecDevicePowerStatusByKeijoIdResponse) {}
-	rpc fetchCecTvDeviceSourceByKeijoId(FetchCecTvDeviceSourceByKeijoIdRequest) returns (FetchCecTvDeviceSourceByKeijoIdResponse) {}
-} 
+	rpc createComputer(CreateComputerRequest) returns(CreateComputerResponse) {}
+	rpc editComputer(EditComputerRequest) returns(EditComputerResponse) {}
+	rpc removeComputer(RemoveComputerRequest) returns(RemoveComputerResponse) {}
+	rpc fetchComputers(FetchComputersRequest) returns(stream Computer) {}
+	rpc fetchComputerById(FetchComputerByIdRequest) returns(stream FetchComputerByIdResponse) {}
+	rpc fetchDeviceInfoById(FetchDeviceInfoByIdRequest) returns(stream FetchDeviceInfoByIdResponse) {}
+	rpc fetchKeyValuesByDeviceInfoId(FetchKeyValuesByDeviceInfoIdRequest) returns(stream FetchKeyValuesByDeviceInfoIdResponse) {}
+	rpc createKeyValue(CreateKeyValueRequest) returns(CreateKeyValueResponse) {}
+	rpc editKeyValue(EditKeyValueRequest) returns(EditKeyValueResponse) {}
+	rpc removeKeyValue(RemoveKeyValueRequest) returns(RemoveKeyValueResponse) {}
+	rpc createDevice(CreateDeviceRequest) returns(CreateDeviceResponse) {}
+	rpc removeDevice(RemoveDeviceRequest) returns(RemoveDeviceResponse) {}
+	rpc fetchDevices(FetchDevicesRequest) returns(stream Device) {}
+	rpc fetchDeviceById(FetchDeviceByIdRequest) returns(stream FetchDeviceByIdResponse) {}
+	rpc fetchEthernetInterfaces(FetchEthernetInterfacesRequest) returns(stream EthernetInterface) {}
+	rpc createWolInterface(CreateWolInterfaceRequest) returns(CreateWolInterfaceResponse) {}
+
+	// rpc fetchManyComputerById(FetchManyComputerByIdRequest) returns(stream FetchManyComputerByIdResponse) {}
+	// rpc editComputer(EditComputerRequest) returns(EditComputerResponse) {}
+	// rpc fetchArttuById(FetchArttuByIdRequest) returns(FetchArttuByIdResponse) {}
+	// rpc fetchKeyValuesByDeviceInfoId(FetchKeyValuesByDeviceInfoIdRequest) returns(stream DeviceInfo) {}
+}

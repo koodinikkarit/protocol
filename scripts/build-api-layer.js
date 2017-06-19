@@ -24,13 +24,13 @@ function buildNodeApi(service, outputPath) {
 	if (!fs.existsSync(outputPath)) {
 		fs.mkdirSync(outputPath);
 	}
-	protobuf.load(`./protos/${service}/${service}_service.proto`, (err, root) => {
+	protobuf.load(`./protos/${service}_service.proto`, (err, root) => {
 		var serviceObject = root[`${capitalizeFirstLetter(service)}Service`];
 		var importFiles = Object.keys(serviceObject).filter(name => {
 			var thing = serviceObject[name];
 			if ((thing instanceof protobuf.Service ||
 				thing instanceof protobuf.Type) && 
-				(!name.endsWith("Request") && !name.endsWith("Response"))) {
+				(!name.endsWith("Request"))) {
 				return true;
 			}
 		});
@@ -47,7 +47,7 @@ ${importFiles.map(p => `export { default as ${p} } from "./${p}";`).join("\n")}
 
 		Object.keys(serviceObject).forEach(name => {
 			if (serviceObject[name] instanceof protobuf.Type) {
-				if (!name.includes("Request") && !name.includes("Response")) {
+				if (!name.includes("Request")) {
 					WriteClass(serviceObject[name], service, serviceObject, outputPath);
 				}
 			}
@@ -247,26 +247,13 @@ function getMethod(method, types) {
 			});`;
 	} else {
 		var responseType = types[method.responseType];
-		var returnTypes = Object.keys(responseType.fields).map(p => responseType.fields[p]).filter(p => types[p.type]).map(p => types[p.type]);
-		var returnType;
-		if (returnTypes.length > 0) {
-			returnType = returnTypes[0];
-			fields = Object.keys(returnType.fields);
-		}
-		
-		if (returnType) {
-			return `
+		var fields = Object.keys(responseType.fields);
+		return `
 			this.client.${method.name}(req, (err, res) => {
-				resolve(new classes.${returnType.name}(this.client, {
-					${fields.map(p => `${p}: res.get${returnType.name}().get${capitalizeOnlyFirstLetter(p)}()`).join(",\n\t\t\t\t\t")}
+				resolve(new classes.${responseType.name}(this.client, {
+					${fields.map(p => `${p}: res.get${responseType.name}().get${capitalizeOnlyFirstLetter(p)}()`).join(",\n\t\t\t\t\t")}
 				}));
 			});`;
-		} else {
-			return `
-			this.client.${method.name}(req, (err, res) => {
-				resolve();
-			});`;
-		}
 	}
 }
 

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package WompattiService;
+
+import "device_info.proto";
+
+message Device {
+	uint32 id = 1;
+	uint32 deviceInfoId = 2;
+	string name = 3;
+}
+
+message CreateDeviceRequest {
+	string name = 1;
+}
+
+message CreateDeviceResponse {
+	Device device = 1;
+	DeviceInfo deviceInfo = 2;
+}
+
+message RemoveDeviceRequest {
+	uint32 deviceId = 1;
+}
+
+message RemoveDeviceResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+}
+
+message FetchDevicesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchDeviceByIdRequest {
+	repeated uint32 deviceIdt = 1;
+}
+
+message FetchDeviceByIdResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+
+	Device device = 1;
+	State state = 2;
+	uint32 deviceId = 3;
+}

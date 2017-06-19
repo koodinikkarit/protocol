@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package WompattiService;
-
-message FetchComputersRequest {
-	uint32 offset = 1;
-	uint32 limit = 2;
-}

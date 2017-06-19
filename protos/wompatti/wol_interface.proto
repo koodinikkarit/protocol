@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message WolInterface {
+	uint32 id = 1;
+	uint32 ethernetInterfaceId = 2;
+	bytes mac = 3;
+}
+
+message CreateWolInterfaceRequest {
+	uint32 computerId = 1;
+	uint32 ethernetInterfaceId = 2;
+	bytes mac = 3;
+}
+
+message CreateWolInterfaceResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+	WolInterface wolInterface = 2;
+}

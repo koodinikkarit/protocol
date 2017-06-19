@@ -2,10 +2,39 @@ syntax = "proto3";
 
 package WompattiService;
 
+import "device_info.proto";
+
 message Computer {
 	uint32 id = 1;
+	uint32 arttuId = 2;
+	uint32 deviceInfoId = 3;
+	string name = 4;
+}
+
+message CreateComputerRequest {
+	string name = 1;
+}
+
+message CreateComputerResponse {
+	Computer computer = 1;
+	DeviceInfo deviceInfo = 2;	
+}
+
+message EditComputerRequest {
+	uint32 computerId = 1;
 	string name = 2;
-	string mac = 3;
+	uint32 arttuId = 3;
+	uint32 deviceInfoId = 4;
+}
+
+message EditComputerResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	Computer computer = 1;
+	State state = 2;
+	uint32 computerId = 3;	
 }
 
 message RemoveComputerRequest {
@@ -13,5 +42,43 @@ message RemoveComputerRequest {
 }
 
 message RemoveComputerResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+}
 
+message FetchComputerByIdRequest {
+	repeated uint32 computerIdt = 1;
+}
+
+message FetchComputerByIdResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	Computer computer = 1;
+	State state = 2;
+	uint32 computerId = 3;
+}
+
+message FetchManyComputerByIdRequest {
+	repeated uint32 id = 1;
+}
+
+message FetchManyComputerByIdResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+
+	Computer computer = 1;
+	State state = 2;
+	uint32 computerId = 3;
+}
+
+message FetchComputersRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;	
 }

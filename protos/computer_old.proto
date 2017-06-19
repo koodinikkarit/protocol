@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package WompattiService;
+
+import "device_info.proto";
+
+message Computer {
+	uint32 id = 1;
+	uint32 arttuId = 2;
+	uint32 deviceInfoId = 3;
+}
+
+// message AddComputerRequest {
+// 	string name = 1;
+// 	string mac = 2;
+// }
+
+// message AddComputerResponse {
+// 	Computer computer = 1;
+// }
+
+message CreateComputerRequest {
+
+}
+
+message CreateComputerResponse {
+	Computer computer = 1;
+	DeviceInfo deviceInfo = 2;
+}
+
+message EditComputerRequest {
+	uint32 id = 1;
+	uint32 arttuId = 2;
+}
+
+message EditComputerResponse {
+	Computer computer = 1;
+}
+
+message FetchComputersRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchComputerByIdRequest {
+	uint32 id = 1;
+}
+
+message FetchComputerByIdResponse {
+	Computer computer = 1;
+}
+
+
+message RemoveComputerRequest {
+	uint32 computerId = 1;
+}
+
+message RemoveComputerResponse {
+
+}
+
+message PassiveComputerRequest {
+	
+}
+
+message PassiveComputerResponse {
+	
+}
+
+message WakeupRequest {
+	uint32 computerId = 1;
+}
+
+message WakeupResponse {
+
+}
