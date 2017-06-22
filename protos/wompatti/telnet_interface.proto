@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message TelnetInterface {
+	uint32 id = 1;
+	string ip = 2;
+	string port = 3;
+}
+
+message CreateTelnetInterfaceRequest {
+	string ip = 1;
+	string port = 2;
+}
+
+message CreateTelnetInterfaceResponse {
+	
+}
+
+message EditTelnetInterfaceRequest {
+	uint32 id = 1;
+	string ip = 2;
+	string port = 3;	
+}
+
+message EditTelnetInterfaceResponse {
+
+}
+
+message RemoveTelnetInterfaceRequest {
+	uint32 ethernetInterfaceId = 1;
+}
+
+message RemoveTelnetInterfaceResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;	
+}
+
+message FetchTelnetInterfacesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+
+message FetchTelnetInterfaceByIdRequest {
+
+}
+
+message FetchTelnetInterfaceByIdResponse {
+	
+}

@@ -22,3 +22,55 @@ message CreateWolInterfaceResponse {
 	State state = 1;
 	WolInterface wolInterface = 2;
 }
+
+message EditWolInterfaceRequest {
+	uint32 wolInterfaceId = 1;
+	uint32 ethernetInterfaceId = 2;
+	bytes mac = 3;	
+}
+
+message EditWolInterfaceResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+	WolInterface wolInterface = 2;
+}
+
+message RemoveWolInterfaceRequest {
+	uint32 wolInterfaceId = 1;
+}
+
+message RemoveWolInterfaceResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+}
+
+message ExecuteWolInterfaceRequest {
+	uint32 wolInterfaceId = 1;
+}
+
+message ExecuteWolInterfaceResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+}
+
+message FetchWolInterfaceByIdRequest {
+	repeated uint32 wolInterfaceIdt = 1;
+}
+
+message FetchWolInterfaceByIdResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+	WolInterface wolInterface = 2;
+}

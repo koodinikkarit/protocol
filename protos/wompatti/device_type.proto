@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message DeviceType {
+	uint32 id = 1;
+	string name = 2;
+	uint32 serialInterfaceId = 3;
+	uint32 telnetInterfaceId = 4;
+	uint32 cecInterfaceId = 5;
+}
+
+message Command {
+	uint32 id = 1;
+	uint32 deviceTypeId = 2;
+	string name = 3;
+	string value = 4;
+}
+
+
+message CreateDeviceTypeRequest {
+	string name = 1;
+}
+
+message CreateDeviceTypeResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+	DeviceType deviceType = 2;
+}
+
+message EditDeviceTypeRequest {
+	uint32 deviceTypeId = 1;
+	string name = 2;
+	uint32 serialInterfaceId = 3;
+	uint32 telnetInterfaceId = 4;
+	uint32 cecInterfaceId = 5;
+}
+
+message EditDeviceTypeResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+	DeviceType deviceType = 2;
+}
+
+message RemoveDeviceTypeRequest {
+	uint32 deviceTypeId = 1;
+}
+
+message RemoveDeviceTypeResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+}
+
+message FetchDeviceTypesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchDeviceTypeByIdRequest {
+	repeated uint32 deviceTypesIdt = 1;
+}
+
+message FetchDeviceTypeByIdResponse {
+	
+}
+
+
+message CreateCommandRequest {
+	uint32 deviceTypeId = 1;
+	string name = 3;
+	string value = 4;	
+}
+
+message CreateCommandResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+	Command command = 2;
+}
+
+message EditCommandRequest {
+	uint32 commandId = 1;
+	string name = 3;
+	string value = 4;	
+}
+
+message EditCommandReponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+	Command command = 2;
+}
+
+message RemoveCommandRequest {
+	uint32 commandId = 1;
+}
+
+message RemoveCommandResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+}
+
+message FetchCommandsByDeviceTypeIdRequest {
+	uint32 deviceTypeId = 1;
+}
+
+message FetchCommandsByDeviceTypeIdResponse {
+	
+}

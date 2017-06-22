@@ -8,6 +8,7 @@ import "arttu.proto";
 import "device.proto";
 import "ethernet_interface.proto";
 import "wol_interface.proto";
+import "device_type.proto";
 
 service Wompatti {
 	rpc createComputer(CreateComputerRequest) returns(CreateComputerResponse) {}
@@ -26,6 +27,25 @@ service Wompatti {
 	rpc fetchDeviceById(FetchDeviceByIdRequest) returns(stream FetchDeviceByIdResponse) {}
 	rpc fetchEthernetInterfaces(FetchEthernetInterfacesRequest) returns(stream EthernetInterface) {}
 	rpc createWolInterface(CreateWolInterfaceRequest) returns(CreateWolInterfaceResponse) {}
+	
+	rpc editWolInterface(EditWolInterfaceRequest) returns(EditWolInterfaceResponse) {}
+	rpc removeWolInterface(RemoveWolInterfaceRequest) returns(RemoveWolInterfaceResponse) {}
+	rpc executeWolInterface(ExecuteWolInterfaceRequest) returns(ExecuteWolInterfaceResponse) {}
+	rpc fetchWolInterfaceById(FetchWolInterfaceByIdRequest) returns(stream FetchWolInterfaceByIdResponse) {}
+	rpc createDeviceType(CreateDeviceTypeRequest) returns(CreateDeviceTypeResponse) {}
+	rpc editDeviceType(EditDeviceTypeRequest) returns(EditDeviceTypeResponse) {}
+	rpc removeDeviceType(RemoveDeviceTypeRequest) returns(RemoveDeviceTypeResponse) {}
+	rpc fetchDeviceTypes(FetchDeviceTypesRequest) returns(stream DeviceType) {}
+	rpc fetchDeviceTypeById(FetchDeviceTypeByIdRequest) returns(stream FetchDeviceTypeByIdResponse) {}
+	rpc createCommand(CreateCommandRequest) returns(CreateCommandResponse) {}
+	rpc editCommand(EditCommandRequest) returns(EditCommandReponse) {}
+	rpc removeCommand(RemoveCommandRequest) returns(RemoveCommandResponse) {}
+	rpc fetchCommandsByDeviceTypeId(FetchCommandsByDeviceTypeIdRequest) returns(stream FetchCommandsByDeviceTypeIdResponse) {}
+	rpc createTelnetInterface(CreateTelnetInterfaceRequest) returns(CreateTelnetInterfaceResponse) {}
+	rpc editTelnetInterface(EditTelnetInterfaceRequest) returns(EditTelnetInterfaceResponse) {}
+	rpc removeTelnetInterface(RemoveTelnetInterfaceRequest) returns(RemoveTelnetInterfaceResponse) {}
+	rpc fetchTelnetInterfaces(FetchTelnetInterfacesRequest) returns(FetchTelnetInterfacesResponse) {}
+	rcp fetchTelnetInterfaceById(FetchTelnetInterfaceByIdRequest) returns(stream FetchTelnetInterfaceByIdResponse) {}
 
 	// rpc fetchManyComputerById(FetchManyComputerByIdRequest) returns(stream FetchManyComputerByIdResponse) {}
 	// rpc editComputer(EditComputerRequest) returns(EditComputerResponse) {}

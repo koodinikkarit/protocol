@@ -8,6 +8,7 @@ message Device {
 	uint32 id = 1;
 	uint32 deviceInfoId = 2;
 	string name = 3;
+	uint32 deviceTypeId = 4;
 }
 
 message CreateDeviceRequest {
