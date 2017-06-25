@@ -3,5 +3,41 @@ syntax = "proto3";
 package WompattiService;
 
 message SerialInterface {
-	
+    uint32 id = 1;
+    uint32 serialPortId = 2;
+}
+
+message CreateSerialInterfaceRequest {
+    uint32 serialPortId = 1;
+}
+
+message CreateSerialInterfaceResponse {
+    enum State {
+        SUCCESS = 0;
+        NOT_FOUND = 1;
+    }
+    State state = 1;
+    SerialInterface serialInterface = 2;
+}
+
+message EditSerialInterfaceRequest {
+    uint32 serialInterfaceId = 1;
+    uint32 serialPortId = 2;
+}
+
+message EditSerialInterfaceResponse {
+    enum State {
+        SUCCESS = 0;
+        NOT_FOUND = 1;
+    }
+    State state = 1;
+    SerialInterface serialInterface = 2;
+}
+
+message RemoveSerialInterfaceRequest {
+    uint32 serialInterfaceId = 1;
+}
+
+message RemoveSerialInterfaceResponse {
+
 }

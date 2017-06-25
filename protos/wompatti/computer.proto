@@ -3,12 +3,25 @@ syntax = "proto3";
 package WompattiService;
 
 import "device_info.proto";
+import "page_info.proto";
 
 message Computer {
 	uint32 id = 1;
-	uint32 arttuId = 2;
-	uint32 deviceInfoId = 3;
-	string name = 4;
+	string name = 2;
+	uint32 arttuId = 3;
+	uint32 deviceInfoId = 4;
+	uint32 wolInterfaceId = 5;
+}
+
+message ComputersEdge {
+	Computer node = 1;
+	string cursor = 2;
+}
+
+message ComputersConnection {
+	PageInfo pageInfo = 1;
+	repeated ComputersEdge edges = 2;
+	uint32 totalCount = 3;
 }
 
 message CreateComputerRequest {
@@ -25,6 +38,7 @@ message EditComputerRequest {
 	string name = 2;
 	uint32 arttuId = 3;
 	uint32 deviceInfoId = 4;
+	uint32 wolInterfaceId = 5;
 }
 
 message EditComputerResponse {
