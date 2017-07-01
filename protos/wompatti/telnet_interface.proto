@@ -2,11 +2,46 @@ syntax = "proto3";
 
 package WompattiService;
 
+import "page_info.proto";
+
 message TelnetInterface {
 	uint32 id = 1;
 	string ip = 2;
 	string port = 3;
 }
+
+message TelnetInterfacesConnection {
+	PageInfo pageInfo = 1;
+	repeated TelnetInterfacesEdge edges = 2;
+	uint32 totalCount = 3;
+}
+
+message TelnetInterfacesEdge {
+	TelnetInterface node = 1;
+	uint32 cursor = 2;
+}
+
+
+// Fetch
+
+message FetchTelnetInterfacesRequest {
+	uint32 after = 1;
+	uint32 before = 2;
+	uint32 first = 3;
+	uint32 last = 4;
+}
+
+
+message FetchTelnetInterfaceByIdRequest {
+	repeated uint32 telnetInterfaceId = 1;
+}
+
+message FetchTelnetInterfaceByIdResponse {
+	repeated TelnetInterface telnetInterfaces = 1;
+}
+
+
+// Mutations
 
 message CreateTelnetInterfaceRequest {
 	string ip = 1;
@@ -14,7 +49,7 @@ message CreateTelnetInterfaceRequest {
 }
 
 message CreateTelnetInterfaceResponse {
-	
+	TelnetInterface telnetInterface = 1;
 }
 
 message EditTelnetInterfaceRequest {
@@ -24,7 +59,12 @@ message EditTelnetInterfaceRequest {
 }
 
 message EditTelnetInterfaceResponse {
-
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;
+	}
+	State state = 1;
+	TelnetInterface telnetInterface = 2;
 }
 
 message RemoveTelnetInterfaceRequest {
@@ -37,18 +77,4 @@ message RemoveTelnetInterfaceResponse {
 		NOT_FOUND = 1;		
 	}
 	State state = 1;	
-}
-
-message FetchTelnetInterfacesRequest {
-	uint32 offset = 1;
-	uint32 limit = 2;
-}
-
-
-message FetchTelnetInterfaceByIdRequest {
-
-}
-
-message FetchTelnetInterfaceByIdResponse {
-	
 }

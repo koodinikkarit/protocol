@@ -2,10 +2,44 @@ syntax = "proto3";
 
 package WompattiService;
 
+import "page_info.proto";
+
 message SerialInterface {
     uint32 id = 1;
     uint32 serialPortId = 2;
 }
+
+message SerialInterfacesEdge {
+    SerialInterface node = 1;
+    uint32 cursor = 2;
+}
+
+message SerialInterfacesConnection {
+	PageInfo pageInfo = 1;
+	repeated SerialInterfacesEdge edges = 2;
+	uint32 totalCount = 3;
+}
+
+
+// Fetch
+
+message FetchSerialInterfacesRequest {
+    uint32 after = 1;
+    uint32 before = 2;
+    uint32 first = 3;
+    uint32 last = 4;
+}
+
+message FetchSerialInterfaceByIdRequest {
+    repeated uint32 serialInterfaceIdt = 1;
+}
+
+message FetchSerialInterfaceByIdResponse {
+    repeated SerialInterface serialInterfaces = 1;
+}
+
+
+// Mutations
 
 message CreateSerialInterfaceRequest {
     uint32 serialPortId = 1;

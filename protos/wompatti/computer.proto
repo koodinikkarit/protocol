@@ -15,7 +15,7 @@ message Computer {
 
 message ComputersEdge {
 	Computer node = 1;
-	string cursor = 2;
+	uint32 cursor = 2;
 }
 
 message ComputersConnection {
@@ -68,13 +68,7 @@ message FetchComputerByIdRequest {
 }
 
 message FetchComputerByIdResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;
-	}
-	Computer computer = 1;
-	State state = 2;
-	uint32 computerId = 3;
+	repeated Computer computers = 1;
 }
 
 message FetchManyComputerByIdRequest {
@@ -93,6 +87,9 @@ message FetchManyComputerByIdResponse {
 }
 
 message FetchComputersRequest {
-	uint32 offset = 1;
-	uint32 limit = 2;	
+	uint32 after = 1;
+	uint32 before = 2;
+	uint32 first = 3;
+	uint32 last = 4;	
+
 }

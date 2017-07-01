@@ -67,10 +67,5 @@ message FetchWolInterfaceByIdRequest {
 }
 
 message FetchWolInterfaceByIdResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;
-	}
-	State state = 1;
-	WolInterface wolInterface = 2;
+	repeated WolInterface wolInterfaces = 1;
 }

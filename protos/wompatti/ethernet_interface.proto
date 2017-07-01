@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package WompattiService;
 
+import "page_info.proto";
+
 message EthernetInterface {
 	uint32 id = 1;
 	string name = 2;
@@ -13,8 +15,21 @@ message EthernetInterface {
 }
 
 message FetchEthernetInterfacesRequest {
-	uint32 offset = 1;
-	uint32 limit = 2;
+	uint32 after = 1;
+	uint32 before = 2;
+	uint32 first = 3;
+	uint32 last = 4;
+}
+
+message EthernetInterfacesConnection {
+	PageInfo pageInfo = 1;
+	repeated  EthernetInterfaceEdge edges = 2;
+	uint32 totalCount = 3;
+}
+
+message EthernetInterfaceEdge {
+	EthernetInterface node = 1;
+	uint32 cursor = 2;
 }
 
 

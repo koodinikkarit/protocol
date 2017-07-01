@@ -18,23 +18,20 @@ message FetchDeviceInfoByIdRequest {
 }
 
 message FetchDeviceInfoByIdResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;
-	}
-
-	DeviceInfo deviceInfo = 1;
-	State state = 2;
-	uint32 deviceInfoId = 3;
+	repeated DeviceInfo deviceInfos = 1;
 }
 
 message FetchKeyValuesByDeviceInfoIdRequest {
 	repeated uint32 deviceInfoIdt = 1;
 }
 
-message FetchKeyValuesByDeviceInfoIdResponse {
+message DeviceInfoKeyValues {
 	repeated KeyValue keyValues = 1;
 	uint32 deviceInfoId = 2;
+}
+
+message FetchKeyValuesByDeviceInfoIdResponse {
+	repeated DeviceInfoKeyValues deviceInfoKeyValues = 1;
 }
 
 message CreateKeyValueRequest {

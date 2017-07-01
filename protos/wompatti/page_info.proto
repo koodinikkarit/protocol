@@ -5,6 +5,6 @@ package WompattiService;
 message PageInfo {
     bool hasNextPage = 1;
     bool hasPreviousPage = 2;
-    string startCursor = 3;
-    string endCursor = 4;
+    uint32 startCursor = 3;
+    uint32 endCursor = 4;
 }

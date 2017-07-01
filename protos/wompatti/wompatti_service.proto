@@ -13,41 +13,62 @@ import "serial_interface.proto";
 import "telnet_interface.proto";
 
 service Wompatti {
+	// Queries
 	rpc fetchComputers(FetchComputersRequest) returns(ComputersConnection) {}
-	rpc fetchComputerById(FetchComputerByIdRequest) returns(stream FetchComputerByIdResponse) {}
-	rpc fetchDeviceInfoById(FetchDeviceInfoByIdRequest) returns(stream FetchDeviceInfoByIdResponse) {}
-	rpc fetchKeyValuesByDeviceInfoId(FetchKeyValuesByDeviceInfoIdRequest) returns(stream FetchKeyValuesByDeviceInfoIdResponse) {}
-	rpc fetchDevices(FetchDevicesRequest) returns(stream Device) {}
-	rpc fetchDeviceById(FetchDeviceByIdRequest) returns(stream FetchDeviceByIdResponse) {}
-	rpc fetchEthernetInterfaces(FetchEthernetInterfacesRequest) returns(stream EthernetInterface) {}
-	rpc fetchWolInterfaceById(FetchWolInterfaceByIdRequest) returns(stream FetchWolInterfaceByIdResponse) {}
-	rpc fetchDeviceTypes(FetchDeviceTypesRequest) returns(stream DeviceType) {}
-	rpc fetchDeviceTypeById(FetchDeviceTypeByIdRequest) returns(stream FetchDeviceTypeByIdResponse) {}
-	rpc fetchCommandsByDeviceTypeId(FetchCommandsByDeviceTypeIdRequest) returns(stream FetchCommandsByDeviceTypeIdResponse) {}
-	rpc fetchTelnetInterfaces(FetchTelnetInterfacesRequest) returns(stream TelnetInterface) {}
-	rpc fetchTelnetInterfaceById(FetchTelnetInterfaceByIdRequest) returns(stream FetchTelnetInterfaceByIdResponse) {}
+	rpc fetchComputerById(FetchComputerByIdRequest) returns(FetchComputerByIdResponse) {}
 
+	rpc fetchDevices(FetchDevicesRequest) returns(DevicesConnection) {}
+	rpc fetchDeviceById(FetchDeviceByIdRequest) returns(FetchDeviceByIdResponse) {}
+
+	rpc fetchDeviceInfoById(FetchDeviceInfoByIdRequest) returns(FetchDeviceInfoByIdResponse) {}
+	rpc fetchKeyValuesByDeviceInfoId(FetchKeyValuesByDeviceInfoIdRequest) returns(FetchKeyValuesByDeviceInfoIdResponse) {}
+
+	rpc fetchEthernetInterfaces(FetchEthernetInterfacesRequest) returns(EthernetInterfacesConnection) {}
+
+	rpc fetchWolInterfaceById(FetchWolInterfaceByIdRequest) returns(FetchWolInterfaceByIdResponse) {}
+
+	rpc fetchDeviceTypes(FetchDeviceTypesRequest) returns(DeviceTypesConnection) {}
+	rpc fetchDeviceTypeById(FetchDeviceTypeByIdRequest) returns(FetchDeviceTypeByIdResponse) {}
+
+	rpc fetchCommandsByDeviceTypeId(FetchCommandsByDeviceTypeIdRequest) returns(FetchCommandsByDeviceTypeIdResponse) {}
+
+	rpc fetchTelnetInterfaces(FetchTelnetInterfacesRequest) returns(TelnetInterfacesConnection) {}
+	rpc fetchTelnetInterfaceById(FetchTelnetInterfaceByIdRequest) returns(FetchTelnetInterfaceByIdResponse) {}
+
+	rpc fetchSerialInterfaces(FetchSerialInterfacesRequest) returns(SerialInterfacesConnection) {}
+	rpc fetchSerialInterfaceById(FetchSerialInterfaceByIdRequest) returns(FetchSerialInterfaceByIdResponse) {}
+
+
+	// Mutations
 	rpc createComputer(CreateComputerRequest) returns(CreateComputerResponse) {}
 	rpc editComputer(EditComputerRequest) returns(EditComputerResponse) {}
 	rpc removeComputer(RemoveComputerRequest) returns(RemoveComputerResponse) {}
-	rpc createKeyValue(CreateKeyValueRequest) returns(CreateKeyValueResponse) {}
-	rpc editKeyValue(EditKeyValueRequest) returns(EditKeyValueResponse) {}
-	rpc removeKeyValue(RemoveKeyValueRequest) returns(RemoveKeyValueResponse) {}
+
 	rpc createDevice(CreateDeviceRequest) returns(CreateDeviceResponse) {}
+	rpc editDevice(EditDeviceRequest) returns(EditDeviceResponse) {}
 	rpc removeDevice(RemoveDeviceRequest) returns(RemoveDeviceResponse) {}
-	rpc createWolInterface(CreateWolInterfaceRequest) returns(CreateWolInterfaceResponse) {}	
-	rpc editWolInterface(EditWolInterfaceRequest) returns(EditWolInterfaceResponse) {}
-	rpc removeWolInterface(RemoveWolInterfaceRequest) returns(RemoveWolInterfaceResponse) {}
-	rpc executeWolInterface(ExecuteWolInterfaceRequest) returns(ExecuteWolInterfaceResponse) {}	
+
 	rpc createDeviceType(CreateDeviceTypeRequest) returns(CreateDeviceTypeResponse) {}
 	rpc editDeviceType(EditDeviceTypeRequest) returns(EditDeviceTypeResponse) {}
 	rpc removeDeviceType(RemoveDeviceTypeRequest) returns(RemoveDeviceTypeResponse) {}
+
 	rpc createCommand(CreateCommandRequest) returns(CreateCommandResponse) {}
 	rpc editCommand(EditCommandRequest) returns(EditCommandReponse) {}
 	rpc removeCommand(RemoveCommandRequest) returns(RemoveCommandResponse) {}
+
+	rpc createKeyValue(CreateKeyValueRequest) returns(CreateKeyValueResponse) {}
+	rpc editKeyValue(EditKeyValueRequest) returns(EditKeyValueResponse) {}
+	rpc removeKeyValue(RemoveKeyValueRequest) returns(RemoveKeyValueResponse) {}
+
+	rpc createWolInterface(CreateWolInterfaceRequest) returns(CreateWolInterfaceResponse) {}	
+	rpc editWolInterface(EditWolInterfaceRequest) returns(EditWolInterfaceResponse) {}
+	rpc removeWolInterface(RemoveWolInterfaceRequest) returns(RemoveWolInterfaceResponse) {}
+	rpc executeWolInterface(ExecuteWolInterfaceRequest) returns(ExecuteWolInterfaceResponse) {}
+
 	rpc createTelnetInterface(CreateTelnetInterfaceRequest) returns(CreateTelnetInterfaceResponse) {}
 	rpc editTelnetInterface(EditTelnetInterfaceRequest) returns(EditTelnetInterfaceResponse) {}
 	rpc removeTelnetInterface(RemoveTelnetInterfaceRequest) returns(RemoveTelnetInterfaceResponse) {}
+	
 	rpc createSerialInterface(CreateSerialInterfaceRequest) returns(CreateSerialInterfaceResponse) {}
 	rpc editSerialInterface(EditSerialInterfaceRequest) returns(EditSerialInterfaceResponse) {}
 	rpc removeSerialInterface(RemoveSerialInterfaceRequest) returns(RemoveSerialInterfaceResponse) {}
