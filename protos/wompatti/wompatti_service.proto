@@ -4,6 +4,7 @@ package WompattiService;
 
 import "computer.proto";
 import "device_info.proto";
+import "key_value.proto";
 import "arttu.proto";
 import "device.proto";
 import "ethernet_interface.proto";
@@ -25,10 +26,10 @@ service Wompatti {
 
 	rpc fetchEthernetInterfaces(FetchEthernetInterfacesRequest) returns(EthernetInterfacesConnection) {}
 
-	rpc fetchWolInterfaceById(FetchWolInterfaceByIdRequest) returns(FetchWolInterfaceByIdResponse) {}
-
 	rpc fetchDeviceTypes(FetchDeviceTypesRequest) returns(DeviceTypesConnection) {}
 	rpc fetchDeviceTypeById(FetchDeviceTypeByIdRequest) returns(FetchDeviceTypeByIdResponse) {}
+
+	rpc fetchWolInterfaceById(FetchWolInterfaceByIdRequest) returns(FetchWolInterfaceByIdResponse) {}
 
 	rpc fetchCommandsByDeviceTypeId(FetchCommandsByDeviceTypeIdRequest) returns(FetchCommandsByDeviceTypeIdResponse) {}
 

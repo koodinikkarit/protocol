@@ -24,6 +24,41 @@ message ComputersConnection {
 	uint32 totalCount = 3;
 }
 
+// Fetch
+
+message FetchComputerByIdRequest {
+	repeated uint32 computerIdt = 1;
+}
+
+message FetchComputerByIdResponse {
+	repeated Computer computers = 1;
+}
+
+message FetchManyComputerByIdRequest {
+	repeated uint32 id = 1;
+}
+
+message FetchManyComputerByIdResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+
+	Computer computer = 1;
+	State state = 2;
+	uint32 computerId = 3;
+}
+
+message FetchComputersRequest {
+	uint32 after = 1;
+	uint32 before = 2;
+	uint32 first = 3;
+	uint32 last = 4;	
+
+}
+
+// Mutations
+
 message CreateComputerRequest {
 	string name = 1;
 }
@@ -61,35 +96,4 @@ message RemoveComputerResponse {
 		NOT_FOUND = 1;
 	}
 	State state = 1;
-}
-
-message FetchComputerByIdRequest {
-	repeated uint32 computerIdt = 1;
-}
-
-message FetchComputerByIdResponse {
-	repeated Computer computers = 1;
-}
-
-message FetchManyComputerByIdRequest {
-	repeated uint32 id = 1;
-}
-
-message FetchManyComputerByIdResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;		
-	}
-
-	Computer computer = 1;
-	State state = 2;
-	uint32 computerId = 3;
-}
-
-message FetchComputersRequest {
-	uint32 after = 1;
-	uint32 before = 2;
-	uint32 first = 3;
-	uint32 last = 4;	
-
 }

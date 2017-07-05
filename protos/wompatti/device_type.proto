@@ -44,9 +44,6 @@ message CreateDeviceTypeResponse {
 message EditDeviceTypeRequest {
 	uint32 deviceTypeId = 1;
 	string name = 2;
-	uint32 serialInterfaceId = 3;
-	uint32 telnetInterfaceId = 4;
-	uint32 cecInterfaceId = 5;
 }
 
 message EditDeviceTypeResponse {
@@ -67,6 +64,7 @@ message RemoveDeviceTypeResponse {
 		SUCCESS = 0;
 		NOT_FOUND = 1;		
 	}
+	State state = 1;
 }
 
 message FetchDeviceTypesRequest {

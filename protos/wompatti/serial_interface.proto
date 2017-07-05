@@ -73,5 +73,9 @@ message RemoveSerialInterfaceRequest {
 }
 
 message RemoveSerialInterfaceResponse {
-
+    enum State {
+        SUCCESS = 0;
+        NOT_FOUND = 1;
+    }
+    State state = 1;
 }

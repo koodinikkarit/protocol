@@ -68,7 +68,7 @@ message EditTelnetInterfaceResponse {
 }
 
 message RemoveTelnetInterfaceRequest {
-	uint32 ethernetInterfaceId = 1;
+	uint32 telnetInterfaceId = 1;
 }
 
 message RemoveTelnetInterfaceResponse {
