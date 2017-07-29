@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message SongDatabase {
+	uint32 id = 1;
+	uint32 name = 2;
+	uint64 version = 3;
+}
+
+message SongDatabaseEdge {
+	SongDatabase songDatabase = 1;
+	uint32 cursor = 2;
+}
+
+message SongDatabasesConnection {
+	repeated SongDatabaseEdge edges = 1;
+	uint32 totalCount = 3;
+}
+
+// Fetch
+
+message FetchSongDatabasesRequest {
+	uint32 after = 1;
+	uint32 before = 2;
+	uint32 first = 3;
+	uint32 last = 4;
+}
+
+message FetchSongDatabaseByIdRequest {
+	repeated uint32 songDatabasesIds = 1;
+}
+
+message FetchSongDatabaseByIdResponse {
+	repeated SongDatabase songDatabases = 1;
+}
+
+// Mutation
+
+message CreateSongDatabaseRequest {
+
+}
+
+message CreateSongDatabaseResponse {
+
+}
+
+message EditSongDatabaseRequest {
+
+}
+
+message EditSongDatabaseResponse {
+
+}
+
+message RemoveSongDatabaseRequest {
+
+}
+
+message RemoveSongDatabaseResponse {
+	
+}

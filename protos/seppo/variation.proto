@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message Variation {
+	uint32 id = 1;
+	string name = 2;
+	uint32 songId = 3;
+	string text = 4;
+	uint64 version = 5;
+}
+
+message CreateVariationRequest {
+	string name = 1;
+	string text = 2;
+}
+
+message CreateVariationResponse {
+	Variation variation = 1;
+}
+
+message EditVariationRequest {
+	uint32 variationId = 1;
+	string name = 2;
+	string text = 3;
+	uint32 songId = 4;
+	uint64 version = 5;
+}
+
+message EditVariationResponse {
+	Variation variation = 1;
+}
+
+
+message FetchVariationByIdRequest {
+	repeated uint32 variationIds = 1;
+}
+
+message FetchVariationByIdResponse {
+	repeated Variation variations = 1;
+}
+
+message SearchVariationsRequest {
+	string searchWord = 1;
+	uint32 songDatabaseId = 2;
+}
+
+message SearchVariationsResponse {
+	repeated Variation variations = 1;
+}

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package SeppoService;
+
+import "song_database.proto";
+import "ew_database.proto";
+import "ew_song.proto";
+import "ew_verse.proto";
+
+import "variation.proto";
+
+
+service Seppo {
+	// Queries
+	
+	// rpc fetchSongDatabases(FetchSongDatabasesRequest) returns (SongDatabasesConnection) {}
+	// rpc fetchSongDatabaseById(FetchSongDatabaseByIdRequest) returns(FetchSongDatabaseByIdResponse) {}
+
+	rpc fetchVariationById(FetchVariationByIdRequest) returns(FetchVariationByIdResponse) {}
+
+	rpc searchVariations(SearchVariationsRequest) returns(SearchVariationsResponse) {}
+	rpc listenForChangedEwSong(ListenForChangedEwSongRequest) returns(stream EwSong) {}
+
+	// Mutations
+
+	// rpc createSongDatabase(CreateSongDatabaseRequest) returns(CreateSongDatabaseResponse) {}
+	// rpc editSongDatabase(EditSongDatabaseRequest) returns(EditSongDatabaseResponse) {}
+	// rpc removeSongDatabase(RemoveSongDatabaseRequest) returns( RemoveSongDatabaseResponse) {}
+
+	rpc createVariation(CreateVariationRequest) returns(CreateVariationResponse) {}
+	rpc editVariation(EditVariationRequest) returns(EditVariationResponse) {}
+	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
+}
