@@ -2,11 +2,18 @@ syntax = "proto3";
 
 package WompattiService;
 
+import "device_info.proto";
+
 message KeyValue {
 	uint32 id = 1;
 	uint32 deviceInfoId = 2;
 	string key = 3;
 	string value = 4;
+}
+
+message DeviceInfoKeyValues {
+	repeated KeyValue keyValues = 1;
+	uint32 deviceInfoId = 2;
 }
 
 // Fetch

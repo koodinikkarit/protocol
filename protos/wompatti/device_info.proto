@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package WompattiService;
 
-import "key_value.proto";
-
 message DeviceInfo {
 	uint32 id = 1;
 }
@@ -18,8 +16,5 @@ message FetchDeviceInfoByIdResponse {
 
 
 
-message DeviceInfoKeyValues {
-	repeated KeyValue keyValues = 1;
-	uint32 deviceInfoId = 2;
-}
+
 
