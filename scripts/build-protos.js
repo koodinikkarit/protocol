@@ -19,12 +19,6 @@ config.projects.forEach(project => {
 								console.log(strerr);
 							});
 						break;
-					case "pure-go":
-						exec(`protoc --proto_path=${servicePath} ${servicePath}/*.proto`,
-							(error, stdout, strerr) => {
-								console.log(strerr);
-							});
-						break;
 					case "node":
 						fs.readdir(`./protos/${project["service"]}`, (err, files) => {
 							files.forEach(file => {
