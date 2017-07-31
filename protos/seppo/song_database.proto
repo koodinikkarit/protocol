@@ -4,12 +4,12 @@ package SeppoService;
 
 message SongDatabase {
 	uint32 id = 1;
-	uint32 name = 2;
+	string name = 2;
 	uint64 version = 3;
 }
 
 message SongDatabaseEdge {
-	SongDatabase songDatabase = 1;
+	SongDatabase node = 1;
 	uint32 cursor = 2;
 }
 
@@ -18,7 +18,7 @@ message SongDatabasesConnection {
 	uint32 totalCount = 3;
 }
 
-// Fetch
+// Queries
 
 message FetchSongDatabasesRequest {
 	uint32 after = 1;
@@ -38,23 +38,24 @@ message FetchSongDatabaseByIdResponse {
 // Mutation
 
 message CreateSongDatabaseRequest {
-
+	string name = 1;
 }
 
 message CreateSongDatabaseResponse {
-
+	SongDatabase songDatabase = 1;
 }
 
 message EditSongDatabaseRequest {
-
+	uint32 songDatabaseId = 1;
+	string name = 2;
 }
 
 message EditSongDatabaseResponse {
-
+	SongDatabase songDatabase = 1;
 }
 
 message RemoveSongDatabaseRequest {
-
+	uint32 songDatabaseId = 1;
 }
 
 message RemoveSongDatabaseResponse {

@@ -6,8 +6,54 @@ import "ew_song.proto";
 
 message EwDatabase {
 	uint32 id = 1;
-	uint32 dbId = 2;
+	uint32 songDatabaseId = 2;
 	uint64 version = 3;
+}
+
+message EwDatabasesConnection {
+	repeated EwDatabase ewDatabases = 1;
+}
+
+// Queries
+
+message ListenForChangedEwSongRequest {
+	uint32 ewDatabaseId = 1;
+}
+
+message FetchEwDatabasesRequest {
+
+}
+
+message FetchEwDatabasesResponse {
+	repeated EwDatabase ewDatabases = 1;
+}
+
+message FetchEwDatabaseByIdRequest {
+	repeated uint32 ewDatabaseIds = 1;
+}
+
+message FetchEwDatabaseByIdResponse {
+	repeated EwDatabase ewDatabases = 1;
+}
+
+// Mutations
+
+message CreateEwDatabaseRequest {
+	uint32 songDatabaseId = 1;
+
+}
+
+message CreateEwDatabaseResponse {
+	EwDatabase ewDatabase = 1;
+}
+
+
+message RemoveEwDatabaseRequest {
+	uint32 ewDatabaseId = 1;
+}
+
+message RemoveEwDatabaseResponse {
+
 }
 
 message SyncEwDatabaseRequest {
@@ -19,6 +65,3 @@ message SyncEwDatabaseResponse {
 	repeated EwSong ewSongs = 1;
 }
 
-message ListenForChangedEwSongRequest {
-	uint32 ewDatabaseId = 1;
-}

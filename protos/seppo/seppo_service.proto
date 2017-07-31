@@ -13,21 +13,29 @@ import "variation.proto";
 service Seppo {
 	// Queries
 	
-	// rpc fetchSongDatabases(FetchSongDatabasesRequest) returns (SongDatabasesConnection) {}
-	// rpc fetchSongDatabaseById(FetchSongDatabaseByIdRequest) returns(FetchSongDatabaseByIdResponse) {}
-
 	rpc fetchVariationById(FetchVariationByIdRequest) returns(FetchVariationByIdResponse) {}
-
 	rpc searchVariations(SearchVariationsRequest) returns(SearchVariationsResponse) {}
 	rpc listenForChangedEwSong(ListenForChangedEwSongRequest) returns(stream EwSong) {}
 
-	// Mutations
+	rpc fetchSongDatabases(FetchSongDatabasesRequest) returns (SongDatabasesConnection) {}
+	rpc fetchSongDatabaseById(FetchSongDatabaseByIdRequest) returns(FetchSongDatabaseByIdResponse) {}
 
-	// rpc createSongDatabase(CreateSongDatabaseRequest) returns(CreateSongDatabaseResponse) {}
-	// rpc editSongDatabase(EditSongDatabaseRequest) returns(EditSongDatabaseResponse) {}
-	// rpc removeSongDatabase(RemoveSongDatabaseRequest) returns( RemoveSongDatabaseResponse) {}
+	rpc fetchEwDatabases(FetchEwDatabasesRequest) returns(EwDatabasesConnection) {}
+	rpc fetchEwDatabaseById(FetchEwDatabaseByIdRequest) returns(FetchEwDatabaseByIdResponse) {}
+
+
+	// Mutations
 
 	rpc createVariation(CreateVariationRequest) returns(CreateVariationResponse) {}
 	rpc editVariation(EditVariationRequest) returns(EditVariationResponse) {}
+
+	rpc createSongDatabase(CreateSongDatabaseRequest) returns(CreateSongDatabaseResponse) {}
+	rpc editSongDatabase(EditSongDatabaseRequest) returns(EditSongDatabaseResponse) {}
+	rpc removeSongDatabase(RemoveSongDatabaseRequest) returns(RemoveSongDatabaseResponse) {}
+
+	rpc createEwDatabase(CreateEwDatabaseRequest) returns(CreateEwDatabaseResponse) {}
+	rpc removeEwDatabase(RemoveEwDatabaseRequest) returns(RemoveEwDatabaseResponse) {}
+
+
 	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
 }
