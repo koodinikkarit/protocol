@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package SeppoService;
-
-message SongDatabaseVariation {
-	uint32 id = 1;
-	uint32 songDatabaseId = 2;
-	uint32 variationId = 3;
-}

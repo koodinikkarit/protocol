@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package SeppoService;
+import "song_database_variation.proto";
 
 message SongDatabase {
 	uint32 id = 1;
