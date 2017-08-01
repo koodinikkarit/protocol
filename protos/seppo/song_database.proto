@@ -28,7 +28,7 @@ message FetchSongDatabasesRequest {
 }
 
 message FetchSongDatabaseByIdRequest {
-	repeated uint32 songDatabasesIds = 1;
+	repeated uint32 songDatabaseIds = 1;
 }
 
 message FetchSongDatabaseByIdResponse {

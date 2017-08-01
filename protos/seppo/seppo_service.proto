@@ -28,6 +28,7 @@ service Seppo {
 
 	rpc createVariation(CreateVariationRequest) returns(CreateVariationResponse) {}
 	rpc editVariation(EditVariationRequest) returns(EditVariationResponse) {}
+	rpc removeVariation(RemoveVariationRequest) returns(RemoveVariationResponse) {}
 
 	rpc createSongDatabase(CreateSongDatabaseRequest) returns(CreateSongDatabaseResponse) {}
 	rpc editSongDatabase(EditSongDatabaseRequest) returns(EditSongDatabaseResponse) {}

@@ -31,6 +31,14 @@ message EditVariationResponse {
 	Variation variation = 1;
 }
 
+message RemoveVariationRequest {
+	uint32 variationId = 1;
+}
+
+message RemoveVariationResponse {
+
+}
+
 
 message FetchVariationByIdRequest {
 	repeated uint32 variationIds = 1;
