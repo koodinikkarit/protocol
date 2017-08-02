@@ -48,6 +48,15 @@ message CreateEwDatabaseResponse {
 	EwDatabase ewDatabase = 1;
 }
 
+message EditEwDatabaseRequest {
+	uint32 ewDatabaseId = 1;
+	string name = 2;
+	uint32 songDatabaseId = 3;
+}
+
+message EditEwDatabaseResponse {
+	EwDatabase ewDatabase = 1;
+}
 
 message RemoveEwDatabaseRequest {
 	uint32 ewDatabaseId = 1;

@@ -37,6 +37,7 @@ service Seppo {
 	rpc removeSongDatabase(RemoveSongDatabaseRequest) returns(RemoveSongDatabaseResponse) {}
 
 	rpc createEwDatabase(CreateEwDatabaseRequest) returns(CreateEwDatabaseResponse) {}
+	rpc editEwDatabase(EditEwDatabaseRequest) returns(EditEwDatabaseResponse) {}
 	rpc removeEwDatabase(RemoveEwDatabaseRequest) returns(RemoveEwDatabaseResponse) {}
 
 	rpc addVariationToSongDatabase(AddVariationToSongDatabaseRequest) returns(AddVariationToSongDatabaseResponse) {}
