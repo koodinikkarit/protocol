@@ -6,8 +6,9 @@ import "ew_song.proto";
 
 message EwDatabase {
 	uint32 id = 1;
-	uint32 songDatabaseId = 2;
-	uint64 version = 3;
+	string name = 2;
+	uint32 songDatabaseId = 3;
+	uint64 version = 4;
 }
 
 message EwDatabasesConnection {
@@ -40,7 +41,7 @@ message FetchEwDatabaseByIdResponse {
 
 message CreateEwDatabaseRequest {
 	uint32 songDatabaseId = 1;
-
+	string name = 2;
 }
 
 message CreateEwDatabaseResponse {
