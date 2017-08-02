@@ -51,6 +51,7 @@ message FetchVariationByIdResponse {
 message SearchVariationsRequest {
 	string searchWord = 1;
 	uint32 songDatabaseId = 2;
+	uint32 songDatabaseFilterId = 3;
 }
 
 message SearchVariationsResponse {
