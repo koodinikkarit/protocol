@@ -44,4 +44,5 @@ service Seppo {
 	rpc removeVariationFromSongDatabase(RemoveVariationFromSongDatabaseRequest) returns(RemoveVariationFromSongDatabaseResponse) {}
 
 	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
+	rpc insertEwSongIds(InsertEwSongIdsRequest) returns(InsertEwSongIdsResponse) {}
 }

@@ -73,5 +73,6 @@ message SyncEwDatabaseRequest {
 
 message SyncEwDatabaseResponse {
 	repeated EwSong ewSongs = 1;
+	repeated uint32 removeEwSongIds = 2;
 }
 

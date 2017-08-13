@@ -13,4 +13,19 @@ message EwSong {
 	string description = 6;
 	string tags = 7;
 	string text = 8;
+	uint32 variationId = 9;
+}
+
+message VariationIdEwSongId {
+	uint32 ewSongId = 1;
+	uint32 variationId = 2;	
+}
+
+message InsertEwSongIdsRequest {
+	uint32 ewDatabaseId = 1;
+	repeated VariationIdEwSongId variationIdEwSongIds = 2;
+}
+
+message InsertEwSongIdsResponse {
+
 }
