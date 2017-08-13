@@ -18,3 +18,23 @@ go get github.com/golang/protobuf/protoc-gen-go
 npm
 
 npm install -g grpc-tools
+
+
+### build.config.json
+Mahdolliset kielet go, node ja move.
+
+```
+{
+	projects: [
+		{
+			"service": "service name",
+			"protoOutputs": [
+				{
+					"lang": "go",
+					"path": "build directory"
+				}
+			]
+		}
+	]
+}
+```
