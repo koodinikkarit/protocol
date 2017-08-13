@@ -26,6 +26,8 @@ service Seppo {
 
 	rpc fetchVariationsBySongDatabaseId(FetchVariationsBySongDatabaseIdRequest) returns(FetchVariationsBySongDatabaseIdResponse) {}
 
+	rpc fetchVariationTextByVariationId(FetchVariationTextByVariationIdRequest) returns(FetchVariationTextByVariationIdResponse) {}
+
 	// Mutations
 
 	rpc createVariation(CreateVariationRequest) returns(CreateVariationResponse) {}

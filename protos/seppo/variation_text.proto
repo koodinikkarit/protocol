@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message VariationText {
+	uint32 id = 1;
+	uint32 variationId = 2;
+	string text = 3;
+}
+
+message FetchVariationTextByVariationIdRequest {
+	uint32 variationId = 1;
+}
+
+message FetchVariationTextByVariationIdResponse {
+	VariationText variationText = 1;
+}
