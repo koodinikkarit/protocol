@@ -9,6 +9,7 @@ message EwDatabase {
 	string name = 2;
 	uint32 songDatabaseId = 3;
 	uint64 version = 4;
+	string key = 5;
 }
 
 message EwDatabasesConnection {
@@ -67,7 +68,7 @@ message RemoveEwDatabaseResponse {
 }
 
 message SyncEwDatabaseRequest {
-	uint32 EwDatabaseId = 1;
+	string ewDatabaseKey = 1;
 	repeated EwSong ewSongs = 2;
 }
 
