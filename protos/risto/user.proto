@@ -4,7 +4,7 @@ package RistoService;
 
 message User {
 	uint32 id = 1;
-	string username = 2;
+	string userName = 2;
 }
 
 message CreateUserRequest {
