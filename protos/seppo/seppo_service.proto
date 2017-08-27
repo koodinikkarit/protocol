@@ -7,8 +7,11 @@ import "song_database_variation.proto";
 import "ew_database.proto";
 import "ew_song.proto";
 import "ew_verse.proto";
+import "tag.proto";
+import "language.proto";
 
 import "variation.proto";
+import "variation_text.proto";
 
 
 service Seppo {
@@ -27,6 +30,12 @@ service Seppo {
 	rpc fetchVariationsBySongDatabaseId(FetchVariationsBySongDatabaseIdRequest) returns(FetchVariationsBySongDatabaseIdResponse) {}
 
 	rpc fetchVariationTextByVariationId(FetchVariationTextByVariationIdRequest) returns(FetchVariationTextByVariationIdResponse) {}
+
+	rpc searchTags(SearchTagsRequest) returns(TagsConnection) {}
+	rpc fetchTagById(FetchTagByIdRequest) returns(FetchTagByIdResponse) {}
+
+	rpc searchLanguages(SearchLanguagesRequest) returns(LanguagesConnection) {}
+	rpc fetchLanguageById(FetchLanguageByIdRequest) returns(FetchLanguageByIdResponse) {}
 
 	// Mutations
 
@@ -47,4 +56,13 @@ service Seppo {
 
 	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
 	rpc insertEwSongIds(InsertEwSongIdsRequest) returns(InsertEwSongIdsResponse) {}
+	rpc changeEwSongIds(ChangeEwSongIdsRequest) returns(ChangeEwSongIdsResponse) {}
+
+	rpc createTag(CreateTagRequest) returns(CreateTagResponse) {}
+	rpc editTag(EditTagRequest) returns(EditTagResponse) {}
+	rpc removeTag(RemoveTagRequest) returns(RemoveTagResponse) {}
+
+	rpc createLanguage(CreateLanguageRequest) returns(CreateLanguageResponse) {}
+	rpc editLanguage(EditLanguageRequest) returns(EditLanguageResponse) {}
+	rpc removeLanguage(RemoveLanguageRequest) returns(RemoveLanguageResponse) {}
 }

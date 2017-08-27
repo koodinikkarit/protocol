@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message Tag {
+	uint32 id = 1;
+	string name = 2;
+}
+
+message TagsConnection {
+	repeated Tag tags = 1;
+	uint32 maxTags = 2;
+}
+
+// Queries
+
+message SearchTagsRequest {
+
+}
+
+message FetchTagByIdRequest {
+	repeated uint32 tagIds = 1;
+}
+
+message FetchTagByIdResponse {
+	repeated Tag tags = 1;
+}
+
+// Mutations
+
+message CreateTagRequest {
+	string name = 1;
+}
+
+message CreateTagResponse {
+	Tag tag = 1;
+}
+
+message EditTagRequest {
+	uint32 tagId = 1;
+	string name = 2;
+}
+
+message EditTagResponse {
+	Tag tag = 1;	
+}
+
+message RemoveTagRequest {
+	uint32 tagId = 1;
+}
+
+message RemoveTagResponse {
+	bool success = 1;
+}

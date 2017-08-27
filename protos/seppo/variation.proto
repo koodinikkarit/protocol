@@ -6,7 +6,6 @@ message Variation {
 	uint32 id = 1;
 	string name = 2;
 	uint32 songId = 3;
-	string text = 4;
 	uint64 version = 5;
 }
 
@@ -56,4 +55,5 @@ message SearchVariationsRequest {
 
 message SearchVariationsResponse {
 	repeated Variation variations = 1;
+	uint32 maxVariations = 2;
 }

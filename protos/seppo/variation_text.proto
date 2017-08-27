@@ -9,9 +9,9 @@ message VariationText {
 }
 
 message FetchVariationTextByVariationIdRequest {
-	uint32 variationId = 1;
+	repeated uint32 variationIds = 1;
 }
 
 message FetchVariationTextByVariationIdResponse {
-	VariationText variationText = 1;
+	repeated VariationText variationTexts = 1;
 }

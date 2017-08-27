@@ -21,11 +21,26 @@ message VariationIdEwSongId {
 	uint32 variationId = 2;	
 }
 
+message NewSongId {
+	uint32 oldEwSongId = 1;
+	uint32 newEwSongId = 2;
+}
+
 message InsertEwSongIdsRequest {
-	uint32 ewDatabaseId = 1;
+	string ewDatabaseKey = 1;
 	repeated VariationIdEwSongId variationIdEwSongIds = 2;
+	repeated NewSongId newSongIds = 3;
 }
 
 message InsertEwSongIdsResponse {
+
+}
+
+message ChangeEwSongIdsRequest {
+	string ewDatabaseKey = 1;
+	repeated NewSongId newSongIds = 2;
+}
+
+message ChangeEwSongIdsResponse {
 
 }

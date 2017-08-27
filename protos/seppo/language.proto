@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message Language {
+	uint32 id = 1;
+	string name = 2;
+}
+
+message LanguagesConnection {
+	repeated Language languages = 1;
+	uint32 maxVariations = 2;
+}
+
+// Queries
+
+message SearchLanguagesRequest {
+
+}
+
+message FetchLanguageByIdRequest {
+	repeated uint32 languagesIds = 1;
+}
+
+message FetchLanguageByIdResponse {
+	repeated Language languages = 1;
+}
+
+// Mutations
+
+message CreateLanguageRequest {
+	string name = 1;
+}
+
+message CreateLanguageResponse {
+	Language language = 1;
+}
+
+message EditLanguageRequest {
+	uint32 languageId = 1;
+	string name = 2;
+}
+
+message EditLanguageResponse {
+ 	Language language = 1;
+}
+
+message RemoveLanguageRequest {
+	uint32 languageId = 1;
+}
+
+message RemoveLanguageResponse {
+	bool success = 1;
+}
