@@ -9,7 +9,7 @@ message Language {
 
 message LanguagesConnection {
 	repeated Language languages = 1;
-	uint32 maxVariations = 2;
+	uint32 maxLanguages = 2;
 }
 
 // Queries
