@@ -19,7 +19,7 @@ message SearchLanguagesRequest {
 }
 
 message FetchLanguageByIdRequest {
-	repeated uint32 languagesIds = 1;
+	repeated uint32 languageIds = 1;
 }
 
 message FetchLanguageByIdResponse {
