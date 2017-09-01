@@ -7,7 +7,10 @@ message Variation {
 	string name = 2;
 	uint32 songId = 3;
 	uint64 version = 5;
+	uint32 languageId = 6;
 }
+
+// Mutate
 
 message CreateVariationRequest {
 	string name = 1;
@@ -23,7 +26,7 @@ message EditVariationRequest {
 	string name = 2;
 	string text = 3;
 	uint32 songId = 4;
-	uint64 version = 5;
+	uint32 languageId = 5;
 }
 
 message EditVariationResponse {
@@ -38,6 +41,7 @@ message RemoveVariationResponse {
 
 }
 
+// Fetch
 
 message FetchVariationByIdRequest {
 	repeated uint32 variationIds = 1;
