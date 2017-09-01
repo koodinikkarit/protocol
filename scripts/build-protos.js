@@ -3,6 +3,7 @@ const fs = require("fs");
 var fsx = require('fs.extra');
 const execFile = require('child_process').execFile;
 var exec = require('child_process').exec;
+const execSync = require("child_process").execSync;
 
 config.projects.forEach(project => {
 	if (!project.disabled) {
@@ -14,19 +15,13 @@ config.projects.forEach(project => {
 				var servicePath = "protos/" + project.service;
 				switch (output.lang) {
 					case "go":
-						exec(`protoc --proto_path=${servicePath} --go_out=plugins=grpc:${output["path"]} ${servicePath}/*.proto`,
-							(error, stdout, strerr) => {
-								console.log(strerr);
-							});
+						execSync(`protoc --proto_path=${servicePath} --go_out=plugins=grpc:${output["path"]} ${servicePath}/*.proto`);
 						break;
 					case "node":
 						fs.readdir(`./protos/${project["service"]}`, (err, files) => {
 							files.forEach(file => {
 								if (file.endsWith(".proto")) {
-									exec(`grpc_tools_node_protoc --proto_path=${servicePath} --js_out=import_style=commonjs,binary:${output.path} --grpc_out=${output.path} --plugin=grpc_tools_node_protoc_plugin ${servicePath}/${file}`,
-										(error, stdout, strerr) => {
-											console.log(strerr);
-										});
+									execSync(`grpc_tools_node_protoc --proto_path=${servicePath} --js_out=import_style=commonjs,binary:${output.path} --grpc_out=${output.path} --plugin=grpc_tools_node_protoc_plugin ${servicePath}/${file}`);
 								}
 							});
 						});
