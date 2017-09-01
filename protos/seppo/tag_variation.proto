@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package SeppoService;
+
+import "tag.proto";
+import "variation.proto";
+
+message TagVariation {
+	uint32 id = 1;
+	uint32 tagId = 2;
+	uint32 variationId = 3;
+}
+
+message VariationTags {
+	uint32 variationId = 1;
+	repeated Tag tags = 2;
+}
+
+message TagVariations {
+	uint32 tagId = 1;
+	repeated Variation variations = 2;
+}
+
+// Fetch
+
+message FetchVariationTagsRequest {
+	repeated uint32 variationIds = 1;
+}
+
+message FetchVariationTagsResponse {
+	repeated VariationTags variationTags = 1;
+}
+
+message FetchTagVariationsRequest {
+	repeated uint32 tagIds = 1;
+}
+
+message FetchTagVariationsResponse {
+	repeated TagVariations tagVariations = 1;
+}
+
+// Mutate
+
+message AddTagToVariationRequest {
+	uint32 tagId = 1;
+	uint32 variationId = 2;
+}
+
+message AddTagToVariationResponse {
+	bool success = 1;
+	TagVariation tagVariation = 2;
+}
+
+message RemoveTagFromVariationRequest {
+	uint32 tagId = 1;
+	uint32 variationId = 2;
+}
+
+message RemoveTagFromVariationResponse {
+	bool success = 1;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package SeppoService;
+
+import "variation.proto";
+
+message LanguageVariations {
+	uint32 languageId = 1;
+	repeated Variation variations = 2;
+}
+
+message FetchLanguageVariationsRequest {
+	uint32 languageIds = 1;
+}
+
+message FetchLanguageVariationsResponse {
+	repeated LanguageVariations languageVariations = 1;
+}

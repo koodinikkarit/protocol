@@ -27,6 +27,7 @@ message FetchSongDatabasesRequest {
 	uint32 first = 3;
 	uint32 last = 4;
 	string searchWord = 5;
+	uint32 variationId = 6;
 }
 
 message FetchSongDatabaseByIdRequest {
