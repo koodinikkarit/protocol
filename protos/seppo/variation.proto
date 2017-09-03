@@ -55,6 +55,8 @@ message SearchVariationsRequest {
 	string searchWord = 1;
 	uint32 songDatabaseId = 2;
 	uint32 songDatabaseFilterId = 3;
+	uint32 tagId = 4;
+	uint32 languageId = 5;
 }
 
 message SearchVariationsResponse {
