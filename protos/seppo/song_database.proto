@@ -51,6 +51,8 @@ message CreateSongDatabaseResponse {
 message EditSongDatabaseRequest {
 	uint32 songDatabaseId = 1;
 	string name = 2;
+	repeated uint32 addTagIds = 3;
+	repeated uint32 removeTagIds = 4;
 }
 
 message EditSongDatabaseResponse {

@@ -15,7 +15,7 @@ message TagsConnection {
 // Queries
 
 message SearchTagsRequest {
-
+	uint32 songDatabaseId = 1;
 }
 
 message FetchTagByIdRequest {
