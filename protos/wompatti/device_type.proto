@@ -9,24 +9,25 @@ message DeviceType {
 	string name = 2;
 }
 
-message Command {
-	uint32 id = 1;
-	uint32 deviceTypeId = 2;
-	string name = 3;
-	string value = 4;
+// Fetch
+
+message FetchDeviceTypesRequest {
+
 }
 
-message DeviceTypesConnection {
-	PageInfo pageInfo = 1;
-	repeated DeviceTypesEdge edges = 2;
-	uint32 totalCount = 3;
+message FetchDeviceTypesResponse {
+	
 }
 
-message DeviceTypesEdge {
-	DeviceType node = 1;
-	uint32 cursor = 2;
+message FetchDeviceTypeByIdRequest {
+	repeated uint32 deviceTypesIdt = 1;
 }
 
+message FetchDeviceTypeByIdResponse {
+	repeated DeviceType deviceTypes = 1;
+}
+
+// Mutate
 
 message CreateDeviceTypeRequest {
 	string name = 1;
@@ -65,75 +66,4 @@ message RemoveDeviceTypeResponse {
 		NOT_FOUND = 1;		
 	}
 	State state = 1;
-}
-
-message FetchDeviceTypesRequest {
-	uint32 after = 1;
-	uint32 before = 2;
-	uint32 first = 3;
-	uint32 last = 4;
-}
-
-message FetchDeviceTypeByIdRequest {
-	repeated uint32 deviceTypesIdt = 1;
-}
-
-message FetchDeviceTypeByIdResponse {
-	repeated DeviceType deviceTypes = 1;
-}
-
-
-message CreateCommandRequest {
-	uint32 deviceTypeId = 1;
-	string name = 3;
-	string value = 4;	
-}
-
-message CreateCommandResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;		
-	}
-	State state = 1;
-	Command command = 2;
-}
-
-message EditCommandRequest {
-	uint32 commandId = 1;
-	string name = 3;
-	string value = 4;	
-}
-
-message EditCommandReponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;		
-	}
-	State state = 1;
-	Command command = 2;
-}
-
-message RemoveCommandRequest {
-	uint32 commandId = 1;
-}
-
-message RemoveCommandResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;		
-	}
-	State state = 1;
-}
-
-message FetchCommandsByDeviceTypeIdRequest {
-	repeated uint32 deviceTypeIdt = 1;
-}
-
-message DeviceTypeCommands {
-	repeated Command commands = 1;
-	uint32 deviceTypeId = 2;
-}
-
-message FetchCommandsByDeviceTypeIdResponse {
-	repeated DeviceTypeCommands deviceTypeCommands = 1;
 }

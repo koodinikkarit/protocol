@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message Command {
+	uint32 id = 1;
+	uint32 deviceTypeId = 2;
+	string name = 3;
+	string value = 4;
+}
+
+// Fetch
+
+message FetchCommandsRequest {
+
+}
+
+message FetchCommandsResponse {
+
+}
+
+message FetchCommandsByDeviceTypeIdRequest {
+
+}
+
+message FetchCommandsByDeviceTypeIdResponse {
+	
+}
+
+message FetchCommandByIdRequest {
+
+}
+
+message FetchCommandByIdResponse {
+
+}
+
+// Mutate
+
+message CreateCommandRequest {
+	uint32 deviceTypeId = 1;
+	string name = 3;
+	string value = 4;	
+}
+
+message CreateCommandResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+	Command command = 2;
+}
+
+message EditCommandRequest {
+	uint32 commandId = 1;
+	string name = 3;
+	string value = 4;	
+}
+
+message EditCommandReponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+	Command command = 2;
+}
+
+message RemoveCommandRequest {
+	uint32 commandId = 1;
+}
+
+message RemoveCommandResponse {
+	enum State {
+		SUCCESS = 0;
+		NOT_FOUND = 1;		
+	}
+	State state = 1;
+}

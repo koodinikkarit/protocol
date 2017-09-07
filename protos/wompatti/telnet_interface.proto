@@ -7,7 +7,7 @@ import "page_info.proto";
 message TelnetInterface {
 	uint32 id = 1;
 	string ip = 2;
-	string port = 3;
+	uint32 port = 3;
 }
 
 message TelnetInterfacesConnection {
@@ -25,10 +25,11 @@ message TelnetInterfacesEdge {
 // Fetch
 
 message FetchTelnetInterfacesRequest {
-	uint32 after = 1;
-	uint32 before = 2;
-	uint32 first = 3;
-	uint32 last = 4;
+
+}
+
+message FetchTelnetInterfacesResponse {
+	
 }
 
 

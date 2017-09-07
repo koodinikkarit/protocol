@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message Severi {
+	uint32 id = 1;
+	string ip = 2;
+	uint32 port = 3;
+}
+
+// Fetch
+
+message FetchSeverisRequest {
+
+}
+
+message FetchSeverisResponse {
+	
+}
+
+message FetchSeveriByIdRequest {
+
+}
+
+message FetchSeveriByIdResponse {
+	
+}
+
+
+// Mutate
+
+message CreateSeveriRequest {
+
+}
+
+message CreateSeveriResponse {
+	
+}
+
+message EditSeveriRequest {
+
+}
+
+message EditSeveriResponse {
+	
+}
+
+message RemoveSeveriRequest {
+
+}
+
+message RemoveSeveriResponse {
+	
+}

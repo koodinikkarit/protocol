@@ -5,28 +5,42 @@ package WompattiService;
 message WolInterface {
 	uint32 id = 1;
 	uint32 ethernetInterfaceId = 2;
-	bytes mac = 3;
+	string mac = 3;
 }
 
+// Fetch
+
+message FetchWolInterfacesRequest {
+
+}
+
+message FetchWolInterfacesResponse {
+	repeated WolInterface wolInterfaces = 1;
+}
+
+message FetchWolInterfaceByIdRequest {
+	repeated uint32 wolInterfaceIdt = 1;
+}
+
+message FetchWolInterfaceByIdResponse {
+	repeated WolInterface wolInterfaces = 1;
+}
+
+// Mutate
+
 message CreateWolInterfaceRequest {
-	uint32 computerId = 1;
 	uint32 ethernetInterfaceId = 2;
-	bytes mac = 3;
+	string mac = 3;
 }
 
 message CreateWolInterfaceResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;
-	}
-	State state = 1;
-	WolInterface wolInterface = 2;
+	WolInterface wolInterface = 1;
 }
 
 message EditWolInterfaceRequest {
 	uint32 wolInterfaceId = 1;
 	uint32 ethernetInterfaceId = 2;
-	bytes mac = 3;	
+	string mac = 3;	
 }
 
 message EditWolInterfaceResponse {
@@ -48,24 +62,17 @@ message RemoveWolInterfaceResponse {
 		NOT_FOUND = 1;
 	}
 	State state = 1;
+	bool success = 2;
 }
 
-message ExecuteWolInterfaceRequest {
+message WakeupWolInterfaceRequest {
 	uint32 wolInterfaceId = 1;
 }
 
-message ExecuteWolInterfaceResponse {
+message WakeupWolInterfaceResponse {
 	enum State {
 		SUCCESS = 0;
 		NOT_FOUND = 1;
 	}
 	State state = 1;
-}
-
-message FetchWolInterfaceByIdRequest {
-	repeated uint32 wolInterfaceIdt = 1;
-}
-
-message FetchWolInterfaceByIdResponse {
-	repeated WolInterface wolInterfaces = 1;
 }

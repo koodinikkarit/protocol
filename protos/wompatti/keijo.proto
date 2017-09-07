@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package WompattiService;
+
+message Keijo {
+	uint32 id = 1;
+	string ip = 2;
+	uint32 port = 3;
+}
+
+// Fetch
+
+message FetchKeijosRequest {
+
+}
+
+message FetchKeijosResponse {
+	
+}
+
+message FetchKeijoByIdRequest {
+	
+}
+
+message FetchKeijoByIdResponse {
+	
+}
+
+// Mutate
+
+message CreateKeijoRequest {
+
+}
+
+message CreateKeijoResponse {
+
+}
+
+message EditKeijoRequest {
+
+}
+
+message EditKeijoResponse {
+
+}
+
+message RemoveKeijoRequest {
+
+}
+
+message RemoveKeijoResponse {
+	
+}

@@ -7,13 +7,33 @@ import "page_info.proto";
 
 message Device {
 	uint32 id = 1;
-	uint32 deviceInfoId = 2;
-	string name = 3;
-	uint32 deviceTypeId = 4;
-	uint32 serialInterfaceId = 5;
-	uint32 telnetInterfaceId = 6;
-	uint32 cecInterfaceId = 7;
+	string name = 2;
+	uint32 telnetInterfaceId = 3;
+	uint32 keijoId = 4;
+	uint32 wolInterfaceId = 5;
+	uint32 severiId = 6;
+	uint32 deviceTypeId = 7;
 }
+
+// Fetch
+
+message FetchDevicesRequest {
+	
+}
+
+message FetchDevicesResponse {
+
+}
+
+message FetchDeviceByIdRequest {
+	repeated uint32 deviceIds = 1;
+}
+
+message FetchDeviceByIdResponse {
+	repeated Device devices = 1;
+}
+
+// Mutate
 
 message DevicesConnection {
 	PageInfo pageInfo = 1;
@@ -63,19 +83,4 @@ message RemoveDeviceResponse {
 		NOT_FOUND = 1;		
 	}
 	State state = 1;
-}
-
-message FetchDevicesRequest {
-	uint32 after = 1;
-	uint32 before = 2;
-	uint32 first = 3;
-	uint32 last = 4;
-}
-
-message FetchDeviceByIdRequest {
-	repeated uint32 deviceIdt = 1;
-}
-
-message FetchDeviceByIdResponse {
-	repeated Device devices = 1;
 }
