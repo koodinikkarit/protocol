@@ -65,14 +65,15 @@ message RemoveWolInterfaceResponse {
 	bool success = 2;
 }
 
-message WakeupWolInterfaceRequest {
+message WakeupRequest {
 	uint32 wolInterfaceId = 1;
 }
 
-message WakeupWolInterfaceResponse {
+message WakeupResponse {
 	enum State {
 		SUCCESS = 0;
 		NOT_FOUND = 1;
 	}
 	State state = 1;
+	bool success = 2;
 }

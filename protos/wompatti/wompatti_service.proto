@@ -18,6 +18,9 @@ import "severi.proto";
 
 service Wompatti {
 	// Fetch
+	rpc fetchComputers(FetchComputersRequest) returns(FetchComputersResponse) {}
+	rpc fetchComputerById(FetchComputerByIdRequest) returns(FetchComputerByIdResponse) {}
+
 	rpc fetchTelnetInterfaces(FetchTelnetInterfacesRequest) returns(FetchTelnetInterfacesResponse) {}
 	rpc fetchTelnetInterfaceById(FetchTelnetInterfaceByIdRequest) returns(FetchTelnetInterfaceByIdResponse) {}
 
@@ -41,6 +44,10 @@ service Wompatti {
 	rpc fetchWolInterfaceById(FetchWolInterfaceByIdRequest) returns(FetchWolInterfaceByIdResponse) {}
 
 	// Mutate
+	rpc createComputer(CreateComputerRequest) returns(CreateComputerResponse) {}
+	rpc updateComputer(UpdateComputerRequest) returns(UpdateComputerResponse) {}
+	rpc removeComputer(RemoveComputerRequest) returns(RemoveComputerResponse) {}
+
 	rpc createTelnetInterface(CreateTelnetInterfaceRequest) returns(CreateTelnetInterfaceResponse) {}
 	rpc editTelnetInterface(EditTelnetInterfaceRequest) returns(EditTelnetInterfaceResponse) {}
 	rpc removeTelnetInterface(RemoveTelnetInterfaceRequest) returns(RemoveTelnetInterfaceResponse) {}
@@ -68,7 +75,7 @@ service Wompatti {
 	rpc createWolInterface(CreateWolInterfaceRequest) returns(CreateWolInterfaceResponse) {}	
 	rpc editWolInterface(EditWolInterfaceRequest) returns(EditWolInterfaceResponse) {}
 	rpc removeWolInterface(RemoveWolInterfaceRequest) returns(RemoveWolInterfaceResponse) {}
-	rpc wakeupWolInterface(WakeupWolInterfaceRequest) returns(WakeupWolInterfaceResponse) {}
+	rpc wakeup(WakeupRequest) returns(WakeupResponse) {}
 
 	// // Queries
 	// rpc fetchComputers(FetchComputersRequest) returns(ComputersConnection) {}

@@ -8,53 +8,28 @@ import "page_info.proto";
 message Computer {
 	uint32 id = 1;
 	string name = 2;
-	uint32 arttuId = 3;
-	uint32 deviceInfoId = 4;
 	uint32 wolInterfaceId = 5;
-}
-
-message ComputersEdge {
-	Computer node = 1;
-	uint32 cursor = 2;
-}
-
-message ComputersConnection {
-	PageInfo pageInfo = 1;
-	repeated ComputersEdge edges = 2;
-	uint32 totalCount = 3;
+	ip string = 6;
+	mac string = 7;
 }
 
 // Fetch
 
+message FetchComputersRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message FetchComputersResponse {
+	repeated Computer computers = 1;
+}
+
 message FetchComputerByIdRequest {
-	repeated uint32 computerIdt = 1;
+	repeated uint32 computerIds = 1;
 }
 
 message FetchComputerByIdResponse {
 	repeated Computer computers = 1;
-}
-
-message FetchManyComputerByIdRequest {
-	repeated uint32 id = 1;
-}
-
-message FetchManyComputerByIdResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;		
-	}
-
-	Computer computer = 1;
-	State state = 2;
-	uint32 computerId = 3;
-}
-
-message FetchComputersRequest {
-	uint32 after = 1;
-	uint32 before = 2;
-	uint32 first = 3;
-	uint32 last = 4;	
-
 }
 
 // Mutations
@@ -65,25 +40,25 @@ message CreateComputerRequest {
 
 message CreateComputerResponse {
 	Computer computer = 1;
-	DeviceInfo deviceInfo = 2;	
 }
 
-message EditComputerRequest {
+message UpdateComputerRequest {
 	uint32 computerId = 1;
 	string name = 2;
-	uint32 arttuId = 3;
-	uint32 deviceInfoId = 4;
-	uint32 wolInterfaceId = 5;
+	uint32 wolInterfaceId = 3;
+	string ip = 4;
+	string mac = 5;
+
 }
 
-message EditComputerResponse {
+message UpdateComputerResponse {
 	enum State {
 		SUCCESS = 0;
 		NOT_FOUND = 1;
 	}
 	Computer computer = 1;
 	State state = 2;
-	uint32 computerId = 3;	
+	bool success = 3;
 }
 
 message RemoveComputerRequest {
@@ -96,4 +71,5 @@ message RemoveComputerResponse {
 		NOT_FOUND = 1;
 	}
 	State state = 1;
+	bool success = 2;
 }
