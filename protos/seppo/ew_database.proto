@@ -49,13 +49,13 @@ message CreateEwDatabaseResponse {
 	EwDatabase ewDatabase = 1;
 }
 
-message EditEwDatabaseRequest {
+message UpdateEwDatabaseRequest {
 	uint32 ewDatabaseId = 1;
 	string name = 2;
 	uint32 songDatabaseId = 3;
 }
 
-message EditEwDatabaseResponse {
+message UpdateEwDatabaseResponse {
 	EwDatabase ewDatabase = 1;
 }
 

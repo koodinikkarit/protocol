@@ -36,12 +36,12 @@ message CreateLanguageResponse {
 	Language language = 1;
 }
 
-message EditLanguageRequest {
+message UpdateLanguageRequest {
 	uint32 languageId = 1;
 	string name = 2;
 }
 
-message EditLanguageResponse {
+message UpdateLanguageResponse {
  	Language language = 1;
 }
 
