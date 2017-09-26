@@ -4,8 +4,8 @@ package WompattiService;
 
 message WolInterface {
 	uint32 id = 1;
-	uint32 ethernetInterfaceId = 2;
-	string mac = 3;
+	string ip = 2;
+	uint32 port = 3;
 }
 
 // Fetch
@@ -19,7 +19,7 @@ message FetchWolInterfacesResponse {
 }
 
 message FetchWolInterfaceByIdRequest {
-	repeated uint32 wolInterfaceIdt = 1;
+	repeated uint32 wolInterfaceIds = 1;
 }
 
 message FetchWolInterfaceByIdResponse {
@@ -29,21 +29,21 @@ message FetchWolInterfaceByIdResponse {
 // Mutate
 
 message CreateWolInterfaceRequest {
-	uint32 ethernetInterfaceId = 2;
-	string mac = 3;
+	string ip = 2;
+	uint32 port = 3;
 }
 
 message CreateWolInterfaceResponse {
 	WolInterface wolInterface = 1;
 }
 
-message EditWolInterfaceRequest {
+message UpdateWolInterfaceRequest {
 	uint32 wolInterfaceId = 1;
-	uint32 ethernetInterfaceId = 2;
-	string mac = 3;	
+	string ip = 2;
+	uint32 port = 3;	
 }
 
-message EditWolInterfaceResponse {
+message UpdateWolInterfaceResponse {
 	enum State {
 		SUCCESS = 0;
 		NOT_FOUND = 1;
@@ -57,19 +57,6 @@ message RemoveWolInterfaceRequest {
 }
 
 message RemoveWolInterfaceResponse {
-	enum State {
-		SUCCESS = 0;
-		NOT_FOUND = 1;
-	}
-	State state = 1;
-	bool success = 2;
-}
-
-message WakeupRequest {
-	uint32 wolInterfaceId = 1;
-}
-
-message WakeupResponse {
 	enum State {
 		SUCCESS = 0;
 		NOT_FOUND = 1;

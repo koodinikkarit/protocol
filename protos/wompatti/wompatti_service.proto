@@ -73,7 +73,7 @@ service Wompatti {
 	rpc removeSeveri(RemoveSeveriRequest) returns(RemoveSeveriResponse) {}
 
 	rpc createWolInterface(CreateWolInterfaceRequest) returns(CreateWolInterfaceResponse) {}	
-	rpc editWolInterface(EditWolInterfaceRequest) returns(EditWolInterfaceResponse) {}
+	rpc updateWolInterface(UpdateWolInterfaceRequest) returns(UpdateWolInterfaceResponse) {}
 	rpc removeWolInterface(RemoveWolInterfaceRequest) returns(RemoveWolInterfaceResponse) {}
 	rpc wakeup(WakeupRequest) returns(WakeupResponse) {}
 
