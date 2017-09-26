@@ -15,8 +15,9 @@ message SongDatabaseEdge {
 }
 
 message SongDatabasesConnection {
-	repeated SongDatabaseEdge edges = 1;
-	uint32 totalCount = 3;
+	uint32 maxSongDatabases = 1;
+	repeated SongDatabase songDatabases = 2;
+	uint32 id = 3;
 }
 
 // Queries
@@ -38,6 +39,14 @@ message FetchSongDatabaseByIdResponse {
 	repeated SongDatabase songDatabases = 1;
 }
 
+message FetchTagsBySongDatabaseIdRequest {
+
+}
+
+message FetchTagsBySongDatabaseIdResponse {
+	
+}
+
 // Mutation
 
 message CreateSongDatabaseRequest {
@@ -48,14 +57,14 @@ message CreateSongDatabaseResponse {
 	SongDatabase songDatabase = 1;
 }
 
-message EditSongDatabaseRequest {
+message UpdateSongDatabaseRequest {
 	uint32 songDatabaseId = 1;
 	string name = 2;
 	repeated uint32 addTagIds = 3;
 	repeated uint32 removeTagIds = 4;
 }
 
-message EditSongDatabaseResponse {
+message UpdateSongDatabaseResponse {
 	SongDatabase songDatabase = 1;
 }
 
