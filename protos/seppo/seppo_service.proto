@@ -9,13 +9,13 @@ import "ew_song.proto";
 import "ew_verse.proto";
 import "tag.proto";
 import "language.proto";
+import "schedule.proto";
 
 import "variation.proto";
 import "variation_text.proto";
 import "tag_variation.proto";
 import "song_database_tag.proto";
 import "language_variations.proto";
-
 //import "variation_song_database.proto";
 
 
@@ -51,6 +51,9 @@ service Seppo {
 	rpc fetchSongDatabaseTags(FetchSongDatabaseTagsRequest) returns(FetchSongDatabaseTagsResponse) {}
 	rpc fetchLanguageVariations(FetchLanguageVariationsRequest) returns(FetchLanguageVariationsResponse) {}
 
+	rpc searchSchedules(SearchSchedulesRequest) returns(SearchSchedulesResponse) {}
+	rpc fetchScheduleById(FetchScheduleByIdRequest) returns(FetchScheduleByIdResponse) {}
+
 	// Mutations
 
 	rpc createVariation(CreateVariationRequest) returns(CreateVariationResponse) {}
@@ -84,4 +87,8 @@ service Seppo {
 	rpc removeTagFromVariation(RemoveTagFromVariationRequest) returns(RemoveTagFromVariationResponse) {}
 	rpc addTagToSongDatabase(AddTagToSongDatabaseRequest) returns(AddTagToSongDatabaseResponse) {}
 	rpc removeTagFromSongDatabase(RemoveTagFromSongDatabaseRequest) returns(RemoveTagFromSongDatabaseResponse) {}
+
+	rpc createSchedule(CreateScheduleRequest) returns(CreateScheduleResponse) {}
+	rpc updateSchedule(UpdateScheduleRequest) returns(UpdateScheduleResponse) {}
+	rpc removeSchedule(RemoveScheduleRequest) returns(RemoveScheduleResponse) {}
 }
