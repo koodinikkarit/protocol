@@ -66,6 +66,8 @@ message SearchVariationsRequest {
 	uint32 languageId = 5;
 	uint32 offset = 6;
 	uint32 limit = 7;
+	uint32 scheduleId = 8;
+	repeated uint32 skipVariationIds = 9;
 }
 
 message SearchVariationsResponse {
