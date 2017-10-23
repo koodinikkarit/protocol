@@ -15,6 +15,7 @@ import "telnet_interface.proto";
 import "command.proto";
 import "keijo.proto";
 import "severi.proto";
+import "ping.proto";
 
 service Wompatti {
 	// Fetch
@@ -76,6 +77,8 @@ service Wompatti {
 	rpc updateWolInterface(UpdateWolInterfaceRequest) returns(UpdateWolInterfaceResponse) {}
 	rpc removeWolInterface(RemoveWolInterfaceRequest) returns(RemoveWolInterfaceResponse) {}
 	rpc wakeup(WakeupRequest) returns(WakeupResponse) {}
+
+	rpc ping(PingRequest) returns(PingResponse) {}
 
 	// // Queries
 	// rpc fetchComputers(FetchComputersRequest) returns(ComputersConnection) {}

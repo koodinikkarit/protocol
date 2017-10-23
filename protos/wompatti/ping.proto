@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package WompattiService;
+
+
+message PingRequest {
+	string ipAddress = 1;	
+}
+
+message PingResponse {
+	uint32 computerId = 1;
+	string rtt = 2;
+	string addr = 3;
+	bool success = 4;
+}
+
+
