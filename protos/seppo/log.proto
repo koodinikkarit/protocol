@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message Log {
+	uint32 id = 1;
+	uint32 logType = 2;
+	string message = 3;
+	int64 messageDate = 4;
+}
+
+message SearchLogsRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+	uint32 messageType = 3;
+	int64 startDate = 4;
+	int64 endDate = 5;
+	string searchWord = 6;
+}
+
+message SearchLogsResponse {
+	repeated Log logs = 1;
+	uint32 maxLogs = 2;
+}
