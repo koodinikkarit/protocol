@@ -10,6 +10,8 @@ import "ew_verse.proto";
 import "tag.proto";
 import "language.proto";
 import "schedule.proto";
+import "variation_version.proto";
+import "log.proto";
 
 import "variation.proto";
 import "variation_text.proto";
@@ -24,6 +26,9 @@ service Seppo {
 	
 	rpc fetchVariationById(FetchVariationByIdRequest) returns(FetchVariationByIdResponse) {}
 	rpc searchVariations(SearchVariationsRequest) returns(SearchVariationsResponse) {}
+
+	rpc fetchVariationVersionById(FetchVariationVersionByIdRequest) returns(FetchVariationVersionByIdResponse) {}
+
 	rpc listenForChangedEwSong(ListenForChangedEwSongRequest) returns(stream EwSong) {}
 
 	rpc fetchSongDatabases(FetchSongDatabasesRequest) returns (SongDatabasesConnection) {}
@@ -54,6 +59,8 @@ service Seppo {
 	rpc searchSchedules(SearchSchedulesRequest) returns(SearchSchedulesResponse) {}
 	rpc fetchScheduleById(FetchScheduleByIdRequest) returns(FetchScheduleByIdResponse) {}
 
+	rpc searchLogs(SearchLogsRequest) returns(SearchLogsResponse) {}
+
 	// Mutations
 
 	rpc createVariation(CreateVariationRequest) returns(CreateVariationResponse) {}
@@ -70,10 +77,6 @@ service Seppo {
 
 	rpc addVariationToSongDatabase(AddVariationToSongDatabaseRequest) returns(AddVariationToSongDatabaseResponse) {}
 	rpc removeVariationFromSongDatabase(RemoveVariationFromSongDatabaseRequest) returns(RemoveVariationFromSongDatabaseResponse) {}
-
-	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
-	rpc insertEwSongIds(InsertEwSongIdsRequest) returns(InsertEwSongIdsResponse) {}
-	rpc changeEwSongIds(ChangeEwSongIdsRequest) returns(ChangeEwSongIdsResponse) {}
 
 	rpc createTag(CreateTagRequest) returns(CreateTagResponse) {}
 	rpc updateTag(UpdateTagRequest) returns(UpdateTagResponse) {}
