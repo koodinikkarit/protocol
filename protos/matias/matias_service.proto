@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package MatiasService;
+
+import "ew_database.proto";
+
+service Matias {
+	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
+	rpc insertEwSongIds(InsertEwSongIdsRequest) returns(InsertEwSongIdsResponse) {}
+	rpc changeEwSongIds(ChangeEwSongIdsRequest) returns(ChangeEwSongIdsResponse) {}	
+}

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package MatiasService;
+
+message EwSong {
+	uint32 id = 1;
+	string title = 2;
+	string author = 3;
+	string copyright = 4;
+	string administrator = 5;
+	string description = 6;
+	string tags = 7;
+	string text = 8;
+	uint32 variationId = 9;
+}
+
+message VariationIdEwSongId {
+	uint32 ewSongId = 1;
+	uint32 variationId = 2;	
+}
+
+message NewSongId {
+	uint32 oldEwSongId = 1;
+	uint32 newEwSongId = 2;
+}
+
+message InsertEwSongIdsRequest {
+	string ewDatabaseKey = 1;
+	repeated VariationIdEwSongId variationIdEwSongIds = 2;
+	repeated NewSongId newSongIds = 3;
+}
+
+message InsertEwSongIdsResponse {
+
+}
+
+message ChangeEwSongIdsRequest {
+	string ewDatabaseKey = 1;
+	repeated NewSongId newSongIds = 2;
+}
+
+message ChangeEwSongIdsResponse {
+
+}
+
+message SyncEwDatabaseRequest {
+	string ewDatabaseKey = 1;
+	repeated EwSong ewSongs = 2;
+}
+
+message SyncEwDatabaseResponse {
+	repeated EwSong ewSongs = 1;
+	repeated uint32 removeEwSongIds = 2;
+}
