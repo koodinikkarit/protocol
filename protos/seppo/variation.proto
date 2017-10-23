@@ -8,6 +8,7 @@ message Variation {
 	uint32 songId = 3;
 	uint64 version = 5;
 	uint32 languageId = 6;
+	uint32 variationVersionId = 7;
 }
 
 // Mutate
@@ -45,7 +46,7 @@ message RemoveVariationRequest {
 }
 
 message RemoveVariationResponse {
-
+	bool success = 1;
 }
 
 // Fetch
@@ -68,6 +69,8 @@ message SearchVariationsRequest {
 	uint32 limit = 7;
 	uint32 scheduleId = 8;
 	repeated uint32 skipVariationIds = 9;
+	uint32 orderBy = 10;
+	uint32 searchFrom = 11;
 }
 
 message SearchVariationsResponse {
