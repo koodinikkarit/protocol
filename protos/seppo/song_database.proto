@@ -28,7 +28,7 @@ message FetchSongDatabasesRequest {
 	uint32 first = 3;
 	uint32 last = 4;
 	string searchWord = 5;
-	uint32 variationId = 6;
+	uint32 variationVersionId = 6;
 }
 
 message FetchSongDatabaseByIdRequest {
@@ -66,6 +66,7 @@ message UpdateSongDatabaseRequest {
 
 message UpdateSongDatabaseResponse {
 	SongDatabase songDatabase = 1;
+	bool success = 2;
 }
 
 message RemoveSongDatabaseRequest {
@@ -73,5 +74,5 @@ message RemoveSongDatabaseRequest {
 }
 
 message RemoveSongDatabaseResponse {
-	
+	bool success = 1;
 }
