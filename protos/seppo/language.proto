@@ -15,7 +15,9 @@ message LanguagesConnection {
 // Queries
 
 message SearchLanguagesRequest {
-
+	uint32 offset = 1;
+	uint32 limit = 2;
+	string searchWord = 3;
 }
 
 message FetchLanguageByIdRequest {
@@ -43,6 +45,7 @@ message UpdateLanguageRequest {
 
 message UpdateLanguageResponse {
  	Language language = 1;
+	bool success = 3;
 }
 
 message RemoveLanguageRequest {
