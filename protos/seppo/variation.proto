@@ -11,6 +11,35 @@ message Variation {
 	uint32 variationVersionId = 7;
 }
 
+// Fetch
+
+message SearchVariationsRequest {
+	string searchWord = 1;
+	uint32 songDatabaseId = 2;
+	uint32 songDatabaseFilterId = 3;
+	uint32 tagId = 4;
+	uint32 languageId = 5;
+	uint32 offset = 6;
+	uint32 limit = 7;
+	uint32 scheduleId = 8;
+	repeated uint32 skipVariationIds = 9;
+	uint32 orderBy = 10;
+	uint32 searchFrom = 11;
+}
+
+message SearchVariationsResponse {
+	repeated Variation variations = 1;
+	uint32 maxVariations = 2;
+}
+
+message FetchVariationByIdRequest {
+	repeated uint32 variationIds = 1;
+}
+
+message FetchVariationByIdResponse {
+	repeated Variation variations = 1;
+}
+
 // Mutate
 
 message CreateVariationRequest {
@@ -47,33 +76,4 @@ message RemoveVariationRequest {
 
 message RemoveVariationResponse {
 	bool success = 1;
-}
-
-// Fetch
-
-message FetchVariationByIdRequest {
-	repeated uint32 variationIds = 1;
-}
-
-message FetchVariationByIdResponse {
-	repeated Variation variations = 1;
-}
-
-message SearchVariationsRequest {
-	string searchWord = 1;
-	uint32 songDatabaseId = 2;
-	uint32 songDatabaseFilterId = 3;
-	uint32 tagId = 4;
-	uint32 languageId = 5;
-	uint32 offset = 6;
-	uint32 limit = 7;
-	uint32 scheduleId = 8;
-	repeated uint32 skipVariationIds = 9;
-	uint32 orderBy = 10;
-	uint32 searchFrom = 11;
-}
-
-message SearchVariationsResponse {
-	repeated Variation variations = 1;
-	uint32 maxVariations = 2;
 }

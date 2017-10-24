@@ -3,22 +3,14 @@ syntax = "proto3";
 package SeppoService;
 
 import "song_database.proto";
-import "song_database_variation.proto";
 import "ew_database.proto";
 import "ew_song.proto";
-import "ew_verse.proto";
 import "tag.proto";
 import "language.proto";
 import "schedule.proto";
 import "variation_version.proto";
 import "log.proto";
-
 import "variation.proto";
-import "variation_text.proto";
-import "tag_variation.proto";
-import "song_database_tag.proto";
-import "language_variations.proto";
-//import "variation_song_database.proto";
 
 
 service Seppo {
@@ -29,32 +21,17 @@ service Seppo {
 
 	rpc fetchVariationVersionById(FetchVariationVersionByIdRequest) returns(FetchVariationVersionByIdResponse) {}
 
-	rpc listenForChangedEwSong(ListenForChangedEwSongRequest) returns(stream EwSong) {}
-
-	rpc fetchSongDatabases(FetchSongDatabasesRequest) returns (SongDatabasesConnection) {}
+	rpc searchSongDatabases(SearchSongDatabasesRequest) returns (SearchSongDatabasesResponse) {}
 	rpc fetchSongDatabaseById(FetchSongDatabaseByIdRequest) returns(FetchSongDatabaseByIdResponse) {}
 
-	rpc fetchEwDatabases(FetchEwDatabasesRequest) returns(EwDatabasesConnection) {}
+	rpc searchEwDatabases(SearchEwDatabasesRequest) returns(SearchEwDatabasesResponse) {}
 	rpc fetchEwDatabaseById(FetchEwDatabaseByIdRequest) returns(FetchEwDatabaseByIdResponse) {}
 
-	rpc fetchVariationsBySongDatabaseId(FetchVariationsBySongDatabaseIdRequest) returns(FetchVariationsBySongDatabaseIdResponse) {}
-
-	rpc fetchVariationTextByVariationId(FetchVariationTextByVariationIdRequest) returns(FetchVariationTextByVariationIdResponse) {}
-
-	rpc fetchTagsBySongDatabaseById(FetchTagsBySongDatabaseIdRequest) returns(FetchTagsBySongDatabaseIdResponse) {}
-
-	rpc searchTags(SearchTagsRequest) returns(TagsConnection) {}
+	rpc searchTags(SearchTagsRequest) returns(SearchTagsResponse) {}
 	rpc fetchTagById(FetchTagByIdRequest) returns(FetchTagByIdResponse) {}
 
-	rpc searchLanguages(SearchLanguagesRequest) returns(LanguagesConnection) {}
+	rpc searchLanguages(SearchLanguagesRequest) returns(SearchLanguageResponse) {}
 	rpc fetchLanguageById(FetchLanguageByIdRequest) returns(FetchLanguageByIdResponse) {}
-
-	rpc fetchVariationTags(FetchVariationTagsRequest) returns(FetchVariationTagsResponse) {}
-	// rpc fetchVariationSongDatabases(FetchVariationSongDatabasesRequest) returns(FetchVariationSongDatabasesResponse) {}
-	rpc fetchTagVariations(FetchTagVariationsRequest) returns(FetchTagVariationsResponse) {}
-	rpc fetchTagSongDatabases(FetchTagSongDatabasesRequest) returns(FetchTagSongDatabasesResponse) {}
-	rpc fetchSongDatabaseTags(FetchSongDatabaseTagsRequest) returns(FetchSongDatabaseTagsResponse) {}
-	rpc fetchLanguageVariations(FetchLanguageVariationsRequest) returns(FetchLanguageVariationsResponse) {}
 
 	rpc searchSchedules(SearchSchedulesRequest) returns(SearchSchedulesResponse) {}
 	rpc fetchScheduleById(FetchScheduleByIdRequest) returns(FetchScheduleByIdResponse) {}
@@ -75,9 +52,6 @@ service Seppo {
 	rpc updateEwDatabase(UpdateEwDatabaseRequest) returns(UpdateEwDatabaseResponse) {}
 	rpc removeEwDatabase(RemoveEwDatabaseRequest) returns(RemoveEwDatabaseResponse) {}
 
-	rpc addVariationToSongDatabase(AddVariationToSongDatabaseRequest) returns(AddVariationToSongDatabaseResponse) {}
-	rpc removeVariationFromSongDatabase(RemoveVariationFromSongDatabaseRequest) returns(RemoveVariationFromSongDatabaseResponse) {}
-
 	rpc createTag(CreateTagRequest) returns(CreateTagResponse) {}
 	rpc updateTag(UpdateTagRequest) returns(UpdateTagResponse) {}
 	rpc removeTag(RemoveTagRequest) returns(RemoveTagResponse) {}
@@ -85,11 +59,6 @@ service Seppo {
 	rpc createLanguage(CreateLanguageRequest) returns(CreateLanguageResponse) {}
 	rpc updateLanguage(UpdateLanguageRequest) returns(UpdateLanguageResponse) {}
 	rpc removeLanguage(RemoveLanguageRequest) returns(RemoveLanguageResponse) {}
-
-	rpc addTagToVariation(AddTagToVariationRequest) returns(AddTagToVariationResponse) {}
-	rpc removeTagFromVariation(RemoveTagFromVariationRequest) returns(RemoveTagFromVariationResponse) {}
-	rpc addTagToSongDatabase(AddTagToSongDatabaseRequest) returns(AddTagToSongDatabaseResponse) {}
-	rpc removeTagFromSongDatabase(RemoveTagFromSongDatabaseRequest) returns(RemoveTagFromSongDatabaseResponse) {}
 
 	rpc createSchedule(CreateScheduleRequest) returns(CreateScheduleResponse) {}
 	rpc updateSchedule(UpdateScheduleRequest) returns(UpdateScheduleResponse) {}

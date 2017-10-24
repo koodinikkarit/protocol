@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package SeppoService;
 
-import "ew_song.proto";
-
 message EwDatabase {
 	uint32 id = 1;
 	string name = 2;
@@ -12,22 +10,17 @@ message EwDatabase {
 	string key = 5;
 }
 
-message EwDatabasesConnection {
-	repeated EwDatabase ewDatabases = 1;
-}
-
 // Queries
 
-message ListenForChangedEwSongRequest {
-	uint32 ewDatabaseId = 1;
+message SearchEwDatabasesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+	uint32 songDatabaseId = 3;
 }
 
-message FetchEwDatabasesRequest {
-
-}
-
-message FetchEwDatabasesResponse {
+message SearchEwDatabasesResponse {
 	repeated EwDatabase ewDatabases = 1;
+	uint32 maxEwDatabases = 2;
 }
 
 message FetchEwDatabaseByIdRequest {
@@ -57,6 +50,7 @@ message UpdateEwDatabaseRequest {
 
 message UpdateEwDatabaseResponse {
 	EwDatabase ewDatabase = 1;
+	bool success = 2;
 }
 
 message RemoveEwDatabaseRequest {
@@ -64,16 +58,5 @@ message RemoveEwDatabaseRequest {
 }
 
 message RemoveEwDatabaseResponse {
-
+	bool success = 1;
 }
-
-message SyncEwDatabaseRequest {
-	string ewDatabaseKey = 1;
-	repeated EwSong ewSongs = 2;
-}
-
-message SyncEwDatabaseResponse {
-	repeated EwSong ewSongs = 1;
-	repeated uint32 removeEwSongIds = 2;
-}
-

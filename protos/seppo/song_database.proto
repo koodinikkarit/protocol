@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 package SeppoService;
-import "song_database_variation.proto";
 
 message SongDatabase {
 	uint32 id = 1;
@@ -9,26 +8,18 @@ message SongDatabase {
 	uint64 version = 3;
 }
 
-message SongDatabaseEdge {
-	SongDatabase node = 1;
-	uint32 cursor = 2;
-}
-
-message SongDatabasesConnection {
-	uint32 maxSongDatabases = 1;
-	repeated SongDatabase songDatabases = 2;
-	uint32 id = 3;
-}
-
 // Queries
 
-message FetchSongDatabasesRequest {
-	uint32 after = 1;
-	uint32 before = 2;
-	uint32 first = 3;
-	uint32 last = 4;
-	string searchWord = 5;
-	uint32 variationVersionId = 6;
+message SearchSongDatabasesRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+	string searchWord = 3;
+	uint32 variationVersionId = 4;
+}
+
+message SearchSongDatabasesResponse {
+	repeated SongDatabase songDatabases = 1;
+	uint32 maxSongDatabases = 2;
 }
 
 message FetchSongDatabaseByIdRequest {
@@ -37,14 +28,6 @@ message FetchSongDatabaseByIdRequest {
 
 message FetchSongDatabaseByIdResponse {
 	repeated SongDatabase songDatabases = 1;
-}
-
-message FetchTagsBySongDatabaseIdRequest {
-
-}
-
-message FetchTagsBySongDatabaseIdResponse {
-	
 }
 
 // Mutation

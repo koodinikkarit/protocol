@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package SeppoService;
-
-message EwVerse {
-	string text = 1;
-}

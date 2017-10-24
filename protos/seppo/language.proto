@@ -7,17 +7,17 @@ message Language {
 	string name = 2;
 }
 
-message LanguagesConnection {
-	repeated Language languages = 1;
-	uint32 maxLanguages = 2;
-}
-
 // Queries
 
 message SearchLanguagesRequest {
 	uint32 offset = 1;
 	uint32 limit = 2;
 	string searchWord = 3;
+}
+
+message SearchLanguageResponse {
+	repeated Language languages = 1;
+	uint32 maxLanguages = 2;
 }
 
 message FetchLanguageByIdRequest {
