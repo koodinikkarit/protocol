@@ -68,6 +68,7 @@ message UpdateVariationRequest {
 
 message UpdateVariationResponse {
 	Variation variation = 1;
+	bool success = 2;
 }
 
 message RemoveVariationRequest {
