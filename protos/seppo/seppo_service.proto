@@ -30,7 +30,7 @@ service Seppo {
 	rpc searchTags(SearchTagsRequest) returns(SearchTagsResponse) {}
 	rpc fetchTagById(FetchTagByIdRequest) returns(FetchTagByIdResponse) {}
 
-	rpc searchLanguages(SearchLanguagesRequest) returns(SearchLanguageResponse) {}
+	rpc searchLanguages(SearchLanguagesRequest) returns(SearchLanguagesResponse) {}
 	rpc fetchLanguageById(FetchLanguageByIdRequest) returns(FetchLanguageByIdResponse) {}
 
 	rpc searchSchedules(SearchSchedulesRequest) returns(SearchSchedulesResponse) {}
