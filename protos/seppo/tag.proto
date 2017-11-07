@@ -11,7 +11,7 @@ message Tag {
 
 message SearchTagsRequest {
 	uint32 songDatabaseId = 1;
-	uint32 variationVersionId = 2;
+	uint32 variationId = 2;
 	uint32 offset = 3;
 	uint32 limit = 4;
 	string searchWord = 5;

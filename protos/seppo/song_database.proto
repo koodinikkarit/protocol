@@ -14,7 +14,7 @@ message SearchSongDatabasesRequest {
 	uint32 offset = 1;
 	uint32 limit = 2;
 	string searchWord = 3;
-	uint32 variationVersionId = 4;
+	uint32 variationId = 4;
 }
 
 message SearchSongDatabasesResponse {
