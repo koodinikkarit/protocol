@@ -34,15 +34,6 @@ message InsertEwSongIdsResponse {
 
 }
 
-message ChangeEwSongIdsRequest {
-	string ewDatabaseKey = 1;
-	repeated NewSongId newSongIds = 2;
-}
-
-message ChangeEwSongIdsResponse {
-
-}
-
 message SyncEwDatabaseRequest {
 	string ewDatabaseKey = 1;
 	repeated EwSong ewSongs = 2;
@@ -51,4 +42,30 @@ message SyncEwDatabaseRequest {
 message SyncEwDatabaseResponse {
 	repeated EwSong ewSongs = 1;
 	repeated uint32 removeEwSongIds = 2;
+	bool ewDatabaseFound = 3;
+}
+
+message SyncEwSongRequest {
+	string ewDatabaseKey = 1;
+	EwSong ewSong = 2;
+}
+
+message SyncEwSongResponse {
+	uint32 ewSongId = 1;
+	bool success = 2;
+}
+
+message RequestEwDatabaseChangesRequest {
+	string key = 1;
+}
+
+enum EwDatabaseChangeType {
+	NEW_SONG = 0;
+	REMOVE_SONG = 1;
+}
+
+message EwDatabaseChange {
+	EwDatabaseChangeType changeType = 1;
+	uint32 removeSongId = 2;
+	EwSong ewSong = 3;
 }

@@ -4,8 +4,18 @@ package MatiasService;
 
 import "ew_database.proto";
 
+message RequestMatiasKeyRequest {
+
+}
+
+message RequestMatiasKeyResponse {
+	string key = 1;
+}
+
 service Matias {
+	rpc requestMatiasKey(RequestMatiasKeyRequest) returns(RequestMatiasKeyResponse) {}
 	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
+	rpc syncEwSong(stream SyncEwSongRequest) returns(stream SyncEwSongResponse) {}
 	rpc insertEwSongIds(InsertEwSongIdsRequest) returns(InsertEwSongIdsResponse) {}
-	rpc changeEwSongIds(ChangeEwSongIdsRequest) returns(ChangeEwSongIdsResponse) {}	
+	rpc requestEwChanges(RequestEwDatabaseChangesRequest) returns(stream EwDatabaseChange) {}
 }
