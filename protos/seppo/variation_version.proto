@@ -15,6 +15,14 @@ message VariationVersion {
 
 // Fetch
 
+message FetchNewestVariationVersionByVariationIdRequest {
+	repeated uint32 variationIds = 1;
+}
+
+message FetchNewestVariationVersionByVariationIdResponse {
+	repeated VariationVersion variationVersions = 1;
+}
+
 message FetchVariationVersionByIdRequest {
 	repeated uint32 variationVersionIds = 1;
 }
@@ -22,3 +30,4 @@ message FetchVariationVersionByIdRequest {
 message FetchVariationVersionByIdResponse {
 	repeated VariationVersion variationVersions = 1;
 }
+

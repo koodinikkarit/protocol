@@ -45,9 +45,8 @@ message FetchVariationByIdResponse {
 message CreateVariationRequest {
 	string name = 1;
 	string text = 2;
-	string origin = 3;
-	repeated uint32 tagIds = 4;
-	repeated uint32 songDatabaseIds = 5;
+	repeated uint32 tagIds = 3;
+	repeated uint32 songDatabaseIds = 4;
 }
 
 message CreateVariationResponse {

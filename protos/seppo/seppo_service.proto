@@ -19,6 +19,7 @@ service Seppo {
 	rpc fetchVariationById(FetchVariationByIdRequest) returns(FetchVariationByIdResponse) {}
 	rpc searchVariations(SearchVariationsRequest) returns(SearchVariationsResponse) {}
 
+	rpc fetchNewestVariationVersionByVariationId(FetchNewestVariationVersionByVariationIdRequest) returns(FetchNewestVariationVersionByVariationIdResponse) {}
 	rpc fetchVariationVersionById(FetchVariationVersionByIdRequest) returns(FetchVariationVersionByIdResponse) {}
 
 	rpc searchSongDatabases(SearchSongDatabasesRequest) returns (SearchSongDatabasesResponse) {}
