@@ -11,6 +11,8 @@ import "schedule.proto";
 import "variation_version.proto";
 import "log.proto";
 import "variation.proto";
+import "author.proto";
+import "copyright.proto";
 
 
 service Seppo {
@@ -36,6 +38,12 @@ service Seppo {
 
 	rpc searchSchedules(SearchSchedulesRequest) returns(SearchSchedulesResponse) {}
 	rpc fetchScheduleById(FetchScheduleByIdRequest) returns(FetchScheduleByIdResponse) {}
+
+	rpc searchAuthors(SearchAuthorsRequest) returns(SearchAuthorsResponse) {}
+	rpc fetchAuthorById(FetchAuthorByIdRequest) returns(FetchAuthorByIdResponse) {}
+
+	rpc searchCopyrights(SearchCopyrightsRequest) returns(SearchCopyrightsResponse) {}
+	rpc fetchCopyrightById(FetchCopyrightByIdRequest) returns(FetchCopyrightByIdResponse) {}
 
 	rpc searchLogs(SearchLogsRequest) returns(SearchLogsResponse) {}
 
@@ -64,4 +72,12 @@ service Seppo {
 	rpc createSchedule(CreateScheduleRequest) returns(CreateScheduleResponse) {}
 	rpc updateSchedule(UpdateScheduleRequest) returns(UpdateScheduleResponse) {}
 	rpc removeSchedule(RemoveScheduleRequest) returns(RemoveScheduleResponse) {}
+
+	rpc createAuthor(CreateAuthorRequest) returns(CreateAuthorResponse) {}
+	rpc updateAuthor(UpdateAuthorRequest) returns(UpdateAuthorResponse) {}
+	rpc removeAuthor(RemoveAuthorRequest) returns(RemoveAuthorResponse) {}
+
+	rpc createCopyright(CreateCopyrightRequest) returns(CreateCopyrightResponse) {}
+	rpc updateCopyright(UpdateCopyrightRequest) returns(UpdateCopyrightResponse) {}
+	rpc removeCopyright(RemoveCopyrightRequest) returns(RemoveCopyrightResponse) {}
 }

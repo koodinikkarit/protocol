@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message Copyright {
+	uint32 id = 1;
+	string name = 2;
+}
+
+// Fetch
+
+message FetchCopyrightByIdRequest {
+	repeated uint32 copyrightIds = 1;
+}
+
+message FetchCopyrightByIdResponse {
+	repeated Copyright copyrights = 1;
+}
+
+message SearchCopyrightsRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message SearchCopyrightsResponse {
+	repeated Copyright copyrights = 1;	
+}
+
+
+// Mutate
+
+message CreateCopyrightRequest {
+	string name = 1;
+}
+
+message CreateCopyrightResponse {
+	Copyright copyright = 1;
+}
+
+message UpdateCopyrightRequest {
+	uint32 copyrightId = 1;
+	string name = 2;
+}
+
+message UpdateCopyrightResponse {
+	Copyright copyright = 1;
+	bool success = 2;
+}
+
+message RemoveCopyrightRequest {
+	uint32 copyrightId = 1;
+}
+
+message RemoveCopyrightResponse {
+	bool success = 1;
+}

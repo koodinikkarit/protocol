@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package SeppoService;
+
+message Author {
+	uint32 id = 1;
+	string name = 2;
+}
+
+// Fetch
+
+message FetchAuthorByIdRequest {
+	repeated uint32 authorIds = 1;
+}
+
+message FetchAuthorByIdResponse {
+	repeated Author authors = 1;
+}
+
+message SearchAuthorsRequest {
+	uint32 offset = 1;
+	uint32 limit = 2;
+}
+
+message SearchAuthorsResponse {
+	repeated Author authors = 1;
+}
+
+
+// Mutate
+
+message CreateAuthorRequest {
+	string name = 1;
+}
+
+message CreateAuthorResponse {
+	Author author = 1;
+}
+
+message UpdateAuthorRequest {
+	uint32 authorId = 1;
+	string name = 2;
+}
+
+message UpdateAuthorResponse {
+	Author author = 1;
+	bool success = 2;
+}
+
+message RemoveAuthorRequest {
+	uint32 authorId = 1;
+}
+
+message RemoveAuthorResponse {
+	bool success = 1;
+}
