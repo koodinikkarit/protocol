@@ -15,7 +15,6 @@ message RequestMatiasKeyResponse {
 service Matias {
 	rpc requestMatiasKey(RequestMatiasKeyRequest) returns(RequestMatiasKeyResponse) {}
 	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
-	rpc syncEwSong(stream SyncEwSongRequest) returns(stream SyncEwSongResponse) {}
 	rpc insertEwSongIds(InsertEwSongIdsRequest) returns(InsertEwSongIdsResponse) {}
 	rpc requestEwChanges(RequestEwDatabaseChangesRequest) returns(stream EwDatabaseChange) {}
 }

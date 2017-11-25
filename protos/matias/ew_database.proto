@@ -45,16 +45,6 @@ message SyncEwDatabaseResponse {
 	bool ewDatabaseFound = 3;
 }
 
-message SyncEwSongRequest {
-	string ewDatabaseKey = 1;
-	EwSong ewSong = 2;
-}
-
-message SyncEwSongResponse {
-	uint32 ewSongId = 1;
-	bool success = 2;
-}
-
 message RequestEwDatabaseChangesRequest {
 	string key = 1;
 }
