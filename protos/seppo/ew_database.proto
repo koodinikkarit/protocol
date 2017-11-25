@@ -7,8 +7,8 @@ message EwDatabase {
 	string name = 2;
 	uint32 songDatabaseId = 3;
 	string databaseKey = 4;
-	bool removeSongsFromExternalDatabase = 5;
-	bool removeSongsFromSongDatabase = 6;
+	uint32 removeSongsFromEwDatabase = 5;
+	uint32 removeSongsFromSongDatabase = 6;
 	uint32 variationVersionConflictAction = 7;
 }
 
@@ -48,8 +48,8 @@ message UpdateEwDatabaseRequest {
 	uint32 ewDatabaseId = 1;
 	string name = 2;
 	uint32 songDatabaseId = 3;
-	bool removeSongsFromExternalDatabase = 4;
-	bool removeSongsFromSongDatabase = 5;
+	uint32 removeSongsFromEwDatabase = 4;
+	uint32 removeSongsFromSongDatabase = 5;
 	uint32 variationVersionConflictAction = 6;
 }
 
