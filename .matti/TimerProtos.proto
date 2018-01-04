@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-import "TimerProto.proto";
-
-message TimerProtos {
-    repeated TimerProto timers = 1;
-}

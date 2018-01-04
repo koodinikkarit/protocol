@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-import "MatrixProto.proto";
-
-message MatrixProtos{
-    repeated MatrixProto matrixs = 1;
-}

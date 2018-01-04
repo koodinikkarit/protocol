@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-import "VideoConnection.proto";
-
-message VideoConnections {
-    repeated VideoConnection videoConnections = 1;
-}

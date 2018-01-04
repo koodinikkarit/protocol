@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-import "LockProto.proto";
-
-message LockProtos {
-    repeated LockProto lockProtos = 1;
-}

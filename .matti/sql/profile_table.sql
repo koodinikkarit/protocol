@@ -1,7 +1,0 @@
-CREATE TABLE profiles (
-	id INT NOT NULL AUTO_INCREMENT,
-	name VARCHAR(50) NOT NULL,
-	token INT NOT NULL,
-	PRIMARY KEY(id),
-	FOREIGN KEY(token) REFERENCES token(id)
-);

@@ -1,6 +1,0 @@
-CREATE TABLE programs (
-	id INT NOT NULL AUTO_INCREMENT,
-	name INT NOT NULL,
-	PRIMARY KEY(id),
-	FOREIGN KEY(name) REFERENCES names(id)	
-);
