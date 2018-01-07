@@ -1,0 +1,15 @@
+{
+	"name": "seppo-client-js",
+	"version": "0.0.17",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"prepublish": "npm run build && npm run bump-patch",
+		"build": "node ../build.js -i ../../protos/seppo -o dist --serviceFileName seppo_service",
+		"bump-patch": "npm version --no-git-tag-version patch",
+		"bump-minor": "npm version --no-git-tag-version minor",
+		"bump-major": "npm version --no-git-tag-version major"
+	},
+	"author": "",
+	"license": "MIT"
+}
