@@ -1,0 +1,15 @@
+{
+	"name": "node-proto-build",
+	"version": "0.0.1",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"grpc_tools_node_protoc_ts": "^1.0.16",
+		"grpc-tools": "^1.6.6"
+	},
+	"author": "",
+	"license": "MIT"
+}
