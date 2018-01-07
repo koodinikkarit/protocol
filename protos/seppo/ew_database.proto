@@ -6,10 +6,11 @@ message EwDatabase {
 	uint32 id = 1;
 	string name = 2;
 	uint32 songDatabaseId = 3;
-	string databaseKey = 4;
-	uint32 removeSongsFromEwDatabase = 5;
-	uint32 removeSongsFromSongDatabase = 6;
-	uint32 variationVersionConflictAction = 7;
+	string filesystemPath = 4;
+	uint32 matiasClientId = 5;
+	uint32 removeSongsFromEwDatabase = 6;
+	uint32 removeSongsFromSongDatabase = 7;
+	uint32 variationVersionConflictAction = 8;
 }
 
 // Queries
@@ -18,6 +19,7 @@ message SearchEwDatabasesRequest {
 	uint32 offset = 1;
 	uint32 limit = 2;
 	uint32 songDatabaseId = 3;
+	uint32 matiasClientId = 4;
 }
 
 message SearchEwDatabasesResponse {
@@ -38,6 +40,8 @@ message FetchEwDatabaseByIdResponse {
 message CreateEwDatabaseRequest {
 	uint32 songDatabaseId = 1;
 	string name = 2;
+	string filesystemPath = 3;
+	uint32 matiasClientId = 4;
 }
 
 message CreateEwDatabaseResponse {

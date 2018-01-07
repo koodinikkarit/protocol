@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package MatiasService;
+
+message ListenEventsRequest {
+    string key = 1;
+    string hostName = 2;
+    int64 lastestConnection = 3;
+}
+
+message EwDatabase {
+    uint32 id = 1;
+    string filesystemPath = 2;
+    uint32 songDatabaseId = 3;
+}
+
+message SongDatabaseVariation {
+    uint32 id = 1;
+    uint32 songDatabaseId = 2;
+    uint32 variationId = 3;
+}
+
+message SongDatabaseTag {
+    uint32 id = 1;
+    uint32 songDatabaseId = 2;
+    uint32 tagId = 3;
+}
+
+message TagVariation {
+    uint32 id = 1;
+    uint32 tagId = 2;
+    uint32 variationId = 3;
+}
+
+message Variation {
+    uint32 id = 1;
+    string name = 2;
+    string text = 3;
+    uint32 version = 4;
+    uint32 languageId = 5;
+    uint32 authorId = 6;
+    uint32 copyrightId = 7; 
+    uint32 songId = 8;
+}
+
+message Song {
+    uint32 id = 1;
+}
+
+
+message EventItem {
+    oneof eventMessage {
+        bool acceptedKey = 1;
+        EwDatabase newEwDatabase = 2;
+        SongDatabaseVariation newSongDatabaseVariation = 3;
+        SongDatabaseTag newSongDatabaseTag = 4;
+        TagVariation newTagVariation = 5;
+        Variation newVariation = 6;
+        Song newSong = 7;
+    }
+}

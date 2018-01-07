@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package SeppoService;
+
+import "ew_database.proto";
+
+message MatiasClient {
+	uint32 id = 1;
+	string name = 2;
+	string hostName = 3;
+	string key = 4;
+	bool accepted = 5;
+	bool connected = 6;
+}
+
+// Fetch
+
+message SearchMatiasClientsRequest {
+
+}
+
+message SearchMatiasClientsResponse {
+	repeated MatiasClient matiasClients = 1;
+	uint32 maxMatiasClients = 2;
+}
+
+message FetchMatiasClientRequest {
+	repeated uint32 matiasClientIds = 1;
+}
+
+message FetchMatiasClientResponse {
+	repeated MatiasClient matiasClients = 1;
+}
+
+message FetchMatiasClientEwDatabasesRequest {
+	repeated uint32 matiasClientIds = 1;
+}
+
+message FetchMatiasClientEwDatabasesResponse {
+	message EwDatabases {
+		repeated EwDatabase ewDatabases = 1;
+	}
+	map<uint32, EwDatabases> ewDatabases = 1;
+}
+
+// Update
+
+enum MatiasClientAcceptedState {
+	ACEPTED = 0;
+	DECLINED = 1;
+}
+
+message UpdateMatiasClientRequest {
+	uint32 matiasClientId = 1;
+	MatiasClientAcceptedState state = 2;
+	string name = 3;
+}
+
+message UpdateMatiasClientResponse {
+	bool success = 1;
+	MatiasClient matiasClient = 2;
+}

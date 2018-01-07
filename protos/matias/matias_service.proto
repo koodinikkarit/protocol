@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package MatiasService;
 
-import "ew_database.proto";
+import "listen_events.proto";
 
 message RequestMatiasKeyRequest {
 
@@ -13,8 +13,5 @@ message RequestMatiasKeyResponse {
 }
 
 service Matias {
-	rpc requestMatiasKey(RequestMatiasKeyRequest) returns(RequestMatiasKeyResponse) {}
-	rpc syncEwDatabase(SyncEwDatabaseRequest) returns(SyncEwDatabaseResponse) {}
-	rpc insertEwSongIds(InsertEwSongIdsRequest) returns(InsertEwSongIdsResponse) {}
-	rpc requestEwChanges(RequestEwDatabaseChangesRequest) returns(stream EwDatabaseChange) {}
+	rpc	listenChanges(ListenEventsRequest) returns(stream EventItem) {}
 }

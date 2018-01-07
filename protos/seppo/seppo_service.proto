@@ -13,6 +13,7 @@ import "log.proto";
 import "variation.proto";
 import "author.proto";
 import "copyright.proto";
+import "matias_client.proto";
 
 
 service Seppo {
@@ -44,6 +45,10 @@ service Seppo {
 
 	rpc searchCopyrights(SearchCopyrightsRequest) returns(SearchCopyrightsResponse) {}
 	rpc fetchCopyrightById(FetchCopyrightByIdRequest) returns(FetchCopyrightByIdResponse) {}
+
+	rpc searchMatiasClients(SearchMatiasClientsRequest) returns(SearchMatiasClientsResponse) {}
+	rpc fetchMatiasClient(FetchMatiasClientRequest) returns(FetchMatiasClientResponse) {}
+	rpc fetchMatiasClientEwDatabases(FetchMatiasClientEwDatabasesRequest) returns(FetchMatiasClientEwDatabasesResponse) {}
 
 	rpc searchLogs(SearchLogsRequest) returns(SearchLogsResponse) {}
 
@@ -80,4 +85,6 @@ service Seppo {
 	rpc createCopyright(CreateCopyrightRequest) returns(CreateCopyrightResponse) {}
 	rpc updateCopyright(UpdateCopyrightRequest) returns(UpdateCopyrightResponse) {}
 	rpc removeCopyright(RemoveCopyrightRequest) returns(RemoveCopyrightResponse) {}
+
+	rpc updateMatiasClient(UpdateMatiasClientRequest) returns(UpdateMatiasClientResponse) {}
 }
