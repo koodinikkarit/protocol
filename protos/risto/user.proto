@@ -3,8 +3,9 @@ syntax = "proto3";
 package RistoService;
 
 message User {
-	uint32 id = 1;
+	uint64 id = 1;
 	string userName = 2;
+	bool isAdmin = 3;
 }
 
 message CreateUserRequest {
@@ -14,4 +15,21 @@ message CreateUserRequest {
 
 message CreateUserResponse {
 	User user = 1;
+}
+
+message HasAdminAccountRequest {
+
+}
+
+message HasAdminAccountResponse {
+	bool hasAdminAccount = 1;
+}
+
+message CreateAdminAccountRequest {
+	string password = 1;
+}
+
+message CreateAdminAccountResponse {
+	User user = 1;
+	bool success = 2;
 }

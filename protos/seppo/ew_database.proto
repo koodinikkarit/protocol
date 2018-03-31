@@ -11,6 +11,7 @@ message EwDatabase {
 	uint32 removeSongsFromEwDatabase = 6;
 	uint32 removeSongsFromSongDatabase = 7;
 	uint32 variationVersionConflictAction = 8;
+	bool accepted = 9;
 }
 
 // Queries
@@ -55,6 +56,7 @@ message UpdateEwDatabaseRequest {
 	uint32 removeSongsFromEwDatabase = 4;
 	uint32 removeSongsFromSongDatabase = 5;
 	uint32 variationVersionConflictAction = 6;
+	bool accepted = 7;
 }
 
 message UpdateEwDatabaseResponse {

@@ -1,14 +1,17 @@
 {
-	"name": "seppo-client-js",
-	"version": "0.0.26",
+	"name": "risto-client-js",
+	"version": "0.0.24",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"prepublish": "npm run build && npm run bump-patch",
-		"build": "node ../build.js -i ../../protos/seppo -o dist --serviceFileName seppo_service",
+		"build": "node ../build.js -i ../../protos/risto -o dist --serviceFileName risto_service",
 		"bump-patch": "npm version --no-git-tag-version patch",
 		"bump-minor": "npm version --no-git-tag-version minor",
 		"bump-major": "npm version --no-git-tag-version major"
+	},
+	"dependencies": {
+		"typed-promisify": "^0.4.0"
 	},
 	"files": [
 		"index.d.ts",

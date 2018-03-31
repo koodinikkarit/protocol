@@ -12,20 +12,34 @@ message CreateTokenRequest {
 	string username = 1;
 	string password = 2;
 	uint64 maxAge = 3;
+	bool rememberMe = 4;
 }
 
 message CreateTokenResponse {
-	Token token = 1;
+	string token = 1;
 	enum State {
 		TOKEN_CREATED = 0;
 		USER_NOT_FOUND = 1;
 		PASSWORD_WRONG = 2;
 	}
 	State state = 2;
+	User user = 3;
+}
+
+message VerifyTokenRequest {
+	string token = 1;
+}
+
+message VerifyTokenResponse {
+	enum State {
+		VERIFIED = 0;
+		EXPIRED = 1;
+		INVALID = 3;
+	}
 }
 
 message FetchUserByTokenRequest {
-	string token = 1;
+	bytes token = 1;
 }
 
 message FetchUserByTokenResponse {

@@ -15,9 +15,8 @@ message EwDatabase {
 }
 
 message SongDatabaseVariation {
-    uint32 id = 1;
-    uint32 songDatabaseId = 2;
-    uint32 variationId = 3;
+    uint32 songDatabaseId = 1;
+    uint32 variationId = 2;
 }
 
 message SongDatabaseTag {
@@ -34,13 +33,13 @@ message TagVariation {
 
 message Variation {
     uint32 id = 1;
-    string name = 2;
-    string text = 3;
-    uint32 version = 4;
-    uint32 languageId = 5;
-    uint32 authorId = 6;
-    uint32 copyrightId = 7; 
-    uint32 songId = 8;
+    string Name = 2;
+    string Text = 3;
+    uint32 Version = 4;
+    uint32 LanguageId = 5;
+    uint32 AuthorId = 6;
+    uint32 CopyrightId = 7; 
+    uint32 SongId = 8;
 }
 
 message Song {
@@ -52,10 +51,11 @@ message EventItem {
     oneof eventMessage {
         bool acceptedKey = 1;
         EwDatabase newEwDatabase = 2;
-        SongDatabaseVariation newSongDatabaseVariation = 3;
-        SongDatabaseTag newSongDatabaseTag = 4;
-        TagVariation newTagVariation = 5;
-        Variation newVariation = 6;
-        Song newSong = 7;
+		SongDatabaseVariation newSongDatabaseVariation = 3;
+		SongDatabaseVariation removedSongDatabaseVariation = 4;
+        SongDatabaseTag newSongDatabaseTag = 5;
+        TagVariation newTagVariation = 6;
+        Variation newVariation = 7;
+        Song newSong = 8;
     }
 }

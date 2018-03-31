@@ -46,8 +46,9 @@ message FetchMatiasClientEwDatabasesResponse {
 // Update
 
 enum MatiasClientAcceptedState {
-	ACEPTED = 0;
-	DECLINED = 1;
+	EMPTY = 0;
+	ACEPTED = 1;
+	DECLINED = 2;
 }
 
 message UpdateMatiasClientRequest {

@@ -7,6 +7,9 @@ import "user.proto";
 
 service Risto {
 	rpc createToken(CreateTokenRequest) returns (CreateTokenResponse) {}
+	rpc verifyToken(VerifyTokenRequest) returns (VerifyTokenResponse) {}
 	rpc createUser(CreateUserRequest) returns (CreateUserResponse) {}
-	rpc fetchUserByToken(CreateTokenRequest) returns (CreateTokenResponse) {}
+	rpc fetchUserByToken(FetchUserByTokenRequest) returns (FetchUserByTokenResponse) {}
+	rpc hasAdminAccount(HasAdminAccountRequest) returns (HasAdminAccountResponse) {}
+	rpc createAdminAccount(CreateAdminAccountRequest) returns(CreateAdminAccountResponse) {}
 }

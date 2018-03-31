@@ -19,8 +19,8 @@ const buildTypedefinionsCommand = `protoc --ts_out=${outputDirPath} --plugin=./n
 )}`;
 execSync(buildTypedefinionsCommand);
 
-const jsIndexFile = "index.js";
-const tsIndexFile = "index.d.ts";
+const jsIndexFile = "protoindex.js";
+const tsIndexFile = "protoindex.d.ts";
 
 const jsIndexFilePath = path.join(outputDirPath, jsIndexFile);
 const tsIndexFilePath = path.join(outputDirPath, tsIndexFile);
