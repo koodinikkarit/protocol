@@ -2,27 +2,6 @@
 	"name": "Lentavayksisarvinen",
 	"version": "0.0.0",
 	"scripts": {
-		"test-ts": "node ./tstest/tests.js",
-		"build-protos": "node ./scripts/build-protos",
-		"build-api-layer": "node ./scripts/build-api-layer",
-		"build-graphql": "node ./scripts/build-graphql-layer",
-		"build-go-protos": "node ./scripts/build-go-protos",
-		"build-all":
-			"npm run build-protos && npm run build-api-layer && npm run build-graphql",
-		"build-ts":
-			"protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --js_out=import_style=commonjs,binary:generated --ts_out=service=true:generated -I ./protos/seppo protos/seppo/*.proto",
-		"build-ts2":
-			"protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --js_out=import_style=commonjs,binary:generated --ts_out=service=true:generated -I ./protos/seppo protos/seppo/*.proto",
-		"b": "node buildinterface"
-	},
-	"dependencies": {
-		"protobufjs": "6.8.4",
-		"fs.extra": "1.3.2",
-		"ts-protoc-gen": "^0.4.0",
-		"grpc_tools_node_protoc_ts": "^1.0.16",
-		"grpc-tools": "^1.6.6"
-	},
-	"devDependencies": {
-		"grpc_tools_node_protoc_ts": "^1.0.16"
+		"build-go-protos": "node ./scripts/build-go-protos"
 	}
 }

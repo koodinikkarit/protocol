@@ -1,14 +1,18 @@
 {
 	"name": "seppo-client-js",
-	"version": "0.0.26",
+	"version": "0.0.72",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"prepublish": "npm run build && npm run bump-patch",
-		"build": "node ../build.js -i ../../protos/seppo -o dist --serviceFileName seppo_service",
+		"build": "node ../build.js -i ../../protos/seppo -o dist --serviceFileName seppo_service && npm run build-t",
 		"bump-patch": "npm version --no-git-tag-version patch",
 		"bump-minor": "npm version --no-git-tag-version minor",
-		"bump-major": "npm version --no-git-tag-version major"
+		"bump-major": "npm version --no-git-tag-version major",
+		"build-t": "pncg -i ../../protos/seppo/seppo_service.proto -o ./dist"
+	},
+	"dependencies": {
+		"proto-node-client-generator": "^0.0.32"
 	},
 	"files": [
 		"index.d.ts",

@@ -50,15 +50,15 @@ stdout = execSync(
 
 console.log("stdout", String(stdout));
 
-const getDerfinitions = require("./getDefinitions");
-const writeTsIndex = require("./writeTsIndex");
-const writeJsIndex = require("./writeJsIndex");
+// const getDerfinitions = require("./getDefinitions");
+// const writeTsIndex = require("./writeTsIndex");
+// const writeJsIndex = require("./writeJsIndex");
 
-const d = getDerfinitions(
-	path.resolve(inputDirPath, serviceFileName + ".proto")
-);
-writeTsIndex(d, outputDirPath);
-writeJsIndex(d, outputDirPath);
+// const d = getDerfinitions(
+// 	path.resolve(inputDirPath, serviceFileName + ".proto")
+// );
+// writeTsIndex(d, outputDirPath);
+// writeJsIndex(d, outputDirPath);
 
 // const protobuf = require("protobufjs");
 

@@ -19,19 +19,19 @@ const buildTypedefinionsCommand = `protoc --ts_out=${outputDirPath} --plugin=./n
 )}`;
 execSync(buildTypedefinionsCommand);
 
-const jsIndexFile = "protoindex.js";
-const tsIndexFile = "protoindex.d.ts";
+const jsProtoIndexFile = "protoindex.js";
+const tsProtoIndexFile = "protoindex.d.ts";
 
-const jsIndexFilePath = path.join(outputDirPath, jsIndexFile);
-const tsIndexFilePath = path.join(outputDirPath, tsIndexFile);
+const jsProtoIndexFilePath = path.join(outputDirPath, jsProtoIndexFile);
+const tsProtoIndexFilePath = path.join(outputDirPath, tsProtoIndexFile);
 
-fs.writeFileSync(tsIndexFilePath, "");
+fs.writeFileSync(tsProtoIndexFilePath, "");
 
 fs.readdirSync(outputDirPath).forEach(fileName => {
-	if (fileName !== jsIndexFile && fileName !== tsIndexFile) {
+	if (fileName !== jsProtoIndexFile && fileName !== tsProtoIndexFile) {
 		if (fileName.endsWith(".ts")) {
 			fs.appendFileSync(
-				tsIndexFilePath,
+				tsProtoIndexFilePath,
 				`export * from "./${fileName.split(".")[0]}";\n`
 			);
 		}
@@ -41,7 +41,7 @@ fs.readdirSync(outputDirPath).forEach(fileName => {
 const serviceFileName = process.env.SERVICE_FILE_NAME;
 
 fs.writeFileSync(
-	jsIndexFilePath,
+	jsProtoIndexFilePath,
 	`
 const messages = require("./${serviceFileName}_pb.js");
 const service = require("./${serviceFileName}_grpc_pb.js");
@@ -50,4 +50,26 @@ module.exports = Object.assign(
 	service
 );
 `
+);
+
+const jsIndexFile = "index.js";
+const tsIndexFile = "index.d.ts";
+
+const jsIndexFilePath = path.join(outputDirPath, jsIndexFile);
+const tsIndexFilePath = path.join(outputDirPath, tsIndexFile);
+
+fs.writeFileSync(
+	jsIndexFilePath,
+	`const client = require("./client.js");
+const types = require("./types");
+module.exports = Object.assign(
+	types,
+	client
+);`
+);
+
+fs.writeFileSync(
+	tsIndexFilePath,
+	`export * from "./client";
+export * from "./types";`
 );
