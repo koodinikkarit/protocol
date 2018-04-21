@@ -24,6 +24,7 @@ message SearchVariationsRequest {
 	repeated uint32 skipVariationIds = 9;
 	uint32 orderBy = 10;
 	uint32 searchFrom = 11;
+	uint32 authorId = 12;
 }
 
 message SearchVariationsResponse {
