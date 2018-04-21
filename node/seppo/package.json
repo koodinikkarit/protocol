@@ -1,6 +1,6 @@
 {
 	"name": "seppo-client-js",
-	"version": "0.0.72",
+	"version": "0.0.76",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -12,7 +12,7 @@
 		"build-t": "pncg -i ../../protos/seppo/seppo_service.proto -o ./dist"
 	},
 	"dependencies": {
-		"proto-node-client-generator": "^0.0.32"
+		"proto-node-client-generator": "^0.0.33"
 	},
 	"files": [
 		"index.d.ts",

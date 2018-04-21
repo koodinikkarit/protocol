@@ -62,6 +62,7 @@ message UpdateVariationRequest {
 	repeated uint32 removeTagIds = 7;
 	repeated uint32 addSongDatabaseIds = 8;
 	repeated uint32 removeSongDatabaseIds = 9;
+	uint32 authorId = 10;
 }
 
 message UpdateVariationResponse {
